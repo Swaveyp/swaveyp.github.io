@@ -78,7 +78,7 @@ a:focus, a:hover {
   background: #63696b;
   border: 1px solid #63696b;
   color: #fff;
-  display: inline-block;
+  display: -moz-inline-box;
   font-size: 14px;
   letter-spacing: 1px;
   padding: 0px 0px;
@@ -86,7 +86,7 @@ a:focus, a:hover {
   border-radius: 20%;
 }
 .btn-swavey:hover {
-  padding: 0vh;
+  padding: 0.5vh;
   display: inline-block;
   opacity: 50.0;
 }
@@ -604,11 +604,11 @@ a:focus, a:hover {
 .hero-area {
   background-image: url("../images/slider/slider-bg-1.jpg");
   background-size: cover;
-  height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height:100vh;
 }
 .hero-area:before {
   content: "";
