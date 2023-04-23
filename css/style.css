@@ -83,22 +83,22 @@ a:focus, a:hover {
   letter-spacing: 1px;
   padding: 0px 0px;
   text-transform: uppercase;
-  border-radius: 20px;
+  border-radius: 20%;
 }
 .btn-swavey:hover {
-  padding: 0px;
-  display: inline;
+  padding: 0vh;
+  display: inline-block;
   opacity: 50.0;
 }
 .btn-transparent {
   color: #fff;
   border: 1px solid #fff;
-  display: inline-block;
+  display: inline-block; 
   font-size: 13px;
   letter-spacing: 1px;
   padding: 14px 35px;
   text-transform: uppercase;
-  border-radius: 40px;
+  border-radius: 10%;
 }
 .btn-transparent:hover {
   color: #fff;
@@ -171,14 +171,14 @@ a:focus, a:hover {
   height: 100%;
   width: 100%;
   background-size: cover;
-  backdrop-filter: blur(5px);
+  
 }
 .advanced__backgroundBody {
   position:  relative;
   height: 100%;
   width: 100;
   
-
+  backdrop-filter: blur(5px);
   
 }
 
@@ -502,6 +502,13 @@ a:focus, a:hover {
     background-color: #000;
   }
 }
+
+@media screen and (max-width:800px) {
+  body {
+    background-size: cover;
+    background-attachment:fixed }
+}
+
 .navigation .dropdown:hover > .dropdown-menu {
   visibility: visible;
   opacity: 1;
