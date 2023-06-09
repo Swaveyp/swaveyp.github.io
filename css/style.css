@@ -72,7 +72,8 @@ a:focus, a:hover {
   border-radius: 40px;
 }
 .btn-main:hover {
-  color: #fff;
+  background: #28ABE3;
+  
 }
 .btn-swavey {
   background: #63696b;
