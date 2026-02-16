@@ -611,9 +611,11 @@ a:focus, a:hover {
   left: 0;
   transform: translateY(-50%);
   opacity: 0;
+  mix-blend-mode: multiply;
 }
 .navbar-brand.logo picture:last-of-type {
   opacity: 1;
+  mix-blend-mode: screen;
 }
 .sticky-header .navbar-brand.logo picture:first-child {
   opacity: 1;
