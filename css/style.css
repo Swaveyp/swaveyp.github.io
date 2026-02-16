@@ -1223,6 +1223,14 @@ a:focus, a:hover {
 .portfolio-block {
   position: relative;
   margin-bottom: 30px;
+  overflow: hidden;
+}
+.portfolio-block picture {
+  display: block;
+}
+.portfolio-block img.img-fluid {
+  display: block;
+  width: 100%;
 }
 .portfolio-block:before {
   transition: all 0.3s ease-in-out;
