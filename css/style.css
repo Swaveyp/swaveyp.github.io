@@ -1224,6 +1224,7 @@ a:focus, a:hover {
   position: relative;
   margin-bottom: 30px;
   overflow: hidden;
+  display: block;
 }
 .portfolio-block picture {
   display: block;
