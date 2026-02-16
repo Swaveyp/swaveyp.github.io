@@ -1233,6 +1233,15 @@ a:focus, a:hover {
   display: block;
   width: 100%;
 }
+.portfolio-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  cursor: pointer;
+}
 .portfolio-block:before {
   transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.55);
