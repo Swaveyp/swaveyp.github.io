@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=13">
+  <link rel="stylesheet" href="css/style.min.css?v=14">
 
   <script type="application/ld+json">
   {
@@ -105,8 +105,6 @@
   </script>
 </head>
 <body id="body">
-
-<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
 
 
   <!--
@@ -215,6 +213,9 @@ Fixed Navigation
     <!-- /main nav -->
   </div>
 </header>
+
+<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
+
 <!--
 End Fixed Navigation
 ==================================== -->
@@ -250,13 +251,13 @@ Start About Section
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-6 mb-5 mb-lg-0">
+			<div class="col-lg-6 mb-5 mb-lg-0 wow fadeInLeft" data-wow-delay="0.1s">
 				<picture>
 									<source type="image/webp" srcset="images/about-us-thumb.webp 800w, images/about-us.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="About Swavey Services">
 								</picture>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tempor eros. Pellentesque elementum nulla
 					sed justo tempor posuere sit amet sit amet ligula. Curabitur felis nibh, imperdiet eu erat non, luctus cursus
 					lectus. Donec maximus diam leo, sed fringilla nisl auctor eget. Donec dictum neque est, ac faucibus ex blandit
@@ -294,7 +295,7 @@ Start About Section
 		</div>
 		<div class="row">
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -329,7 +330,7 @@ Start About Section
 			<!-- end team member -->
 
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -363,7 +364,7 @@ Start About Section
 			<!-- end team member -->
 
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -480,6 +481,9 @@ Start About Section
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
+<!-- WOW.js -->
+<script src="plugins/animate/wow.min.js"></script>
+<script>new WOW().init();</script>
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
 
