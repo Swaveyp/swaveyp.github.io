@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Swavey Services</title>
+  <title>Custom Apparel Printing & Embroidery | Swavey Prints - No Minimum Order</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="description" content="Custom apparel printing and embroidery services by Swavey Prints. T-shirts, polos, hats, and more. No minimum order required. Graphic and logo design available.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+  <meta name="author" content="Swavey Services">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/service.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/service.html" />
+  <meta property="og:title" content="Custom Apparel Printing & Embroidery | Swavey Prints - No Minimum Order" />
+  <meta property="og:description" content="Custom apparel printing and embroidery services by Swavey Prints. T-shirts, polos, hats, and more. No minimum order required. Graphic and logo design available." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Custom Apparel Printing & Embroidery | Swavey Prints - No Minimum Order" />
+  <meta name="twitter:description" content="Custom apparel printing and embroidery services by Swavey Prints. T-shirts, polos, hats, and more. No minimum order required. Graphic and logo design available." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,46 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://swavey.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Custom Apparel Printing & Embroidery",
+        "item": "https://swavey.biz/service.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +132,14 @@ Fixed Navigation
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
         <a class="navbar-brand logo" href="index.html">
-          <img loading="lazy" class="logo-default" src="images/swaveylogo.png" width = "250vw" height = "75vh" alt="logo" />
-          <img loading="lazy" class="logo-white" src="images/swaveylogow.png" width = "250vw" height = "75vh" alt="logo" />
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogo.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+								</picture>
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+								</picture>
           
         </a>
         <!-- /logo -->
@@ -121,7 +189,7 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Apparel Printing/Embroidery</h2>
+				<h1>Apparel Printing/Embroidery</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
 					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Apparel Printing/Embroidery</li>
@@ -164,7 +232,10 @@ End Fixed Navigation
 	
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/10.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/10-thumb.webp 800w, images/PhotoGrid/10.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/10.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/10.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -175,7 +246,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/3rd.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/3rd-thumb.webp 800w, images/PhotoGrid/3rd.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/3rd.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/3rd.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -186,7 +260,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/bakery-camo.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/bakery-camo-thumb.webp 800w, images/PhotoGrid/bakery-camo.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/bakery-camo.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/bakery-camo.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -197,7 +274,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/bakery-hat(1).jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/bakery-hat(1)-thumb.webp 800w, images/PhotoGrid/bakery-hat(1).webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/bakery-hat(1).jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/bakery-hat(1).jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -208,7 +288,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/ball.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/ball-thumb.webp 800w, images/PhotoGrid/ball.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/ball.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/ball.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -219,7 +302,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/bear-shorts.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/bear-shorts-thumb.webp 800w, images/PhotoGrid/bear-shorts.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/bear-shorts.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/bear-shorts.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -230,7 +316,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/bestie.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/bestie-thumb.webp 800w, images/PhotoGrid/bestie.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/bestie.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/bestie.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -241,7 +330,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/blue-polo.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/blue-polo-thumb.webp 800w, images/PhotoGrid/blue-polo.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/blue-polo.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/blue-polo.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -252,7 +344,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/bones.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/bones-thumb.webp 800w, images/PhotoGrid/bones.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/bones.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/bones.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -263,7 +358,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/broward.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/broward-thumb.webp 800w, images/PhotoGrid/broward.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/broward.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/broward.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -274,7 +372,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/brwrd.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/brwrd-thumb.webp 800w, images/PhotoGrid/brwrd.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/brwrd.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/brwrd.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -285,7 +386,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/clopez.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/clopez-thumb.webp 800w, images/PhotoGrid/clopez.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/clopez.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/clopez.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -296,7 +400,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/coco.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/coco-thumb.webp 800w, images/PhotoGrid/coco.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/coco.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/coco.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -307,7 +414,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/crew.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/crew-thumb.webp 800w, images/PhotoGrid/crew.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/crew.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/crew.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -318,7 +428,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dad-roof.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dad-roof-thumb.webp 800w, images/PhotoGrid/dad-roof.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dad-roof.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dad-roof.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -329,7 +442,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/deb.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/deb-thumb.webp 800w, images/PhotoGrid/deb.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/deb.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/deb.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -340,7 +456,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/debbsfacs.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/debbsfacs-thumb.webp 800w, images/PhotoGrid/debbsfacs.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/debbsfacs.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/debbsfacs.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -351,7 +470,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/djf-shorts.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/djf-shorts-thumb.webp 800w, images/PhotoGrid/djf-shorts.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/djf-shorts.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/djf-shorts.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -362,7 +484,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dknow.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dknow-thumb.webp 800w, images/PhotoGrid/dknow.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dknow.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dknow.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -373,7 +498,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dom.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dom-thumb.webp 800w, images/PhotoGrid/dom.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dom.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dom.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -384,7 +512,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/domibuilder.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/domibuilder-thumb.webp 800w, images/PhotoGrid/domibuilder.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/domibuilder.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/domibuilder.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -395,7 +526,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dommm.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dommm-thumb.webp 800w, images/PhotoGrid/dommm.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dommm.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dommm.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -406,7 +540,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dress-shirt.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dress-shirt-thumb.webp 800w, images/PhotoGrid/dress-shirt.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dress-shirt.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dress-shirt.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -417,7 +554,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dress.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dress-thumb.webp 800w, images/PhotoGrid/dress.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dress.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dress.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -428,7 +568,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/dynamic.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/dynamic-thumb.webp 800w, images/PhotoGrid/dynamic.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/dynamic.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/dynamic.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -439,7 +582,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/earth.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/earth-thumb.webp 800w, images/PhotoGrid/earth.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/earth.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/earth.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -450,7 +596,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/ecoteers.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/ecoteers-thumb.webp 800w, images/PhotoGrid/ecoteers.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/ecoteers.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/ecoteers.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -461,7 +610,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/elephant.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/elephant-thumb.webp 800w, images/PhotoGrid/elephant.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/elephant.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/elephant.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -472,7 +624,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/ex.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/ex-thumb.webp 800w, images/PhotoGrid/ex.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/ex.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/ex.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -483,7 +638,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/fj.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/fj-thumb.webp 800w, images/PhotoGrid/fj.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/fj.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/fj.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -494,7 +652,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/fjhat.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/fjhat-thumb.webp 800w, images/PhotoGrid/fjhat.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/fjhat.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/fjhat.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -505,7 +666,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/flane.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/flane-thumb.webp 800w, images/PhotoGrid/flane.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/flane.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/flane.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -516,7 +680,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/fum-hat.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/fum-hat-thumb.webp 800w, images/PhotoGrid/fum-hat.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/fum-hat.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/fum-hat.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -527,7 +694,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/gator.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/gator-thumb.webp 800w, images/PhotoGrid/gator.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/gator.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/gator.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -538,7 +708,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/gear.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/gear-thumb.webp 800w, images/PhotoGrid/gear.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/gear.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/gear.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -549,7 +722,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/get.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/get-thumb.webp 800w, images/PhotoGrid/get.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/get.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/get.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -560,7 +736,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/gold.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/gold-thumb.webp 800w, images/PhotoGrid/gold.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/gold.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/gold.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -571,7 +750,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/gont.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/gont-thumb.webp 800w, images/PhotoGrid/gont.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/gont.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/gont.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -582,7 +764,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/green-neck.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/green-neck-thumb.webp 800w, images/PhotoGrid/green-neck.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/green-neck.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/green-neck.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -593,7 +778,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/grillz.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/grillz-thumb.webp 800w, images/PhotoGrid/grillz.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/grillz.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/grillz.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -604,7 +792,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/intl.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/intl-thumb.webp 800w, images/PhotoGrid/intl.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/intl.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/intl.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -615,7 +806,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/jerk.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/jerk-thumb.webp 800w, images/PhotoGrid/jerk.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/jerk.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/jerk.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -626,7 +820,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/lewis-long-sleev.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/lewis-long-sleev-thumb.webp 800w, images/PhotoGrid/lewis-long-sleev.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/lewis-long-sleev.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/lewis-long-sleev.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -637,7 +834,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/lion.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/lion-thumb.webp 800w, images/PhotoGrid/lion.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/lion.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/lion.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -648,7 +848,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/magic.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/magic-thumb.webp 800w, images/PhotoGrid/magic.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/magic.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/magic.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -659,7 +862,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/maroon-polo.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/maroon-polo-thumb.webp 800w, images/PhotoGrid/maroon-polo.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/maroon-polo.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/maroon-polo.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -670,7 +876,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/martin.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/martin-thumb.webp 800w, images/PhotoGrid/martin.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/martin.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/martin.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -681,7 +890,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/mini.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/mini-thumb.webp 800w, images/PhotoGrid/mini.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/mini.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/mini.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -692,7 +904,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/nn.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/nn-thumb.webp 800w, images/PhotoGrid/nn.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/nn.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/nn.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -703,7 +918,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/nurse.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/nurse-thumb.webp 800w, images/PhotoGrid/nurse.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/nurse.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/nurse.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -714,7 +932,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/pj.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/pj-thumb.webp 800w, images/PhotoGrid/pj.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/pj.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/pj.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -725,7 +946,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/pres.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/pres-thumb.webp 800w, images/PhotoGrid/pres.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/pres.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/pres.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -736,7 +960,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/pres2.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/pres2-thumb.webp 800w, images/PhotoGrid/pres2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/pres2.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/pres2.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -747,7 +974,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/right.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/right-thumb.webp 800w, images/PhotoGrid/right.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/right.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/right.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -758,7 +988,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/sew.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/sew-thumb.webp 800w, images/PhotoGrid/sew.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/sew.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/sew.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -769,7 +1002,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/swimnsuit.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/swimnsuit-thumb.webp 800w, images/PhotoGrid/swimnsuit.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/swimnsuit.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/swimnsuit.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -780,7 +1016,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/talk.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/talk-thumb.webp 800w, images/PhotoGrid/talk.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/talk.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/talk.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -791,7 +1030,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/team-boy.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/team-boy-thumb.webp 800w, images/PhotoGrid/team-boy.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/team-boy.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/team-boy.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -802,7 +1044,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/team-girl.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/team-girl-thumb.webp 800w, images/PhotoGrid/team-girl.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/team-girl.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/team-girl.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -813,7 +1058,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/tylder.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/tylder-thumb.webp 800w, images/PhotoGrid/tylder.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/tylder.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/tylder.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -824,7 +1072,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/Untitled-1.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/Untitled-1-thumb.webp 800w, images/PhotoGrid/Untitled-1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/Untitled-1.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/Untitled-1.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -835,7 +1086,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/vest.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/vest-thumb.webp 800w, images/PhotoGrid/vest.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/vest.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/vest.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -846,7 +1100,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/wizard.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/wizard-thumb.webp 800w, images/PhotoGrid/wizard.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/wizard.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/wizard.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -857,7 +1114,10 @@ End Fixed Navigation
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 				<div class="portfolio-block">
-					<img class="img-fluid" src="images/PhotoGrid/zahav.jpg" alt="">
+					<picture>
+									<source type="image/webp" srcset="images/PhotoGrid/zahav-thumb.webp 800w, images/PhotoGrid/zahav.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/PhotoGrid/zahav.jpg" alt="Custom apparel printing by Swavey Prints">
+								</picture>
 					<div class="caption">
 						<a class="search-icon" href="images/PhotoGrid/zahav.jpg" data-lightbox="image-1">
 							<i class="tf-ion-ios-search-strong"></i>
@@ -898,8 +1158,6 @@ End Fixed Navigation
 			  <li>
 				<h3>Connect with us Socially</h3>
 			  </li>
-			  <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-			  <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
 			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
 			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
 			 
@@ -935,11 +1193,8 @@ End Fixed Navigation
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="plugins/google-map/gmap.js"></script>
-
 <!-- Custom js -->
-<script src="js/script.js"></script>
+<script src="js/script.min.js"></script>
 
 </body>
 

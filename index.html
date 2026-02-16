@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Swavey Services </title>
+  <title>Swavey Services | Photography & Custom Apparel Printing in South Florida</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Swavey Services offers professional photography (portraits, events, sports, lifestyle) and custom apparel printing & embroidery in South Florida. No minimum order required.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Swavey Services">
- 
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/" />
+  <meta property="og:title" content="Swavey Services | Photography & Custom Apparel Printing in South Florida" />
+  <meta property="og:description" content="Swavey Services offers professional photography (portraits, events, sports, lifestyle) and custom apparel printing & embroidery in South Florida. No minimum order required." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Swavey Services | Photography & Custom Apparel Printing in South Florida" />
+  <meta name="twitter:description" content="Swavey Services offers professional photography (portraits, events, sports, lifestyle) and custom apparel printing & embroidery in South Florida. No minimum order required." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,60 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "image": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida. No minimum order required.",
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Professional Photography",
+            "description": "Portrait, lifestyle, event, sports, family, baby, and maternity photography."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom Apparel Printing & Embroidery",
+            "description": "Custom t-shirts, polos, hats, and apparel. No minimum order required."
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +146,14 @@ Fixed Navigation
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
         <a class="navbar-brand logo" href="index.html">
-          <img loading="lazy" class="logo-default" src="images/swaveylogo.png" width = "250vw" height = "75vh" alt="logo" />
-          <img loading="lazy" class="logo-white" src="images/swaveylogow.png" width = "250vw" height = "75vh" alt="logo" />
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogo.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+								</picture>
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+								</picture>
           
         </a>
         <!-- /logo -->
@@ -124,9 +206,15 @@ End Fixed Navigation
 				<div class="col-md-12 text-center ">
 
 						<a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class = "btn-swavey"
-						href="service.html"> <img class="img-fluid" src="images/slider/swaveyprints-button-2.PNG" width = "150vw" height = "75vh" /> </a>
+						href="service.html"> <picture>
+									<source type="image/webp" srcset="images/slider/swaveyprints-button-2-thumb.webp 800w, images/slider/swaveyprints-button-2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/slider/swaveyprints-button-2.PNG" width="150" height="75" alt="Swavey Prints - Custom Apparel Printing" />
+								</picture> </a>
 						<a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class = "btn-swavey "
-						href="portfolio.html"> <img class="img-fluid" src="images/slider/swaveyshots-button-2.PNG" width = "150vw" height = "75vh" /> </a>
+						href="portfolio.html"> <picture>
+									<source type="image/webp" srcset="images/slider/swaveyshots-button-2-thumb.webp 800w, images/slider/swaveyshots-button-2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/slider/swaveyshots-button-2.PNG" width="150" height="75" alt="Swavey Shots - Professional Photography" />
+								</picture> </a>
 						
 				</div>
 			</div>
@@ -250,7 +338,10 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="images/client-logo/a13.jpg" class="img-fluid" alt="">
+								<picture>
+									<source type="image/webp" srcset="images/client-logo/a13.webp">
+									<img loading="lazy" src="images/client-logo/a13.jpg" class="img-fluid" alt="Swavey Services client testimonial">
+								</picture>
 							</div>
 							<div class="client-meta">
 								<h3>Janice Vincent</h3>
@@ -270,7 +361,10 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="images/client-logo/a14.jpg" class="img-fluid" alt="">
+								<picture>
+									<source type="image/webp" srcset="images/client-logo/a14.webp">
+									<img loading="lazy" src="images/client-logo/a14.jpg" class="img-fluid" alt="Swavey Services client testimonial">
+								</picture>
 							</div>
 							<div class="client-meta">
 								<h3>Emma Harrison</h3>
@@ -294,7 +388,10 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="images/client-logo/a3.jpg" class="img-fluid" alt="">
+								<picture>
+									<source type="image/webp" srcset="images/client-logo/a3.webp">
+									<img loading="lazy" src="images/client-logo/a3.jpg" class="img-fluid" alt="Swavey Services client testimonial">
+								</picture>
 							</div>
 							<div class="client-meta">
 								<h3>Alexander Lucas</h3>
@@ -314,7 +411,10 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="images/client-logo/a4.jpg" class="img-fluid" alt="">
+								<picture>
+									<source type="image/webp" srcset="images/client-logo/a4.webp">
+									<img loading="lazy" src="images/client-logo/a4.jpg" class="img-fluid" alt="Swavey Services client testimonial">
+								</picture>
 							</div>
 							<div class="client-meta">
 								<h3>Devin Jenkins</h3>
@@ -333,7 +433,10 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="images/client-logo/a6.jpg" class="img-fluid" alt="">
+								<picture>
+									<source type="image/webp" srcset="images/client-logo/a6.webp">
+									<img loading="lazy" src="images/client-logo/a6.jpg" class="img-fluid" alt="Swavey Services client testimonial">
+								</picture>
 							</div>
 							<div class="client-meta">
 								<h3>Yesenia Martinez</h3>
@@ -373,8 +476,6 @@ Start Counter Section
             <li>
               <h3>Connect with us Socially</h3>
             </li>
-            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
             <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
 			<li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
            
@@ -410,11 +511,8 @@ Start Counter Section
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="plugins/google-map/gmap.js"></script>
-
 <!-- Custom js -->
-<script src="js/script.js"></script>
+<script src="js/script.min.js"></script>
 
 </body>
 

@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Swavey Services</title>
+  <title>Contact Us | Swavey Services - Book Photography or Order Custom Apparel</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="description" content="Contact Swavey Services to book a photography session or place a custom apparel printing order. Quick response time, free quotes available.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+  <meta name="author" content="Swavey Services">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/contact.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/contact.html" />
+  <meta property="og:title" content="Contact Us | Swavey Services - Book Photography or Order Custom Apparel" />
+  <meta property="og:description" content="Contact Swavey Services to book a photography session or place a custom apparel printing order. Quick response time, free quotes available." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us | Swavey Services - Book Photography or Order Custom Apparel" />
+  <meta name="twitter:description" content="Contact Swavey Services to book a photography session or place a custom apparel printing order. Quick response time, free quotes available." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,79 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "image": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida. No minimum order required.",
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Professional Photography",
+            "description": "Portrait, lifestyle, event, sports, family, baby, and maternity photography."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom Apparel Printing & Embroidery",
+            "description": "Custom t-shirts, polos, hats, and apparel. No minimum order required."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://swavey.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://swavey.biz/contact.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +165,14 @@ Fixed Navigation
     <nav class="navbar navbar-expand-lg navbar-light px-0">
       <!-- logo -->
       <a class="navbar-brand logo" href="index.html">
-        <img loading="lazy" class="logo-default" src="images/swaveylogo.png" width = "250vw" height = "75vh" alt="logo" />
-        <img loading="lazy" class="logo-white" src="images/swaveylogow.png" width = "250vw" height = "75vh" alt="logo" />
+        <picture>
+									<source type="image/webp" srcset="images/swaveylogo.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+								</picture>
+        <picture>
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+								</picture>
         
       </a>
       <!-- /logo -->
@@ -99,7 +200,7 @@ Fixed Navigation
               <li><a class="dropdown-item" href="lifestyleshoot.html">Lifestyle Shots</a></li>
               <li><a class="dropdown-item" href="maternityshoot.html">Maternity Shots</a></li>
               <li><a class="dropdown-item" href="portraitshoot.html">Portrait Shots</a></li>
-              <li><a class="dropdown-item" href="portraitshoot.html">Event Shots</a></li>
+              <li><a class="dropdown-item" href="events.html">Event Shots</a></li>
               <li><a class="dropdown-item" href="sportshoot.html">Sports Shots</a></li>
                                     
             </ul>
@@ -121,7 +222,7 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Contact Us</h2>
+				<h1>Contact Us</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
 					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
@@ -185,8 +286,6 @@ End Fixed Navigation
             <li>
               <h3>Connect with us Socially</h3>
             </li>
-            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
             <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
 			      <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
            
@@ -227,7 +326,7 @@ End Fixed Navigation
 <script src="plugins/google-map/gmap.js"></script>
 
 <!-- Custom js -->
-<script src="js/script.js"></script>
+<script src="js/script.min.js"></script>
 
 </body>
 

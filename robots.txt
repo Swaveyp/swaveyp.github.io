@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://swavey.biz/sitemap.xml
+
+# Disallow utility pages
+Disallow: /404.html
+Disallow: /index-home.html
+Disallow: /index-text.html
+Disallow: /onepage-slider.html
+Disallow: /onepage-text.html
+
+# Disallow build scripts
+Disallow: /optimize_images.py
+Disallow: /update_seo.py

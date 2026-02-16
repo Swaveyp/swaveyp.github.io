@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Bingo | Responsive Multipurpose Parallax HTML5 Template</title>
+  <title>Our Team | Swavey Services - Meet the Creatives</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="description" content="Meet the creative team behind Swavey Services. Professional photographers, designers, and apparel printing specialists serving South Florida.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+  <meta name="author" content="Swavey Services">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/team.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/team.html" />
+  <meta property="og:title" content="Our Team | Swavey Services - Meet the Creatives" />
+  <meta property="og:description" content="Meet the creative team behind Swavey Services. Professional photographers, designers, and apparel printing specialists serving South Florida." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Team | Swavey Services - Meet the Creatives" />
+  <meta name="twitter:description" content="Meet the creative team behind Swavey Services. Professional photographers, designers, and apparel printing specialists serving South Florida." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,46 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://swavey.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Our Team",
+        "item": "https://swavey.biz/team.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +132,14 @@ Fixed Navigation
     <nav class="navbar navbar-expand-lg navbar-light px-0">
       <!-- logo -->
       <a class="navbar-brand logo" href="index.html">
-        <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" />
-        <img loading="lazy" class="logo-white" src="images/logo-white.png" alt="logo" />
+        <picture>
+									<source type="image/webp" srcset="images/logo.webp">
+									<img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" />
+								</picture>
+        <picture>
+									<source type="image/webp" srcset="images/logo-white.webp">
+									<img loading="lazy" class="logo-white" src="images/logo-white.png" alt="logo" />
+								</picture>
       </a>
       <!-- /logo -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -152,7 +220,7 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Our Team</h2>
+				<h1>Our Team</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
 					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Our Team</li>
@@ -180,7 +248,10 @@ Start About Section
 		</div>
 		<div class="row">
 			<div class="col-lg-6 mb-5 mb-lg-0">
-				<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="">
+				<picture>
+									<source type="image/webp" srcset="images/about-us-thumb.webp 800w, images/about-us.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="About Swavey Services">
+								</picture>
 			</div>
 			<div class="col-lg-6">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tempor eros. Pellentesque elementum nulla
@@ -224,7 +295,10 @@ Start About Section
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
-						<img loading="lazy" class="img-fluid" src="images/team/member-1.jpg" alt="Meghna">
+						<picture>
+									<source type="image/webp" srcset="images/team/member-1.webp">
+									<img loading="lazy" class="img-fluid" src="images/team/member-1.jpg" alt="Meghna">
+								</picture>
 						<!-- /member photo -->
 
 						<!-- member social profile -->
@@ -256,7 +330,10 @@ Start About Section
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
-						<img loading="lazy" class="img-fluid" src="images/team/member-2.jpg" alt="Meghna">
+						<picture>
+									<source type="image/webp" srcset="images/team/member-2.webp">
+									<img loading="lazy" class="img-fluid" src="images/team/member-2.jpg" alt="Meghna">
+								</picture>
 						<!-- /member photo -->
 
 						<!-- member social profile -->
@@ -287,7 +364,10 @@ Start About Section
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
-						<img loading="lazy" class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+						<picture>
+									<source type="image/webp" srcset="images/team/member-3.webp">
+									<img loading="lazy" class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+								</picture>
 						<!-- /member photo -->
 
 						<!-- member social profile -->
@@ -358,8 +438,8 @@ Start About Section
             <li>
               <h3>Connect with us Socially</h3>
             </li>
-            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
+            <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
+            <li><a href="https://www.instagram.com/swaveyprints/">Swavey Prints IG</a></li>
             <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
             <li><a href="https://www.github.com/themefisher/">Github</a></li>
           </ul>
@@ -397,11 +477,8 @@ Start About Section
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="plugins/google-map/gmap.js"></script>
-
 <!-- Custom js -->
-<script src="js/script.js"></script>
+<script src="js/script.min.js"></script>
 
 </body>
 

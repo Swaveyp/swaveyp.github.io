@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Swavey Services</title>
+  <title>Sports Photography | Swavey Shots - Action Sports Photo Coverage</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="description" content="Dynamic sports photography by Swavey Shots in South Florida. High-quality action shots of athletes and sporting events. Book your coverage today.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+  <meta name="author" content="Swavey Services">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/sportshoot.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/sportshoot.html" />
+  <meta property="og:title" content="Sports Photography | Swavey Shots - Action Sports Photo Coverage" />
+  <meta property="og:description" content="Dynamic sports photography by Swavey Shots in South Florida. High-quality action shots of athletes and sporting events. Book your coverage today." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sports Photography | Swavey Shots - Action Sports Photo Coverage" />
+  <meta name="twitter:description" content="Dynamic sports photography by Swavey Shots in South Florida. High-quality action shots of athletes and sporting events. Book your coverage today." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,46 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://swavey.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sports Photography",
+        "item": "https://swavey.biz/sportshoot.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +132,14 @@ Fixed Navigation
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
         <a class="navbar-brand logo" href="index.html">
-          <img loading="lazy" class="logo-default" src="images/swaveylogo.png" width = "250vw" height = "75vh" alt="logo" />
-          <img loading="lazy" class="logo-white" src="images/swaveylogow.png" width = "250vw" height = "75vh" alt="logo" />
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogo.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+								</picture>
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+								</picture>
           
         </a>
         <!-- /logo -->
@@ -121,7 +189,7 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Sports Shots</h2>
+				<h1>Sports Shots</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
 					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
                     <li class="breadcrumb-item"><a href="portfolio.html" class="text-white">Portfolio</a></li>
@@ -145,7 +213,10 @@ End Fixed Navigation
 					
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/a.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/a-thumb.webp 800w, images/Sports Shots/Sports Shots/a.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/a.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/a.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -156,7 +227,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/b.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/b-thumb.webp 800w, images/Sports Shots/Sports Shots/b.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/b.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/b.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -167,7 +241,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/c.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/c-thumb.webp 800w, images/Sports Shots/Sports Shots/c.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/c.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/c.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -178,7 +255,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/d.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/d-thumb.webp 800w, images/Sports Shots/Sports Shots/d.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/d.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/d.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -189,7 +269,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/e.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/e-thumb.webp 800w, images/Sports Shots/Sports Shots/e.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/e.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/e.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -200,7 +283,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/f.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/f-thumb.webp 800w, images/Sports Shots/Sports Shots/f.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/f.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/f.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -211,7 +297,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/g.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/g-thumb.webp 800w, images/Sports Shots/Sports Shots/g.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/g.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/g.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -222,7 +311,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/h.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/h-thumb.webp 800w, images/Sports Shots/Sports Shots/h.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/h.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/h.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -233,7 +325,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/i.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/i-thumb.webp 800w, images/Sports Shots/Sports Shots/i.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/i.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/i.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -244,7 +339,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1314.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/IMG_1314-thumb.webp 800w, images/Sports Shots/Sports Shots/IMG_1314.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1314.JPG" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/IMG_1314.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -255,7 +353,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1317.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/IMG_1317-thumb.webp 800w, images/Sports Shots/Sports Shots/IMG_1317.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1317.JPG" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/IMG_1317.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -266,7 +367,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1326.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/IMG_1326-thumb.webp 800w, images/Sports Shots/Sports Shots/IMG_1326.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1326.JPG" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/IMG_1326.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -277,7 +381,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/j.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/j-thumb.webp 800w, images/Sports Shots/Sports Shots/j.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/j.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/j.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -288,7 +395,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/k.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/k-thumb.webp 800w, images/Sports Shots/Sports Shots/k.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/k.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/k.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -299,7 +409,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/l.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/l-thumb.webp 800w, images/Sports Shots/Sports Shots/l.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/l.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/l.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -310,7 +423,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/m.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/m-thumb.webp 800w, images/Sports Shots/Sports Shots/m.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/m.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/m.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -321,7 +437,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1734.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/IMG_1734-thumb.webp 800w, images/Sports Shots/Sports Shots/IMG_1734.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1734.JPG" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/IMG_1734.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -332,7 +451,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1750.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/IMG_1750-thumb.webp 800w, images/Sports Shots/Sports Shots/IMG_1750.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/IMG_1750.JPG" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/IMG_1750.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -343,7 +465,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/n.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/n-thumb.webp 800w, images/Sports Shots/Sports Shots/n.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/n.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/n.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -354,7 +479,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/p.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/p-thumb.webp 800w, images/Sports Shots/Sports Shots/p.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/p.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/p.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -365,7 +493,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/q.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/q-thumb.webp 800w, images/Sports Shots/Sports Shots/q.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/q.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/q.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -376,7 +507,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/r.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/r-thumb.webp 800w, images/Sports Shots/Sports Shots/r.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/r.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/r.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -387,7 +521,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/s.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/s-thumb.webp 800w, images/Sports Shots/Sports Shots/s.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/s.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/s.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -398,7 +535,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/socc1.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/socc1-thumb.webp 800w, images/Sports Shots/Sports Shots/socc1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/socc1.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/socc1.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -409,7 +549,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/socc2.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/socc2-thumb.webp 800w, images/Sports Shots/Sports Shots/socc2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/socc2.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/socc2.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -420,7 +563,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/socc3.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/socc3-thumb.webp 800w, images/Sports Shots/Sports Shots/socc3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/socc3.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/socc3.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -431,7 +577,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/socc4.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/socc4-thumb.webp 800w, images/Sports Shots/Sports Shots/socc4.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/socc4.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/socc4.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -442,7 +591,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/dfdw.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/dfdw-thumb.webp 800w, images/Sports Shots/Sports Shots/dfdw.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/dfdw.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/dfdw.jpg" data-lightbox="image-1" selector="baby">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -453,7 +605,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, ios">
 								<div class="portfolio-block">
-									<img class="img-fluid baby" src="images/Sports Shots/Sports Shots/eqrfe.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/eqrfe-thumb.webp 800w, images/Sports Shots/Sports Shots/eqrfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid baby" src="images/Sports Shots/Sports Shots/eqrfe.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/eqrfe.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -464,7 +619,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, development">
 								<div class="portfolio-block">
-									<img class="img-fluid baby" src="images/Sports Shots/Sports Shots/fwfe.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/fwfe-thumb.webp 800w, images/Sports Shots/Sports Shots/fwfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid baby" src="images/Sports Shots/Sports Shots/fwfe.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/fwfe.jpg" data-lightbox="image-1" selector="baby">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -475,7 +633,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, ios">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/gsfd.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/gsfd-thumb.webp 800w, images/Sports Shots/Sports Shots/gsfd.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/gsfd.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/gsfd.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -486,7 +647,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Sports Shots/Sports Shots/sjfna.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Sports Shots/Sports Shots/sjfna-thumb.webp 800w, images/Sports Shots/Sports Shots/sjfna.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Sports Shots/Sports Shots/sjfna.jpg" alt="Sports photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Sports Shots/Sports Shots/sjfna.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -524,8 +688,6 @@ End Fixed Navigation
 			  <li>
 				<h3>Connect with us Socially</h3>
 			  </li>
-			  <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-			  <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
 			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
 			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
 			 
@@ -561,11 +723,8 @@ End Fixed Navigation
   <!-- Smooth Scroll js -->
   <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-  <script src="plugins/google-map/gmap.js"></script>
-  
   <!-- Custom js -->
-  <script src="js/script.js"></script>
+  <script src="js/script.min.js"></script>
   
   </body>
   

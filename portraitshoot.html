@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="en">
 <head>
-
+  <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+  <!-- Get your ID at https://analytics.google.com -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('set', 'page_path', window.location.pathname);
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Swavey Services</title>
+  <title>Portrait Photography | Swavey Shots - Professional Portrait Sessions</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="description" content="Professional portrait photography by Swavey Shots in South Florida. Individual, couple, and group portraits that showcase your personality. Book now.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+  <meta name="author" content="Swavey Services">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://swavey.biz/portraitshoot.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://swavey.biz/portraitshoot.html" />
+  <meta property="og:title" content="Portrait Photography | Swavey Shots - Professional Portrait Sessions" />
+  <meta property="og:description" content="Professional portrait photography by Swavey Shots in South Florida. Individual, couple, and group portraits that showcase your personality. Book now." />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:site_name" content="Swavey Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portrait Photography | Swavey Shots - Professional Portrait Sessions" />
+  <meta name="twitter:description" content="Professional portrait photography by Swavey Shots in South Florida. Individual, couple, and group portraits that showcase your personality. Book now." />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- CSS
   ================================================== -->
@@ -39,8 +63,46 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Swavey Services",
+    "url": "https://swavey.biz",
+    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
+    "sameAs": [
+      "https://www.instagram.com/swavey.shots/",
+      "https://www.instagram.com/swaveyprints/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://swavey.biz/contact.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://swavey.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portrait Photography",
+        "item": "https://swavey.biz/portraitshoot.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="body">
 
@@ -70,8 +132,14 @@ Fixed Navigation
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
         <a class="navbar-brand logo" href="index.html">
-          <img loading="lazy" class="logo-default" src="images/swaveylogo.png" width = "250vw" height = "75vh" alt="logo" />
-          <img loading="lazy" class="logo-white" src="images/swaveylogow.png" width = "250vw" height = "75vh" alt="logo" />
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogo.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+								</picture>
+          <picture>
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+								</picture>
           
         </a>
         <!-- /logo -->
@@ -121,7 +189,7 @@ End Fixed Navigation
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Portrait Shots</h2>
+				<h1>Portrait Shots</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
 					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
                     <li class="breadcrumb-item"><a href="portfolio.html" class="text-white">Portfolio</a></li>
@@ -145,7 +213,10 @@ End Fixed Navigation
 					
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_0020-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_0020.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -156,7 +227,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_0096-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_0096.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -167,7 +241,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2575-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2575.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -178,7 +255,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2607-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2607.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -189,7 +269,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2622-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2622.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -200,7 +283,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2647-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2647.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -211,7 +297,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4461-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4461.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -222,7 +311,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4468-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4468.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -233,7 +325,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4514-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4514.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -244,7 +339,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4557-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4557.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -255,7 +353,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4578-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4578.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -266,7 +367,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4578-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4578.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_4868.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -277,7 +381,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9620-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9620.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -288,7 +395,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9642-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9642.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -299,7 +409,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9737-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9737.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -310,7 +423,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9755-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9755.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -321,7 +437,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9959-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9959.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -332,7 +451,10 @@ End Fixed Navigation
 							</div>
                             <div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9960-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9960.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -343,7 +465,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri1.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri1-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri1.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri1.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -354,7 +479,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri2.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri2-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri2.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri2.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -365,7 +493,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri3.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri3-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri3.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri3.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -376,7 +507,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik1.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik1-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik1.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/rik1.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -387,7 +521,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik2.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik2-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik2.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/rik2.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -398,7 +535,10 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik3.jpg" alt="">
+									<picture>
+									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik3-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik3.jpg" alt="Portrait photography by Swavey Shots">
+								</picture>
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/rik3.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -409,7 +549,7 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri4.jpg" alt="">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri4.jpg" alt="Portrait photography by Swavey Shots">
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri4.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -420,7 +560,7 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri5.jpg" alt="">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri5.jpg" alt="Portrait photography by Swavey Shots">
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri5.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -431,7 +571,7 @@ End Fixed Navigation
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
-									<img class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri6.jpg" alt="">
+									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri6.jpg" alt="Portrait photography by Swavey Shots">
 									<div class="caption">
 										<a class="search-icon" href="images/Portrait Shoots/Portrait Shoots/bri6.jpg" data-lightbox="image-1">
 											<i class="tf-ion-ios-search-strong"></i>
@@ -469,8 +609,6 @@ End Fixed Navigation
 			  <li>
 				<h3>Connect with us Socially</h3>
 			  </li>
-			  <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-			  <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
 			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
 			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
 			 
@@ -506,11 +644,8 @@ End Fixed Navigation
   <!-- Smooth Scroll js -->
   <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-  <script src="plugins/google-map/gmap.js"></script>
-  
   <!-- Custom js -->
-  <script src="js/script.js"></script>
+  <script src="js/script.min.js"></script>
   
   </body>
   
