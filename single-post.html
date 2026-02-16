@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -238,7 +238,7 @@ End Fixed Navigation
 <section class="blog-details section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 animated fadeInLeft" style="animation-delay: 0.1s">
+      <div class="col-lg-8 entrance-left">
         <article class="post">
           <div class="post-image mb-5">
             <picture>
@@ -350,7 +350,7 @@ End Fixed Navigation
           </div>
         </article>
       </div>
-      <div class="col-lg-4 mt-5 mt-lg-0 animated fadeInRight" style="animation-delay: 0.3s">
+      <div class="col-lg-4 mt-5 mt-lg-0 entrance-right">
         <!-- sidebar -->
         <aside class="sidebar pl-0 pl-lg-4">
           <div class="widget-search widget">
@@ -529,6 +529,24 @@ End Fixed Navigation
 <!-- Google Map -->
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

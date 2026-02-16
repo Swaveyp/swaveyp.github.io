@@ -39,7 +39,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
 </head>
 <body id="body">
@@ -156,11 +156,11 @@ Welcome Slider
  		<div class="row">
  			<div class="col-md-12">
  				<div class="block mt-4">
- 					<h1 class="animated fadeInUp" style="animation-duration: .5s; animation-delay: .3s">We are smart <br> Creative Agency</h1>
- 					<p class="animated fadeInUp" style="animation-duration: .5s; animation-delay: .5s">Lorem ipsum dolor sit amet, consectetur
+ 					<h1 class="animated fadeInUp">We are smart <br> Creative Agency</h1>
+ 					<p class="animated fadeInUp">Lorem ipsum dolor sit amet, consectetur
  						adipisicing elit. Nulla, ad rerum repellat. Sequi, labore, illo. Ducimus voluptates quidem obcaecati, ad.
  					</p>
- 					<ul class="list-inline animated fadeInUp" style="animation-duration: .5s; animation-delay: .7s">
+ 					<ul class="list-inline">
  						<li class="list-inline-item">
  							<a data-scroll href="#services" class="btn btn-main">Explore Us</a>
  						</li>
@@ -1122,6 +1122,24 @@ Start Blog Section
 
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -239,7 +239,7 @@ End Fixed Navigation
 		<div class="row">
 			<!-- /section title -->
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.1s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -259,7 +259,7 @@ End Fixed Navigation
 			<!-- /single blog post -->
 
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.2s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -279,7 +279,7 @@ End Fixed Navigation
 			<!-- end single blog post -->
 
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.3s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -298,7 +298,7 @@ End Fixed Navigation
 			</article>
 			<!-- /section title -->
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.1s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -318,7 +318,7 @@ End Fixed Navigation
 			<!-- /single blog post -->
 
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.2s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -338,7 +338,7 @@ End Fixed Navigation
 			<!-- end single blog post -->
 
 			<!-- single blog post -->
-			<article class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.3s">
+			<article class="col-lg-4 col-md-6 entrance">
 				<div class="post-item">
 					<div class="media-wrapper">
 						<picture>
@@ -442,6 +442,24 @@ End Fixed Navigation
 <!-- Google Map -->
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

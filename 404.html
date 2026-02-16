@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -129,7 +129,7 @@
 <section class="page-404 section text-center">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 animated fadeInUp" style="animation-delay: 0.1s">
+			<div class="col-md-12 entrance">
 				<h1>404</h1>
 				<h2>Page Not Found</h2>
 				<p>Sorry, but the page you were trying to view does not exist.</p>
@@ -161,6 +161,24 @@
 <!-- Google Map -->
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

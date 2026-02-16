@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -251,13 +251,13 @@ Start About Section
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-6 mb-5 mb-lg-0 animated fadeInLeft" style="animation-delay: 0.1s">
+			<div class="col-lg-6 mb-5 mb-lg-0 entrance-left">
 				<picture>
 									<source type="image/webp" srcset="images/about-us-thumb.webp 800w, images/about-us.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="About Swavey Services">
 								</picture>
 			</div>
-			<div class="col-lg-6 animated fadeInRight" style="animation-delay: 0.3s">
+			<div class="col-lg-6 entrance-right">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tempor eros. Pellentesque elementum nulla
 					sed justo tempor posuere sit amet sit amet ligula. Curabitur felis nibh, imperdiet eu erat non, luctus cursus
 					lectus. Donec maximus diam leo, sed fringilla nisl auctor eget. Donec dictum neque est, ac faucibus ex blandit
@@ -295,7 +295,7 @@ Start About Section
 		</div>
 		<div class="row">
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.1s">
+			<div class="col-lg-4 col-md-6 entrance">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -330,7 +330,7 @@ Start About Section
 			<!-- end team member -->
 
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.3s">
+			<div class="col-lg-4 col-md-6 entrance">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -364,7 +364,7 @@ Start About Section
 			<!-- end team member -->
 
 			<!-- team member -->
-			<div class="col-lg-4 col-md-6 animated fadeInUp" style="animation-delay: 0.5s">
+			<div class="col-lg-4 col-md-6 entrance">
 				<div class="team-member text-center">
 					<div class="member-photo">
 						<!-- member photo -->
@@ -483,6 +483,24 @@ Start About Section
 <!-- Google Map -->
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

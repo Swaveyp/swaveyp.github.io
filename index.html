@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+  <link rel="stylesheet" href="css/style.min.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -267,7 +267,7 @@ Start Counter Section
 <section id="stats-section" class="counter-wrapper section-sm">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-8 text-center animated fadeInUp" style="animation-delay: 0.1s">
+			<div class="col-xl-6 col-lg-8 text-center entrance">
 				<div class="title">
 					<h2>Swavey Stats</h2>
 					
@@ -276,7 +276,7 @@ Start Counter Section
 		</div>
 		<div class="row">
 			<!-- first count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center animated fadeInUp" style="animation-delay: 0.1s">
+			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
 				<div class="counters-item">
 					<i class="tf-ion-ios-alarm-outline"></i>
 					<div>
@@ -288,7 +288,7 @@ Start Counter Section
 			<!-- end first count item -->
 
 			<!-- second count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center animated fadeInUp" style="animation-delay: 0.3s">
+			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
 				<div class="counters-item">
 					<i class="tf-ion-ios-camera-outline"></i>
 					<div>
@@ -300,7 +300,7 @@ Start Counter Section
 			<!-- end second count item -->
 
 			<!-- third count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center animated fadeInUp" style="animation-delay: 0.5s">
+			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
 				<div class="counters-item">
 					<i class="tf-ion-ios-compose-outline"></i>
 					<div>
@@ -313,7 +313,7 @@ Start Counter Section
 			<!-- end third count item -->
 
 			<!-- fourth count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center animated fadeInUp" style="animation-delay: 0.7s">
+			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
 				<div class="counters-item kill-border">
 					<i class="tf-ion-ios-cart-outline"></i>
 					<div>
@@ -333,7 +333,7 @@ Start Counter Section
 	<section class="testimonial section" id="testimonial">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 animated fadeInUp" style="animation-delay: 0.1s">
+				<div class="col-lg-12 entrance">
 					<!-- testimonial wrapper -->
 					<div class="testimonial-slider">
 						<!-- testimonial single -->
@@ -521,6 +521,24 @@ Start Counter Section
 <!-- Google Map -->
 <!-- Custom js -->
 <script src="js/script.min.js?v=3"></script>
+<script>
+(function() {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+      els.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      });
+    }, 300);
+    setTimeout(function() {
+      var items = document.querySelectorAll(".filtr-item");
+      items.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+      });
+    }, 800);
+  });
+})();
+</script>
 
 </body>
 

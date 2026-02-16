@@ -2415,3 +2415,37 @@ a:focus, a:hover {
     padding: 10px 15px;
   }
 }
+
+/* ============================================
+   Entrance Animations
+   ============================================ */
+.entrance {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.entrance-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.entrance-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.entrance.show,
+.entrance-left.show,
+.entrance-right.show {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Filtr-item entrance (opacity only to avoid filterizr transform conflict) */
+.filtr-item {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.filtr-item.revealed {
+  opacity: 1;
+}
