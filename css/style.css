@@ -880,11 +880,11 @@ a:focus, a:hover {
 /* Floating back button */
 .back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  width: 44px;
-  height: 44px;
+  top: 18px;
+  left: 15px;
+  z-index: 1040;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #28ABE3;
   border: none;
@@ -903,12 +903,12 @@ a:focus, a:hover {
 .back-btn::before {
   content: "";
   display: block;
-  width: 12px;
-  height: 12px;
-  border-left: 3px solid #fff;
-  border-bottom: 3px solid #fff;
+  width: 10px;
+  height: 10px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
   transform: rotate(45deg);
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 /* slick style */
