@@ -34,14 +34,14 @@
   <meta property="og:url" content="https://swavey.biz/about.html" />
   <meta property="og:title" content="About Us | Swavey Services - Photography & Custom Printing Team" />
   <meta property="og:description" content="Learn about the Swavey Services team. Professional photographers and custom apparel printers serving South Florida with passion and creativity." />
-  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo23.png" />
   <meta property="og:site_name" content="Swavey Services" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Us | Swavey Services - Photography & Custom Printing Team" />
   <meta name="twitter:description" content="Learn about the Swavey Services team. Professional photographers and custom apparel printers serving South Florida with passion and creativity." />
-  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo23.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
@@ -53,17 +53,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
   <script type="application/ld+json">
   {
@@ -71,7 +71,7 @@
     "@type": "Organization",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "logo": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
     "sameAs": [
       "https://www.instagram.com/swavey.shots/",
@@ -132,14 +132,14 @@ Fixed Navigation
     <!-- main nav -->
     <nav class="navbar navbar-expand-lg navbar-light px-0">
       <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
+      <a class="navbar-brand logo" href="index.html#home">
         <picture>
-									<source type="image/webp" srcset="images/logo.webp">
-									<img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogo23.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
         <picture>
-									<source type="image/webp" srcset="images/logo-white.webp">
-									<img loading="lazy" class="logo-white" src="images/logo-white.png" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogow.webp">
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
       </a>
       <!-- /logo -->
@@ -155,7 +155,7 @@ Fixed Navigation
               Homepage <i class="tf-ion-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="index.html">Homepage</a></li>
+              <li><a class="dropdown-item" href="index.html#home">Homepage</a></li>
               <li><a class="dropdown-item" href="onepage-slider.html">Onepage</a></li>
               <li><a class="dropdown-item" href="onepage-text.html">Onepage 2</a></li>
 									
@@ -163,8 +163,8 @@ Fixed Navigation
                 <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu  <i class="tf-ion-chevron-down"></i></a>
       
                 <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                  <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                  <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 01</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 02</a></li>
                 </ul>
               </li>
             </ul>
@@ -201,8 +201,8 @@ Fixed Navigation
                 <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu  <i class="tf-ion-chevron-down"></i></a>
       
                 <ul class="dropdown-menu" aria-labelledby="dropdown0201">
-                  <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                  <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 01</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 02</a></li>
                 </ul>
               </li>
             </ul>
@@ -214,11 +214,12 @@ Fixed Navigation
   </div>
 </header>
 
-<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
+<a href="index.html" onclick="if(history.length>1){history.back();return false}" class="back-btn" aria-label="Go back to previous page"></a>
 
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
 <section class="single-page-header">
 	<div class="container">
@@ -226,7 +227,7 @@ End Fixed Navigation
 			<div class="col-md-12">
 				<h1>About Us</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+					<li class="breadcrumb-item"><a href="index.html#home">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">About Us</li>
 				</ol>
 			</div>
@@ -598,67 +599,23 @@ Start Call To Action
 	</div> <!-- End container -->
 </section> <!-- End section -->
 
-<footer id="footer" class="bg-one">
-  <div class="top-footer">
-    <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-          <h3>about</h3>
-          <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo, tortor mauris sed posuere.</p>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <ul>
-            <li>
-              <h3>Our Services</h3>
-            </li>
-            <li><a href="service.html">Ui/Ux Design</a></li>
-            <li><a href="service.html">Graphic Design</a></li>
-            <li><a href="service.html">Web Design</a></li>
-            <li><a href="service.html">Web Development</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
-          <ul>
-            <li>
-              <h3>Quick Links</h3>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="service.html">Services</a></li>
-            <li><a href="blog.html">Blogs</a></li>
-            <li><a href="404.html">404</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-3 col-md-6">
-          <ul>
-            <li>
-              <h3>Connect with us Socially</h3>
-            </li>
-            <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
-            <li><a href="https://www.instagram.com/swaveyprints/">Swavey Prints IG</a></li>
-            <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
-            <li><a href="https://www.github.com/themefisher/">Github</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-      </div>
-    </div> <!-- end container -->
-  </div>
-  <div class="footer-bottom">
-    <h5>&copy; Copyright 2020. All rights reserved.</h5>
-    <h6>Design and Developed by <a href="https://themefisher.com/">Themefisher</a></h6>
-  </div>
-</footer> <!-- end footer -->
-
-
-<!-- end Footer Area
-========================================== -->
+</main>
+<footer class="site-footer">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
+		</div>
+		<div class="site-footer-social">
+			<a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Shots</span></a>
+			<a href="https://www.instagram.com/swaveyprints/?hl=en" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Prints</span></a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
+	</div>
+</footer>
 
 <!-- 
     Essential Scripts
@@ -673,14 +630,12 @@ Start Call To Action
 <!-- lightbox -->
 <script src="plugins/lightbox2/js/lightbox.min.js"></script>
 <!-- Owl Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
 <!-- filter -->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
 <!-- Custom js -->
-<script src="js/script.min.js?v=3"></script>
+<script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
   window.addEventListener("load", function() {

@@ -34,14 +34,14 @@
   <meta property="og:url" content="https://swavey.biz/portraitshoot.html" />
   <meta property="og:title" content="Portrait Photography | Swavey Shots - Professional Portrait Sessions" />
   <meta property="og:description" content="Professional portrait photography by Swavey Shots in South Florida. Individual, couple, and group portraits that showcase your personality. Book now." />
-  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo23.png" />
   <meta property="og:site_name" content="Swavey Services" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portrait Photography | Swavey Shots - Professional Portrait Sessions" />
   <meta name="twitter:description" content="Professional portrait photography by Swavey Shots in South Florida. Individual, couple, and group portraits that showcase your personality. Book now." />
-  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo23.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
@@ -53,17 +53,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
   <script type="application/ld+json">
   {
@@ -71,7 +71,7 @@
     "@type": "Organization",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "logo": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
     "sameAs": [
       "https://www.instagram.com/swavey.shots/",
@@ -132,14 +132,14 @@ Fixed Navigation
       <!-- main nav -->
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
-        <a class="navbar-brand logo" href="index.html">
+        <a class="navbar-brand logo" href="index.html#home">
           <picture>
-									<source type="image/webp" srcset="images/swaveylogo.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogo23.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
           <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
           
         </a>
@@ -152,7 +152,7 @@ Fixed Navigation
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Homepage</a>
+                  <a class="nav-link" href="index.html#home">Homepage</a>
               </li>
             <li class="nav-item ">
               <a class="nav-link" href="service.html">Apparel Printing/Embroidery</a>
@@ -183,11 +183,12 @@ Fixed Navigation
     </div>
   </header>
 
-<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
+<a href="index.html" onclick="if(history.length>1){history.back();return false}" class="back-btn" aria-label="Go back to previous page"></a>
 
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
 <section class="single-page-header">
 	<div class="container">
@@ -195,8 +196,8 @@ End Fixed Navigation
 			<div class="col-md-12">
 				<h1>Portrait Shots</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-                    <li class="breadcrumb-item"><a href="portfolio.html" class="text-white">Portfolio</a></li>
+					<li class="breadcrumb-item"><a href="index.html#home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Portrait Shots</li>
 				</ol>
                 <a href="contact.html" class="btn btn-main">Book Now!</a>
@@ -208,9 +209,9 @@ End Fixed Navigation
 <!-- Start Portfolio Section
 		=========================================== -->
 
-<section class="portfolio section-sm" id="portfolio">
+<section class="portfolio section-sm dark-bg dark-bg-camera" id="portfolio">
 	<div class="container-fluid">
-				<div class="row">
+				<div class="row entrance">
 					<div class="col-12">
 						<div class="filtr-container">
 					
@@ -220,7 +221,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_0020-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_0020.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_0020.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -229,7 +230,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_0096-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_0096.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_0096.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -238,7 +239,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2575-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2575.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2575.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -247,7 +248,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2607-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2607.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2607.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -256,7 +257,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2622-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2622.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2622.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -265,7 +266,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_2647-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_2647.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_2647.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -274,7 +275,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4461-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4461.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4461.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -283,7 +284,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4468-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4468.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4468.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -292,7 +293,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4514-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4514.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4514.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -301,7 +302,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4557-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4557.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4557.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -310,7 +311,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4578-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4578.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4578.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -319,7 +320,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_4868-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_4868.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_4868.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4868.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_4868.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -328,7 +329,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9620-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9620.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9620.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -337,7 +338,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9642-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9642.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9642.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -346,7 +347,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9737-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9737.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9737.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -355,7 +356,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9755-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9755.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9755.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -364,7 +365,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9959-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9959.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9959.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -373,7 +374,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/IMG_9960-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/IMG_9960.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/IMG_9960.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -382,7 +383,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri1-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri1.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/bri1.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/bri1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -391,7 +392,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri2-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri2.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/bri2.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/bri2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -400,7 +401,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/bri3-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/bri3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/bri3.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/bri3.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/bri3.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -409,7 +410,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik1-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik1.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/rik1.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/rik1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -418,7 +419,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik2-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik2.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/rik2.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/rik2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -427,7 +428,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Portrait Shoots/Portrait Shoots/rik3-thumb.webp 800w, images/Portrait Shoots/Portrait Shoots/rik3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Portrait Shoots/Portrait Shoots/rik3.jpg" alt="Portrait photography by Swavey Shots">
 								</picture>
-									<a href="images/Portrait Shoots/Portrait Shoots/rik3.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Portrait Shoots/Portrait Shoots/rik3.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							</div>
@@ -435,44 +436,23 @@ End Fixed Navigation
 				</div>
 	</div> <!-- end container -->
 </section> <!-- End section -->
-<footer id="footer" class="bg-one">
-	<div class="top-footer">
-	  <div class="container">
-		<div class="row justify-content-around">
-		  
-  
-		  <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-			<ul>
-			  <li>
-				<h3>Our Services</h3>
-			  </li>
-			  <li><a href="portfolio.html">Photography</a></li>
-			  <li><a href="service.html">Apparel Printing/Embroidery</a></li>
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
-		  <div class="col-lg-3 col-md-6">
-			<ul>
-			  <li>
-				<h3>Connect with us Socially</h3>
-			  </li>
-			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
-			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
-			 
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
+</main>
+<footer class="site-footer site-footer-dark">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
 		</div>
-	  </div> <!-- end container -->
+		<div class="site-footer-social">
+			<a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Shots</span></a>
+			<a href="https://www.instagram.com/swaveyprints/?hl=en" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Prints</span></a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
 	</div>
-  
-  </footer> <!-- end footer -->
-  
-  
-  <!-- end Footer Area
-  ========================================== -->
+</footer>
   <!-- 
       Essential Scripts
       =====================================-->
@@ -486,14 +466,12 @@ End Fixed Navigation
   <!-- lightbox -->
   <script src="plugins/lightbox2/js/lightbox.min.js"></script>
   <!-- Owl Carousel -->
-  <script src="plugins/slick/slick.min.js"></script>
-  <!-- filter -->
-  <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
-  <!-- Smooth Scroll js -->
+    <!-- filter -->
+    <!-- Smooth Scroll js -->
   <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
   <!-- Google Map -->
 <!-- Custom js -->
-  <script src="js/script.min.js?v=3"></script>
+  <script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
   window.addEventListener("load", function() {

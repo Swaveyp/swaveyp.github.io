@@ -27,31 +27,11 @@
 		});
   }
   
-  //Hero Slider
-  $('.hero-slider').slick({
-    autoplay: true,
-    infinite: true,
-    arrows: true,
-    prevArrow: '<button type=\'button\' class=\'prevArrow\'></button>',
-    nextArrow: '<button type=\'button\' class=\'nextArrow\'></button>',
-    dots: false,
-    autoplaySpeed: 7000,
-    pauseOnFocus: false,
-    pauseOnHover: true
-  });
-  $('.hero-slider').slickAnimation();
+  //Hero Slider (removed – replaced by split-screen hero)
 
   /* ========================================================================= */
-  /*	Portfolio Filtering Hook
+  /*	Portfolio Filtering Hook (disabled — CSS grid handles layout now)
   /* =========================================================================  */
-  // filter
-  setTimeout(function(){
-    var containerEl = document.querySelector('.filtr-container');
-    var filterizd;
-    if (containerEl) {
-      filterizd = $('.filtr-container').filterizr({});
-    }
-  }, 500);
 
   /* ========================================================================= */
   /*	Testimonial Carousel

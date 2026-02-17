@@ -34,14 +34,14 @@
   <meta property="og:url" content="https://swavey.biz/portfolio.html" />
   <meta property="og:title" content="Photography Portfolio | Swavey Shots - South Florida Photographer" />
   <meta property="og:description" content="Browse our photography portfolio featuring baby, family, lifestyle, maternity, portrait, event, and sports photography by Swavey Shots in South Florida." />
-  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo23.png" />
   <meta property="og:site_name" content="Swavey Services" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Photography Portfolio | Swavey Shots - South Florida Photographer" />
   <meta name="twitter:description" content="Browse our photography portfolio featuring baby, family, lifestyle, maternity, portrait, event, and sports photography by Swavey Shots in South Florida." />
-  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo23.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
@@ -53,17 +53,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
   <script type="application/ld+json">
   {
@@ -71,7 +71,7 @@
     "@type": "Organization",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "logo": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
     "sameAs": [
       "https://www.instagram.com/swavey.shots/",
@@ -132,14 +132,14 @@ Fixed Navigation
       <!-- main nav -->
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
-        <a class="navbar-brand logo" href="index.html">
+        <a class="navbar-brand logo" href="index.html#home">
           <picture>
-									<source type="image/webp" srcset="images/swaveylogo.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogo23.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
           <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
           
         </a>
@@ -152,7 +152,7 @@ Fixed Navigation
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Homepage</a>
+                  <a class="nav-link" href="index.html#home">Homepage</a>
               </li>
             <li class="nav-item ">
               <a class="nav-link" href="service.html">Apparel Printing/Embroidery</a>
@@ -183,11 +183,12 @@ Fixed Navigation
     </div>
   </header>
 
-<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
+<a href="index.html" onclick="if(history.length>1){history.back();return false}" class="back-btn" aria-label="Go back to previous page"></a>
 
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
 <section class="single-page-header">
 	<div class="container">
@@ -195,7 +196,7 @@ End Fixed Navigation
 			<div class="col-md-12">
 				<h1>Portfolio</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+					<li class="breadcrumb-item"><a href="index.html#home">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Portfolio</li>
 				</ol>
         <a href="contact.html" class="btn btn-main">Book Now!</a>
@@ -207,10 +208,10 @@ End Fixed Navigation
 <!-- Start Portfolio Section
 		=========================================== -->
 
-<section class="portfolio section-sm" id="portfolio">
+<section class="portfolio section-sm dark-bg dark-bg-camera" id="portfolio">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-8">
+			<div class="col-xl-6 col-lg-8 entrance">
 				<!-- section title -->
 				<div class="title text-center">
 					<h2>Genres</h2>
@@ -222,70 +223,70 @@ End Fixed Navigation
 
 
 
-				<div class="row">
+				<div class="row entrance">
 					<div class="col-12">
 						<div class="filtr-container">
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/babies1-thumb.webp 800w, images/babies1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/babies1.jpg" alt="Baby photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/babies1.jpg" alt="Baby photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="babyshoot.html" class="portfolio-link"></a>
+									<a href="babyshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, ios">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/families1-thumb.webp 800w, images/families1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/families1.jpg" alt="Family photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/families1.jpg" alt="Family photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="familyshoot.html" class="portfolio-link"></a>
+									<a href="familyshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, development">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/lifestyle1-thumb.webp 800w, images/lifestyle1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/lifestyle1.jpg" alt="Lifestyle photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/lifestyle1.jpg" alt="Lifestyle photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="lifestyleshoot.html" class="portfolio-link"></a>
+									<a href="lifestyleshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, ios">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/maternity1-thumb.webp 800w, images/maternity1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/maternity1.jpg" alt="Maternity photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/maternity1.jpg" alt="Maternity photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="maternityshoot.html" class="portfolio-link"></a>
+									<a href="maternityshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/portraits1-thumb.webp 800w, images/portraits1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/portraits1.jpg" alt="Portrait photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/portraits1.jpg" alt="Portrait photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="portraitshoot.html" class="portfolio-link"></a>
+									<a href="portraitshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/events-thumb.webp 800w, images/events.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/events.jpg" alt="Event photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/events.jpg" alt="Event photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="events.html" class="portfolio-link"></a>
+									<a href="events.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
               				<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/sports1-thumb.webp 800w, images/sports1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/sports1.jpg" alt="Sports photography portfolio by Swavey Shots">
+									<img loading="lazy" class="img-fluid" src="images/sports1.jpg" alt="Sports photography portfolio by Swavey Shots" width="800" height="1200">
 								</picture>
-									<a href="sportshoot.html" class="portfolio-link"></a>
+									<a href="sportshoot.html" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							
@@ -295,44 +296,23 @@ End Fixed Navigation
 	</div> <!-- end container -->
 </section> <!-- End section -->
 
-<footer id="footer" class="bg-one">
-	<div class="top-footer">
-	  <div class="container">
-		<div class="row justify-content-around">
-		  
-  
-		  <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-			<ul>
-			  <li>
-				<h3>Our Services</h3>
-			  </li>
-			  <li><a href="portfolio.html">Photography</a></li>
-			  <li><a href="service.html">Apparel Printing/Embroidery</a></li>
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
-		  <div class="col-lg-3 col-md-6">
-			<ul>
-			  <li>
-				<h3>Connect with us Socially</h3>
-			  </li>
-			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
-			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
-			 
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
+</main>
+<footer class="site-footer site-footer-dark">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
 		</div>
-	  </div> <!-- end container -->
+		<div class="site-footer-social">
+			<a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Shots</span></a>
+			<a href="https://www.instagram.com/swaveyprints/?hl=en" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Prints</span></a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
 	</div>
-  
-  </footer> <!-- end footer -->
-  
-  
-  <!-- end Footer Area
-  ========================================== -->
+</footer>
 <!-- 
     Essential Scripts
     =====================================-->
@@ -346,14 +326,12 @@ End Fixed Navigation
 <!-- lightbox -->
 <script src="plugins/lightbox2/js/lightbox.min.js"></script>
 <!-- Owl Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
 <!-- filter -->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
 <!-- Custom js -->
-<script src="js/script.min.js?v=3"></script>
+<script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
   window.addEventListener("load", function() {

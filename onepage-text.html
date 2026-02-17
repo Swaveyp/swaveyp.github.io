@@ -29,17 +29,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
 </head>
 <body id="body">
@@ -69,9 +69,9 @@ Fixed Navigation
     <!-- main nav -->
     <nav class="navbar navbar-expand-lg navbar-light px-0">
       <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
-        <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" />
-        <img loading="lazy" class="logo-white" src="images/logo-white.png" alt="logo" />
+      <a class="navbar-brand logo" href="index.html#home">
+        <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" width="88" height="25" />
+        <img loading="lazy" class="logo-white" src="images/logo-white.png" alt="logo" width="88" height="25" />
       </a>
       <!-- /logo -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -86,7 +86,7 @@ Fixed Navigation
               Homepage <i class="tf-ion-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="index.html">Homepage</a></li>
+              <li><a class="dropdown-item" href="index.html#home">Homepage</a></li>
               <li><a class="dropdown-item" href="onepage-slider.html">Onepage</a></li>
               <li><a class="dropdown-item" href="onepage-text.html">Onepage 2</a></li>
 									
@@ -94,8 +94,8 @@ Fixed Navigation
                 <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu  <i class="tf-ion-chevron-down"></i></a>
       
                 <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                  <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                  <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 01</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 02</a></li>
                 </ul>
               </li>
             </ul>
@@ -132,8 +132,8 @@ Fixed Navigation
                 <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu  <i class="tf-ion-chevron-down"></i></a>
       
                 <ul class="dropdown-menu" aria-labelledby="dropdown0201">
-                  <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                  <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 01</a></li>
+                  <li><a class="dropdown-item" href="index.html#home">Submenu 02</a></li>
                 </ul>
               </li>
             </ul>
@@ -147,6 +147,7 @@ Fixed Navigation
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
  <!--
 Welcome Slider
@@ -192,7 +193,7 @@ Start About Section
 		</div>
 		<div class="row">
 			<div class="col-lg-6 mb-5 mb-lg-0">
-				<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="">
+				<img loading="lazy" src="images/about-us.jpg" class="img-fluid" alt="" width="910" height="635">
 			</div>
 			<div class="col-lg-6">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tempor eros. Pellentesque elementum nulla
@@ -523,49 +524,49 @@ Start Counter Section
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-1.jpg" alt="">
-									<a href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, ios">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-2.jpg" alt="">
-									<a href="images/portfolio/portfolio-2.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, development">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-3.jpg" alt="">
-									<a href="images/portfolio/portfolio-3.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-3.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, ios">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-4.jpg" alt="">
-									<a href="images/portfolio/portfolio-4.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-4.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-5.jpg" alt="">
-									<a href="images/portfolio/portfolio-5.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-5.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-6.jpg" alt="">
-									<a href="images/portfolio/portfolio-6.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-6.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-7.jpg" alt="">
-									<a href="images/portfolio/portfolio-7.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-7.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
 								<div class="portfolio-block">
 									<img class="img-fluid" src="images/portfolio/portfolio-1.jpg" alt="">
-									<a href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 						</div>
@@ -1037,67 +1038,23 @@ Start Blog Section
 	<div id="map_canvas" class="map_canvas" data-latitude="40.712776" data-longitude="-74.005974" data-marker="images/marker.png" data-marker-name="Bingo"></div>
 </div>
  <!--====  End of Google Map  ====-->
-<footer id="footer" class="bg-one">
-  <div class="top-footer">
-    <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-          <h3>about</h3>
-          <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo, tortor mauris sed posuere.</p>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <ul>
-            <li>
-              <h3>Our Services</h3>
-            </li>
-            <li><a href="service.html">Ui/Ux Design</a></li>
-            <li><a href="service.html">Graphic Design</a></li>
-            <li><a href="service.html">Web Design</a></li>
-            <li><a href="service.html">Web Development</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
-          <ul>
-            <li>
-              <h3>Quick Links</h3>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="service.html">Services</a></li>
-            <li><a href="blog.html">Blogs</a></li>
-            <li><a href="404.html">404</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-3 col-md-6">
-          <ul>
-            <li>
-              <h3>Connect with us Socially</h3>
-            </li>
-            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
-            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
-            <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
-            <li><a href="https://www.github.com/themefisher/">Github</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-      </div>
-    </div> <!-- end container -->
-  </div>
-  <div class="footer-bottom">
-    <h5>&copy; Copyright 2020. All rights reserved.</h5>
-    <h6>Design and Developed by <a href="https://themefisher.com/">Themefisher</a></h6>
-  </div>
-</footer> <!-- end footer -->
-
-
-<!-- end Footer Area
-========================================== -->
+</main>
+<footer class="site-footer">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
+		</div>
+		<div class="site-footer-social">
+			<a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Shots</span></a>
+			<a href="https://www.instagram.com/swaveyprints/?hl=en" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Prints</span></a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
+	</div>
+</footer>
 <!-- 
     Essential Scripts
     =====================================-->
@@ -1111,17 +1068,13 @@ Start Blog Section
 <!-- lightbox -->
 <script src="plugins/lightbox2/js/lightbox.min.js"></script>
 <!-- Owl Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
 <!-- filter -->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="plugins/google-map/gmap.js"></script>
 
 <!-- Custom js -->
-<script src="js/script.min.js?v=3"></script>
+<script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
   window.addEventListener("load", function() {

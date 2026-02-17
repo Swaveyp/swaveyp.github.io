@@ -34,14 +34,14 @@
   <meta property="og:url" content="https://swavey.biz/lifestyleshoot.html" />
   <meta property="og:title" content="Lifestyle Photography | Swavey Shots - Creative Lifestyle Sessions" />
   <meta property="og:description" content="Creative lifestyle photography by Swavey Shots in South Florida. Authentic, candid lifestyle photos that tell your story. Book your session today." />
-  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo23.png" />
   <meta property="og:site_name" content="Swavey Services" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lifestyle Photography | Swavey Shots - Creative Lifestyle Sessions" />
   <meta name="twitter:description" content="Creative lifestyle photography by Swavey Shots in South Florida. Authentic, candid lifestyle photos that tell your story. Book your session today." />
-  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo23.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
@@ -53,17 +53,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
   <script type="application/ld+json">
   {
@@ -71,7 +71,7 @@
     "@type": "Organization",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "logo": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
     "sameAs": [
       "https://www.instagram.com/swavey.shots/",
@@ -132,14 +132,14 @@ Fixed Navigation
       <!-- main nav -->
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
-        <a class="navbar-brand logo" href="index.html">
+        <a class="navbar-brand logo" href="index.html#home">
           <picture>
-									<source type="image/webp" srcset="images/swaveylogo.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogo23.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
           <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
           
         </a>
@@ -152,7 +152,7 @@ Fixed Navigation
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Homepage</a>
+                  <a class="nav-link" href="index.html#home">Homepage</a>
               </li>
             <li class="nav-item ">
               <a class="nav-link" href="service.html">Apparel Printing/Embroidery</a>
@@ -183,11 +183,12 @@ Fixed Navigation
     </div>
   </header>
 
-<a href="javascript:history.back()" class="back-btn" aria-label="Go back"></a>
+<a href="index.html" onclick="if(history.length>1){history.back();return false}" class="back-btn" aria-label="Go back to previous page"></a>
 
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
 <section class="single-page-header">
 	<div class="container">
@@ -195,8 +196,8 @@ End Fixed Navigation
 			<div class="col-md-12">
 				<h1>Lifestyle Shots</h1>
 				<ol class="breadcrumb header-bradcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-                    <li class="breadcrumb-item"><a href="portfolio.html" class="text-white">Portfolio</a></li>
+					<li class="breadcrumb-item"><a href="index.html#home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Lifestyle Shots</li>
 				</ol>
                 <a href="contact.html" class="btn btn-main">Book Now!</a>
@@ -208,9 +209,9 @@ End Fixed Navigation
 <!-- Start Portfolio Section
 		=========================================== -->
 
-<section class="portfolio section-sm" id="portfolio">
+<section class="portfolio section-sm dark-bg dark-bg-camera" id="portfolio">
 	<div class="container-fluid">
-				<div class="row">
+				<div class="row entrance">
 					<div class="col-12">
 						<div class="filtr-container">
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
@@ -219,7 +220,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/1-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/1.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/1.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, ios">
@@ -228,7 +229,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/2-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid baby" src="images/Lifestyle Shots/Lifestyle Shots/2.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/2.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, development">
@@ -237,7 +238,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/3-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid baby" src="images/Lifestyle Shots/Lifestyle Shots/3.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/3.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/3.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, ios">
@@ -246,7 +247,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/4-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/4.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/4.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/4.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/4.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
@@ -255,7 +256,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/6-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/6.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/6.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/6.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/6.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -264,7 +265,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/7-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/7.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/7.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/7.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/7.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography">
@@ -273,7 +274,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/8-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/8.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/8.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/8.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/8.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -282,7 +283,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/9-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/9.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/9.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/9.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/9.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -291,7 +292,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/99-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/99.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/99.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/99.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/99.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                         
@@ -301,7 +302,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_0763-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_0763.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_0763.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0763.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0763.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -310,7 +311,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_0771-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_0771.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_0771.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0771.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0771.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -319,7 +320,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_0781-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_0781.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_0781.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0781.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0781.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -328,7 +329,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_0804-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_0804.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_0804.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0804.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0804.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -337,7 +338,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_0968-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_0968.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_0968.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0968.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_0968.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -346,7 +347,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1026-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1026.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1026.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1026.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1026.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -355,7 +356,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1071-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1071.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1071.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1071.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1071.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -364,7 +365,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1073-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1073.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1073.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1073.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1073.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -373,7 +374,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1097-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1097.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1097.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1097.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1097.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -382,7 +383,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1314-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1314.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1314.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1314.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1314.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -391,7 +392,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1326-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1326.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1326.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1326.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1326.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
                             <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -400,7 +401,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/IMG_1734-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/IMG_1734.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/IMG_1734.JPG" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1734.JPG" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/IMG_1734.JPG" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
@@ -409,7 +410,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/dfdw-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/dfdw.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/dfdw.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/dfdw.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/dfdw.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, ios">
@@ -418,7 +419,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/dfe-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/dfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid baby" src="images/Lifestyle Shots/Lifestyle Shots/dfe.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/dfe.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/dfe.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, development">
@@ -427,7 +428,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/efeq-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/efeq.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid baby" src="images/Lifestyle Shots/Lifestyle Shots/efeq.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/efeq.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/efeq.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, ios">
@@ -436,7 +437,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/eqrfe-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/eqrfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/eqrfe.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/eqrfe.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/eqrfe.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
@@ -445,7 +446,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/fwfe-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/fwfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/fwfe.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/fwfe.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/fwfe.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -454,7 +455,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/gsfd-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/gsfd.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/gsfd.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/gsfd.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/gsfd.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography">
@@ -463,7 +464,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/sjfna-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/sjfna.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/sjfna.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/sjfna.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/sjfna.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
@@ -472,7 +473,7 @@ End Fixed Navigation
 									<source type="image/webp" srcset="images/Lifestyle Shots/Lifestyle Shots/Untitled-2-thumb.webp 800w, images/Lifestyle Shots/Lifestyle Shots/Untitled-2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
 									<img loading="lazy" class="img-fluid" src="images/Lifestyle Shots/Lifestyle Shots/Untitled-2.jpg" alt="Lifestyle photography by Swavey Shots">
 								</picture>
-									<a href="images/Lifestyle Shots/Lifestyle Shots/Untitled-2.jpg" data-lightbox="image-1" class="portfolio-link"></a>
+									<a href="images/Lifestyle Shots/Lifestyle Shots/Untitled-2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
 							</div>
 						</div>
@@ -480,44 +481,23 @@ End Fixed Navigation
 				</div>
 	</div> <!-- end container -->
 </section> <!-- End section -->
-<footer id="footer" class="bg-one">
-	<div class="top-footer">
-	  <div class="container">
-		<div class="row justify-content-around">
-		  
-  
-		  <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-			<ul>
-			  <li>
-				<h3>Our Services</h3>
-			  </li>
-			  <li><a href="portfolio.html">Photography</a></li>
-			  <li><a href="service.html">Apparel Printing/Embroidery</a></li>
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
-		  <div class="col-lg-3 col-md-6">
-			<ul>
-			  <li>
-				<h3>Connect with us Socially</h3>
-			  </li>
-			  <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
-			  <li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
-			 
-			</ul>
-		  </div>
-		  <!-- End of .col-sm-3 -->
-  
+</main>
+<footer class="site-footer site-footer-dark">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
 		</div>
-	  </div> <!-- end container -->
+		<div class="site-footer-social">
+			<a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Shots</span></a>
+			<a href="https://www.instagram.com/swaveyprints/?hl=en" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg> <span>Prints</span></a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
 	</div>
-  
-  </footer> <!-- end footer -->
-  
-  
-  <!-- end Footer Area
-  ========================================== -->
+</footer>
   <!-- 
       Essential Scripts
       =====================================-->
@@ -531,14 +511,12 @@ End Fixed Navigation
   <!-- lightbox -->
   <script src="plugins/lightbox2/js/lightbox.min.js"></script>
   <!-- Owl Carousel -->
-  <script src="plugins/slick/slick.min.js"></script>
-  <!-- filter -->
-  <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
-  <!-- Smooth Scroll js -->
+    <!-- filter -->
+    <!-- Smooth Scroll js -->
   <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
   <!-- Google Map -->
 <!-- Custom js -->
-  <script src="js/script.min.js?v=3"></script>
+  <script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
   window.addEventListener("load", function() {

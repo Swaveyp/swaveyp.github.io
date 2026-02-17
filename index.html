@@ -34,14 +34,14 @@
   <meta property="og:url" content="https://swavey.biz/" />
   <meta property="og:title" content="Swavey Services | Photography & Custom Apparel Printing in South Florida" />
   <meta property="og:description" content="Swavey Services offers professional photography (portraits, events, sports, lifestyle) and custom apparel printing & embroidery in South Florida. No minimum order required." />
-  <meta property="og:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta property="og:image" content="https://swavey.biz/images/swaveylogo23.png" />
   <meta property="og:site_name" content="Swavey Services" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Swavey Services | Photography & Custom Apparel Printing in South Florida" />
   <meta name="twitter:description" content="Swavey Services offers professional photography (portraits, events, sports, lifestyle) and custom apparel printing & embroidery in South Florida. No minimum order required." />
-  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo.png" />
+  <meta name="twitter:image" content="https://swavey.biz/images/swaveylogo23.png" />
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favi.jpg" />
@@ -53,17 +53,17 @@
   <!-- CSS
   ================================================== -->
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=16">
+  <link rel="stylesheet" href="css/style.min.css?v=48">
 
   <script type="application/ld+json">
   {
@@ -71,7 +71,7 @@
     "@type": "Organization",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "logo": "https://swavey.biz/images/swaveylogo.png",
+    "logo": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida.",
     "sameAs": [
       "https://www.instagram.com/swavey.shots/",
@@ -90,7 +90,7 @@
     "@type": "LocalBusiness",
     "name": "Swavey Services",
     "url": "https://swavey.biz",
-    "image": "https://swavey.biz/images/swaveylogo.png",
+    "image": "https://swavey.biz/images/swaveylogo23.png",
     "description": "Professional photography and custom apparel printing & embroidery services in South Florida. No minimum order required.",
     "priceRange": "$$",
     "hasOfferCatalog": {
@@ -118,20 +118,20 @@
   }
   </script>
 </head>
-<body id="body">
+<body id="body" class="home-page">
 
   <!--
-  Start Preloader
+  Camera Splash Intro
   ==================================== -->
-  <div id="preloader">
-    <div class='preloader'>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+  <div id="splashIntro" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a1628;z-index:9999999999;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+    <div class="splash-content">
+      <div class="splash-logo-group" id="splashCamera">
+        <img src="images/swaveycamera-clean.png?v=3" alt="Swavey Services" class="splash-camera">
+        <h2 class="splash-title"><span class="splash-title-top">Swavey</span><span class="splash-title-bottom">Services</span></h2>
+      </div>
+      <p class="splash-text">tap to enter</p>
     </div>
+    <div class="splash-flash" id="splashFlash"></div>
   </div>
   <!--
   End Preloader
@@ -145,14 +145,14 @@ Fixed Navigation
       <!-- main nav -->
       <nav class="navbar navbar-expand-lg navbar-light px-0">
         <!-- logo -->
-        <a class="navbar-brand logo" href="index.html">
+        <a class="navbar-brand logo" href="index.html#home">
           <picture>
-									<source type="image/webp" srcset="images/swaveylogo.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo.png" width="250" height="75" alt="logo" />
+									<source type="image/webp" srcset="images/swaveylogo23.webp">
+									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
           <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" width="250" height="75" alt="logo" />
+									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
           
         </a>
@@ -165,7 +165,7 @@ Fixed Navigation
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Homepage</a>
+                  <a class="nav-link" href="index.html#home">Homepage</a>
               </li>
             <li class="nav-item ">
               <a class="nav-link" href="service.html">Apparel Printing/Embroidery</a>
@@ -198,308 +198,80 @@ Fixed Navigation
 <!--
 End Fixed Navigation
 ==================================== -->
+<main>
 
-<div class="hero-slider">
-	<div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/swavey-services3.jpg); background-size: cover; background-color: black; ">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center ">
-
-						<a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class="btn-swavey"
-						href="service.html"><picture>
-									<source type="image/webp" srcset="images/slider/swaveyprints-button-2-thumb.webp 800w, images/slider/swaveyprints-button-2.webp 1920w" sizes="(max-width: 768px) 40vw, 220px">
-									<img loading="lazy" class="img-fluid" src="images/slider/swaveyprints-button-2.PNG" width="220" height="110" alt="Swavey Prints - Custom Apparel Printing" />
-								</picture></a>
-						<a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class="btn-swavey"
-						href="portfolio.html"><picture>
-									<source type="image/webp" srcset="images/slider/swaveyshots-button-2-thumb.webp 800w, images/slider/swaveyshots-button-2.webp 1920w" sizes="(max-width: 768px) 40vw, 220px">
-									<img loading="lazy" class="img-fluid" src="images/slider/swaveyshots-button-2.PNG" width="220" height="110" alt="Swavey Shots - Professional Photography" />
-								</picture></a>
-						
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/swaveyshots-white-words.png); background-size: 50vh; background-color: #000; background-blend-mode: luminosity; background-repeat: no-repeat; background-position: center center;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center ">
-
-						<div class="slide-card" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">
-							<h2>Swavey Shots</h2>
-							<p>Specializes in Portrait, Lifestyle, Events, and Sports photography. Check out our portfolio, and if you love our work, do not hesitate to contact us to book us for your next event or photoshoot.</p>
-							<a class="btn btn-main" href="portfolio.html">Explore Us</a>
-						</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/swavey-prints-shirt9.png); background-size: 60vh; background-color: #000; background-blend-mode: luminosity; background-repeat: no-repeat; background-position: center center;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-
-						<div class="slide-card" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">
-							<h2>Swavey Prints</h2>
-							<p>Custom apparel &amp; accessory printing and embroidery services. <strong>NO MINIMUM ORDER required.</strong> We also offer graphic and logo design to bring your ideas to life.</p>
-							<a class="btn btn-main" href="service.html">Explore Us</a>
-						</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
-<div class="scroll-down-indicator">
-	<a href="#stats-section">
-		<span class="scroll-arrow"></span>
-		<span class="scroll-arrow"></span>
-		<span class="scroll-arrow"></span>
-	</a>
-</div>
-
-<!--
-Start Counter Section
+<!-- ====================================
+Expanding Orbs Hero
 ==================================== -->
-<section id="stats-section" class="counter-wrapper section-sm">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-8 text-center entrance">
-				<div class="title">
-					<h2>Swavey Stats</h2>
-					
+<section class="orb-hero" id="orbHero">
+	<!-- Combined: heading + orbs on same screen -->
+	<div class="orb-main" id="orbMain">
+		<div class="orb-heading">
+			<h1 class="orb-intro-heading">We Create.</h1>
+			<p class="orb-intro-sub">
+			<span class="slam-word">Moments.</span>
+			<span class="slam-word">Memories.</span>
+			<span class="slam-word">Merch.</span>
+		</p>
+		</div>
+
+		<div class="orb-row">
+			<!-- Shots orb -->
+			<div class="orb orb-shots" id="orbShots" data-brand="shots">
+				<div class="orb-ring"></div>
+				<div class="orb-ring orb-ring-2"></div>
+				<div class="orb-core">
+					<img src="images/swaveyshotslogo.png" alt="Swavey Shots" class="orb-logo" width="600" height="390">
 				</div>
+				<span class="orb-label">Shots</span>
+			</div>
+
+			<!-- Prints orb -->
+			<div class="orb orb-prints" id="orbPrints" data-brand="prints">
+				<div class="orb-ring"></div>
+				<div class="orb-ring orb-ring-2"></div>
+				<div class="orb-core">
+					<img src="images/swaveyprintslogo.png" alt="Swavey Prints" class="orb-logo" width="600" height="390">
+				</div>
+				<span class="orb-label">Prints</span>
 			</div>
 		</div>
-		<div class="row">
-			<!-- first count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
-				<div class="counters-item">
-					<i class="tf-ion-ios-alarm-outline"></i>
-					<div>
-						<span class="counter" data-count="169">0</span>
-					</div>
-					<h3>Happy Clients</h3>
-				</div>
+	</div>
+
+	<!-- Expanded overlay (circle clip grows from orb position) -->
+	<div class="orb-expand" id="orbExpand">
+		<button class="orb-expand-back" id="orbClose" aria-label="Back">&larr; Back</button>
+		<div class="orb-expand-content" id="orbExpandContent">
+			<img src="" alt="" class="orb-expand-logo" id="orbExpandLogo">
+			<p class="orb-expand-desc" id="orbExpandDesc"></p>
+			<a href="" class="orb-expand-cta" id="orbExpandCta"></a>
+		</div>
+	</div>
+
+	<!-- Footer (inline on hero screen) -->
+	<footer class="orb-footer" id="footer">
+		<div class="orb-footer-inner">
+			<div class="orb-footer-links">
+				<a href="portfolio.html">Portfolio</a>
+				<span class="orb-footer-dot"></span>
+				<a href="service.html">Services</a>
+				<span class="orb-footer-dot"></span>
+				<a href="contact.html">Contact</a>
 			</div>
-			<!-- end first count item -->
-
-			<!-- second count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
-				<div class="counters-item">
-					<i class="tf-ion-ios-camera-outline"></i>
-					<div>
-						<span class="counter" data-count="323">0</span>
-					</div>
-					<h3>Events Shot</h3>
-				</div>
+			<div class="orb-footer-social">
+				<a href="https://www.instagram.com/swavey.shots/" aria-label="Swavey Shots Instagram" target="_blank" rel="noopener">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+					<span>Shots</span>
+				</a>
+				<a href="https://www.instagram.com/swaveyprints/?hl=en" aria-label="Swavey Prints Instagram" target="_blank" rel="noopener">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+					<span>Prints</span>
+				</a>
 			</div>
-			<!-- end second count item -->
-
-			<!-- third count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
-				<div class="counters-item">
-					<i class="tf-ion-ios-compose-outline"></i>
-					<div>
-						<span class="counter" data-count="81">0</span>
-					</div>
-					<h3>Positive feedback</h3>
-
-				</div>
-			</div>
-			<!-- end third count item -->
-
-			<!-- fourth count item -->
-			<div class="col-md-3 col-sm-6 col-xs-6 text-center entrance">
-				<div class="counters-item kill-border">
-					<i class="tf-ion-ios-cart-outline"></i>
-					<div>
-						<span class="counter" data-count="376">0</span>
-					</div>
-					<h3>Orders Fulfilled</h3>
-				</div>
-			</div>
-			<!-- end fourth count item -->
-		</div> <!-- end row -->
-	</div> <!-- end container -->
-</section> <!-- end section -->
-
-<!-- Start Testimonial
-=========================================== -->
-		
-	<section class="testimonial section" id="testimonial">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 entrance">
-					<!-- testimonial wrapper -->
-					<div class="testimonial-slider">
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Swavey Shots photography was hands-down the best company for the job. They were professional and made sure that my vision came to life. Swavey Shots photography is the company you want for your family photo shoots or events. I am 100% Satisfied.</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<picture>
-									<source type="image/webp" srcset="images/client-logo/a13.webp">
-									<img loading="lazy" src="images/client-logo/a13.jpg" class="img-fluid" alt="Swavey Services client testimonial">
-								</picture>
-							</div>
-							<div class="client-meta">
-								<h3>Janice Vincent</h3>
-							
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-				
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>My experience with Swavey Shots photography was amazing. Their customer service was excellent. They had a very quick response time and answered all of my questions. I was nervous at first and gave them a hard time but at the end they were able to execute my vision during my shoot. I will definitely book with them again. </p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<picture>
-									<source type="image/webp" srcset="images/client-logo/a14.webp">
-									<img loading="lazy" src="images/client-logo/a14.jpg" class="img-fluid" alt="Swavey Services client testimonial">
-								</picture>
-							</div>
-							<div class="client-meta">
-								<h3>Emma Harrison</h3>
-							
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-					
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Swavey Prints was very professionalband they were able to cater to my order.  I asked several questions before placing my order, to reassure the product.
-
-									The process was smooth and precise.  The length of time was not long, and the packaging was neat.
-									
-									I definitely will be ordering again for the next season of my daughters softball team. Thanks Swavey Prints.</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<picture>
-									<source type="image/webp" srcset="images/client-logo/a3.webp">
-									<img loading="lazy" src="images/client-logo/a3.jpg" class="img-fluid" alt="Swavey Services client testimonial">
-								</picture>
-							</div>
-							<div class="client-meta">
-								<h3>Alexander Lucas</h3>
-							
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-
-												<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>I decided to try a new photographer for the first time and I can’t say I was disappointed! I contacted Paul (the owner) last minute and he responded quickly and was able to squeeze me in. Definitely happy with my photos and will be returning!</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<picture>
-									<source type="image/webp" srcset="images/client-logo/a4.webp">
-									<img loading="lazy" src="images/client-logo/a4.jpg" class="img-fluid" alt="Swavey Services client testimonial">
-								</picture>
-							</div>
-							<div class="client-meta">
-								<h3>Devin Jenkins</h3>
-							
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>It was a pleasure working with Swavey shots. I booked him for a maternity shoot and a babyshower. Both shoots captured memorable moments that we have memories of forever. Thank you.</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<picture>
-									<source type="image/webp" srcset="images/client-logo/a6.webp">
-									<img loading="lazy" src="images/client-logo/a6.jpg" class="img-fluid" alt="Swavey Services client testimonial">
-								</picture>
-							</div>
-							<div class="client-meta">
-								<h3>Yesenia Martinez</h3>
-							
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-
-					
-					</div>
-				</div> 		<!-- end col lg 12 -->
-			</div>	    <!-- End row -->
-		</div>       <!-- End container -->
-	</section>    <!-- End Section -->
-
-
-<footer id="footer" class="bg-one">
-  <div class="top-footer">
-    <div class="container">
-      <div class="row justify-content-around">
-        
-
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <ul>
-            <li>
-              <h3>Our Services</h3>
-            </li>
-            <li><a href="portfolio.html">Photography</a></li>
-            <li><a href="service.html">Apparel Printing/Embroidery</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-lg-3 col-md-6">
-          <ul>
-            <li>
-              <h3>Connect with us Socially</h3>
-            </li>
-            <li><a href="https://www.instagram.com/swavey.shots/">Swavey Shots IG</a></li>
-			<li><a href="https://www.instagram.com/swaveyprints/?hl=en">Swavey Prints IG</a></li>
-           
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-      </div>
-    </div> <!-- end container -->
-  </div>
-
-</footer> <!-- end footer -->
-
-
-<!-- end Footer Area
-========================================== -->
+			<p class="orb-footer-copy">&copy; 2026 Swavey Services</p>
+		</div>
+	</footer>
+</section>
 <!-- 
     Essential Scripts
     =====================================-->
@@ -513,30 +285,192 @@ Start Counter Section
 <!-- lightbox -->
 <script src="plugins/lightbox2/js/lightbox.min.js"></script>
 <!-- Owl Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
 <!-- filter -->
-<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Smooth Scroll js -->
 <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
 <!-- Google Map -->
 <!-- Custom js -->
-<script src="js/script.min.js?v=3"></script>
+<script src="js/script.min.js?v=4"></script>
 <script>
 (function() {
-  window.addEventListener("load", function() {
+  /* ---- Camera Splash Intro ---- */
+  var splash = document.getElementById("splashIntro");
+  var camera = document.getElementById("splashCamera");
+  var flash  = document.getElementById("splashFlash");
+
+  /* Skip splash if navigated via logo/home link (#home) */
+  var skipSplash = window.location.hash === "#home";
+  if (skipSplash && splash) {
+    /* Clear hash so future refreshes show splash again */
+    history.replaceState(null, "", window.location.pathname);
+    splash.remove();
+    /* Trigger entrance animations */
+    document.querySelectorAll(".entrance, .entrance-left, .entrance-right").forEach(function(el, i) {
+      setTimeout(function() { el.classList.add("show"); }, i * 100);
+    });
+    initOrbHero();
+  } else if (splash && camera && flash) {
+    /* Block scrolling while splash is visible */
+    document.body.style.overflow = "hidden";
+
+    function triggerEntry() {
+      if (splash.classList.contains("done")) return;
+      splash.classList.add("done");
+
+      /* Step 1: camera enlarges */
+      camera.classList.add("snap");
+
+      /* Step 2: flash fires after camera grows */
+      setTimeout(function() {
+        flash.classList.add("fire");
+      }, 400);
+
+      /* Step 3: after flash peaks, fade out splash to reveal site */
+      setTimeout(function() {
+        splash.classList.add("exit");
+        document.body.style.overflow = "";
+      }, 900);
+
+      /* Step 4: remove splash from DOM after transition */
+      setTimeout(function() {
+        splash.remove();
+        /* Trigger entrance animations now */
+        var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+        els.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add("show"); }, i * 100);
+        });
+        var items = document.querySelectorAll(".filtr-item");
+        items.forEach(function(el, i) {
+          setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+        });
+        /* Start the orb hero after splash */
+        initOrbHero();
+      }, 1500);
+    }
+
+    splash.addEventListener("click", triggerEntry);
+    splash.addEventListener("touchstart", triggerEntry, { passive: true });
+  } else {
+    /* No splash – start orb hero immediately */
+    initOrbHero();
+  }
+
+  /* ---- Expanding Orbs Hero ---- */
+  function initOrbHero() {
+    var main      = document.getElementById("orbMain");
+    var orbShots  = document.getElementById("orbShots");
+    var orbPrints = document.getElementById("orbPrints");
+    var expand    = document.getElementById("orbExpand");
+    var closeBtn  = document.getElementById("orbClose");
+    var exLogo    = document.getElementById("orbExpandLogo");
+    var exDesc    = document.getElementById("orbExpandDesc");
+    var exCta     = document.getElementById("orbExpandCta");
+    if (!main) return;
+
+    /* Brand data */
+    var brands = {
+      shots: {
+        logo: "images/swaveyshotslogo.png",
+        alt: "Swavey Shots",
+        desc: "Specializes in Portrait, Lifestyle, Events, and Sports photography. Check out our portfolio, and if you love our work, do not hesitate to contact us to book us for your next event or photoshoot.",
+        cta: "View Portfolio",
+        href: "portfolio.html",
+        theme: "shots-theme"
+      },
+      prints: {
+        logo: "images/swaveyprintslogo.png",
+        alt: "Swavey Prints",
+        desc: 'Custom apparel &amp; accessory printing and embroidery services. <span style="color:#e74c3c;font-weight:700;text-transform:uppercase">No Minimum Order Required.</span> We also offer graphic and logo design to bring your ideas to life.',
+        cta: "Explore Services",
+        href: "service.html",
+        theme: "prints-theme"
+      }
+    };
+
+    /* Show everything together after splash */
     setTimeout(function() {
-      var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
-      els.forEach(function(el, i) {
-        setTimeout(function() { el.classList.add("show"); }, i * 100);
+      main.classList.add("visible");
+    }, 200);
+
+    /* Get orb center position for clip-path origin */
+    function getOrbCenter(orbEl) {
+      var rect = orbEl.getBoundingClientRect();
+      var cx = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+      var cy = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+      return { cx: cx + "%", cy: cy + "%" };
+    }
+
+    /* Expand an orb */
+    function expandOrb(orbEl, brand) {
+      var data = brands[brand];
+      if (!data) return;
+
+      /* Populate expanded content */
+      exLogo.src = data.logo;
+      exLogo.alt = data.alt;
+      exDesc.innerHTML = data.desc;
+      exCta.textContent = data.cta + " \u2192";
+      exCta.href = data.href;
+
+      /* Set theme */
+      expand.classList.remove("shots-theme", "prints-theme", "closing");
+      expand.classList.add(data.theme);
+
+      /* Set clip-path origin to orb's center */
+      var pos = getOrbCenter(orbEl);
+      expand.style.setProperty("--orb-cx", pos.cx);
+      expand.style.setProperty("--orb-cy", pos.cy);
+
+      /* Trigger expansion */
+      expand.classList.add("active");
+    }
+
+    /* Collapse: circle shrinks back to orb */
+    function collapseOrb() {
+      expand.classList.add("closing");
+      expand.classList.remove("active");
+      setTimeout(function() {
+        expand.classList.remove("closing");
+      }, 550);
+    }
+
+    /* Click handlers */
+    orbShots.addEventListener("click", function() { expandOrb(orbShots, "shots"); });
+    orbPrints.addEventListener("click", function() { expandOrb(orbPrints, "prints"); });
+
+    /* Close button */
+    closeBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      collapseOrb();
+    });
+
+    /* Click outside content to close */
+    expand.addEventListener("click", function(e) {
+      if (e.target === expand) {
+        collapseOrb();
+      }
+    });
+
+    /* Escape key to close */
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && expand.classList.contains("active")) {
+        collapseOrb();
+      }
+    });
+
+    /* Logo and Homepage link close the overlay instead of reloading */
+    var logoLink = document.querySelector(".navbar-brand.logo");
+    var homeLink = document.querySelector('.nav-link[href="index.html#home"]');
+    [logoLink, homeLink].forEach(function(link) {
+      if (!link) return;
+      link.addEventListener("click", function(e) {
+        if (expand.classList.contains("active")) {
+          e.preventDefault();
+          collapseOrb();
+        }
       });
-    }, 300);
-    setTimeout(function() {
-      var items = document.querySelectorAll(".filtr-item");
-      items.forEach(function(el, i) {
-        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
-      });
-    }, 800);
-  });
+    });
+  }
 })();
 </script>
 
