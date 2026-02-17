@@ -1278,28 +1278,24 @@ a:focus, a:hover {
   background: linear-gradient(200deg, #12102a 0%, #1e1645 40%, #150f30 100%);
 }
 
-/* Back button */
+/* Back button — inside card, top-left */
 .orb-expand-back {
-  position: absolute;
-  top: 32px;
-  left: 32px;
-  padding: 12px 28px;
+  align-self: flex-start;
+  padding: 8px 20px;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: var(--radius-full);
   color: rgba(255,255,255,0.85);
   font-family: var(--font-family);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   cursor: pointer;
-  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 20px;
 }
 .orb-expand-back:hover {
   background: rgba(255,255,255,0.18);
@@ -1402,10 +1398,8 @@ a:focus, a:hover {
     font-size: 14px;
   }
   .orb-expand-back {
-    top: 20px;
-    left: 20px;
-    font-size: 14px;
-    padding: 10px 22px;
+    font-size: 12px;
+    padding: 7px 16px;
   }
 }
 @media (max-width: 480px) {
