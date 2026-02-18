@@ -3725,7 +3725,7 @@ html:not([data-theme="dark"]) .navigation .dropdown-item:focus {
 /* Mobile nav */
 @media (max-width: 991px) {
   html:not([data-theme="dark"]) .navigation {
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(220, 232, 244, 0.95);
   }
 }
 
