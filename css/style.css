@@ -3878,8 +3878,35 @@ html:not([data-theme="dark"]) .back-btn::before {
 }
 
 
-/* ── Footer (keep dark-ish for contrast) ── */
-/* Footer stays dark in both modes — no overrides needed */
+/* ── Footer ── */
+html:not([data-theme="dark"]) .site-footer {
+  background: linear-gradient(180deg, #ffffff 0%, #e8f0f8 100%);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+html:not([data-theme="dark"]) .site-footer-dark {
+  background: linear-gradient(180deg, #ffffff 0%, #e8f0f8 100%);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-links a,
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-social a,
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-copy {
+  color: #333;
+}
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-links a:hover,
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-social a:hover {
+  color: var(--color-accent);
+}
+html:not([data-theme="dark"]) .site-footer-dark .site-footer-dot {
+  background: rgba(0,0,0,0.15);
+}
+html:not([data-theme="dark"]) .top-footer {
+  background: linear-gradient(180deg, #ffffff 0%, #eaf2fa 100%);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+html:not([data-theme="dark"]) .footer-bottom {
+  background: #e0ecf5;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
 
 
 /* ── Orb Hero (homepage) ── */
