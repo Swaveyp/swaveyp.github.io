@@ -1922,6 +1922,132 @@ a:focus, a:hover {
   }
 }
 
+/* ── Dark Form (inside contact cards) ── */
+.dark-form {
+  text-align: left;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+}
+.dark-form .form-group {
+  margin-bottom: 18px;
+}
+.dark-form label {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+  display: block;
+}
+.dark-form .required {
+  color: var(--color-accent);
+}
+.dark-form .form-control {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 14px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  box-shadow: none;
+  width: 100%;
+  padding: 0 14px;
+}
+.dark-form .form-control::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.dark-form .form-control:focus {
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 3px rgba(40,171,227,0.15);
+  outline: none;
+}
+.dark-form .form-control:hover {
+  border-color: rgba(255,255,255,0.3);
+}
+.dark-form select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(255,255,255,0.6)' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.dark-form select.form-control option {
+  background: #112240;
+  color: #fff;
+}
+.dark-form textarea.form-control {
+  height: 120px;
+  resize: vertical;
+  padding: 12px 14px;
+}
+.dark-form .radio-group {
+  display: flex;
+  gap: 24px;
+  margin-top: 6px;
+}
+.dark-form .radio-label {
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dark-form .radio-label input[type="radio"] {
+  accent-color: var(--color-accent);
+  width: 16px;
+  height: 16px;
+}
+.dark-form .btn-main {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 0;
+}
+.dark-form .btn-main:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.shipping-fields {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+.shipping-fields.visible {
+  max-height: 400px;
+  opacity: 1;
+}
+.apparel-form-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+.apparel-form-wrapper.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+.form-status {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+.form-status.success {
+  color: #4ade80;
+}
+.form-status.error {
+  color: #f87171;
+}
+
 .contact-form {
   margin-bottom: 40px;
 }

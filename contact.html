@@ -49,6 +49,11 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+
+  <!-- Calendly popup widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <!-- CSS
   ================================================== -->
@@ -63,7 +68,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=48">
+  <link rel="stylesheet" href="css/style.min.css?v=49">
 
   <script type="application/ld+json">
   {
@@ -252,14 +257,80 @@ End Fixed Navigation
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-6 mb-4 entrance">
+      <div class="col-lg-5 col-md-6 mb-4 entrance" id="apparelCol">
         <div class="contact-card text-center">
           <div class="contact-card-icon">
             <i class="tf-ion-tshirt-outline"></i>
           </div>
           <h3>Apparel Printing &amp; Embroidery</h3>
           <p>Custom t-shirts, polos, hats, and more. No minimum order required. Fill out our quick order form and we'll send you a free quote.</p>
-          <a href="https://forms.gle/jRHP3opdhHfiSdms7" class="btn btn-main" target="_blank" rel="noopener">Place Your Order</a>
+          <button class="btn btn-main" id="toggleApparelForm" type="button">Place Your Order</button>
+
+          <div class="apparel-form-wrapper" id="apparelFormWrapper">
+            <form class="dark-form" id="apparelForm" novalidate>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="af-name">Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="af-name" name="name" required placeholder="Your name">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="af-email">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="af-email" name="email" required placeholder="you@email.com">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="af-phone">Phone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" id="af-phone" name="phone" required placeholder="(555) 123-4567">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="af-inquiry">Printing Inquiry</label>
+                  <select class="form-control" id="af-inquiry" name="inquiry">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="T-Shirt Printing">T-Shirt Printing</option>
+                    <option value="Embroidery">Embroidery</option>
+                    <option value="Decal Printing">Decal Printing</option>
+                    <option value="Logo Design">Logo Design</option>
+                    <option value="Graphics Design">Graphics Design</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="af-details">Order Details</label>
+                <textarea class="form-control" id="af-details" name="details" rows="4" placeholder="Please share any helpful information to help us with your inquiry. Include Type of Garment (t-shirts, hoodies, etc.), Quantity, Size Breakdown, Garment Colors, &amp; Number of Print Locations (Front print, Back Print, Sleeve Print, etc.)"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Require Shipping?</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="shipping" value="No" checked> No</label>
+                  <label class="radio-label"><input type="radio" name="shipping" value="Yes"> Yes</label>
+                </div>
+              </div>
+              <div class="shipping-fields" id="shippingFields">
+                <div class="form-group">
+                  <label for="af-address">Street Address</label>
+                  <input type="text" class="form-control" id="af-address" name="address" placeholder="123 Main St">
+                </div>
+                <div class="row">
+                  <div class="col-md-5 form-group">
+                    <label for="af-city">City</label>
+                    <input type="text" class="form-control" id="af-city" name="city" placeholder="City">
+                  </div>
+                  <div class="col-md-3 form-group">
+                    <label for="af-state">State</label>
+                    <input type="text" class="form-control" id="af-state" name="state" placeholder="FL" maxlength="2">
+                  </div>
+                  <div class="col-md-4 form-group">
+                    <label for="af-zip">Zip Code</label>
+                    <input type="text" class="form-control" id="af-zip" name="zip" placeholder="33101" maxlength="10">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-main btn-block" id="apparelSubmit">Send Order Request</button>
+              <p class="form-status" id="formStatus"></p>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -271,9 +342,9 @@ End Fixed Navigation
           <h3>Photography Sessions</h3>
           <p>Professional portrait, lifestyle, event, and sports photography. Pick a session length and book a time that works for you.</p>
           <div class="contact-card-buttons">
-            <a href="https://calendly.com/swaveyshots/1hr" class="btn btn-main" target="_blank" rel="noopener">1 Hr Session</a>
-            <a href="https://calendly.com/swaveyprints/2hr" class="btn btn-main" target="_blank" rel="noopener">2 Hr Session</a>
-            <a href="https://calendly.com/swaveyservices/3-hour-session" class="btn btn-main" target="_blank" rel="noopener">3+ Hr Session</a>
+            <a href="https://calendly.com/swaveyshots/1hr" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyshots/1hr')">1 Hr Session</a>
+            <a href="https://calendly.com/swaveyprints/2hr" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyprints/2hr')">2 Hr Session</a>
+            <a href="https://calendly.com/swaveyservices/3-hour-session" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyservices/3-hour-session')">3+ Hr Session</a>
           </div>
         </div>
       </div>
@@ -335,6 +406,92 @@ End Fixed Navigation
         setTimeout(function() { el.classList.add("revealed"); }, i * 50);
       });
     }, 800);
+  });
+})();
+</script>
+
+<script>
+/* ── Calendly Popup (fallback to new tab if widget not loaded) ── */
+function openCalendly(el, url) {
+  if (window.Calendly && Calendly.initPopupWidget) {
+    Calendly.initPopupWidget({ url: url });
+    return false;          /* prevent <a> navigation */
+  }
+  window.open(url, '_blank', 'noopener');
+  return false;
+}
+
+/* ── Apparel Order Form → Google Forms ── */
+(function() {
+  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdmu8PjKuTAP6e9hFL1Cd85mzhwHe4mgn3N3wMtT7Z7XxgI4w/formResponse';
+
+  var toggleBtn   = document.getElementById('toggleApparelForm');
+  var wrapper     = document.getElementById('apparelFormWrapper');
+  var col         = document.getElementById('apparelCol');
+  var form        = document.getElementById('apparelForm');
+  var status      = document.getElementById('formStatus');
+  var shipFields  = document.getElementById('shippingFields');
+  var shipRadios  = form.querySelectorAll('input[name="shipping"]');
+
+  /* Toggle form open / close */
+  toggleBtn.addEventListener('click', function() {
+    var open = wrapper.classList.toggle('open');
+    toggleBtn.textContent = open ? 'Close Form' : 'Place Your Order';
+    col.className = open
+      ? 'col-lg-10 col-md-12 mb-4 entrance show'
+      : 'col-lg-5 col-md-6 mb-4 entrance show';
+  });
+
+  /* Show / hide shipping fields */
+  shipRadios.forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      if (this.value === 'Yes') {
+        shipFields.classList.add('visible');
+      } else {
+        shipFields.classList.remove('visible');
+      }
+    });
+  });
+
+  /* Submit form → Google Forms */
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var submitBtn = document.getElementById('apparelSubmit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'form-status';
+
+    var body = new URLSearchParams();
+    body.append('entry.1573658226', form.name.value.trim());
+    body.append('entry.489538164',  form.email.value.trim());
+    body.append('entry.1024381023', form.phone.value.trim());
+    body.append('entry.494247540',  form.inquiry.value);
+    body.append('entry.1916355278', form.details.value.trim());
+    body.append('entry.835858048',  form.shipping.value);
+    body.append('entry.573020802',  form.address.value.trim());
+    body.append('entry.1468813709', form.city.value.trim());
+    body.append('entry.329634963',  form.state.value.trim());
+    body.append('entry.1179119042', form.zip.value.trim());
+
+    fetch(FORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    }).then(function() {
+      status.textContent = 'Order request sent! We\'ll be in touch soon.';
+      status.className = 'form-status success';
+      form.reset();
+      shipFields.classList.remove('visible');
+    }).catch(function() {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'form-status error';
+    }).finally(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Order Request';
+    });
   });
 })();
 </script>
