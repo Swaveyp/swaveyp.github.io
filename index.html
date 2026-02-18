@@ -253,30 +253,40 @@ Expanding Orbs Hero
 		</div>
 	</div>
 
-	<!-- Footer (inline on hero screen) -->
-	<footer class="orb-footer" id="footer">
-		<div class="orb-footer-inner">
-			<div class="orb-footer-links">
-				<a href="portfolio.html">Portfolio</a>
-				<span class="orb-footer-dot"></span>
-				<a href="service.html">Services</a>
-				<span class="orb-footer-dot"></span>
-				<a href="contact.html">Contact</a>
-			</div>
-			<div class="orb-footer-social">
-				<a href="https://www.instagram.com/swavey.shots/" aria-label="Swavey Shots Instagram" target="_blank" rel="noopener">
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-					<span>Shots</span>
-				</a>
-				<a href="https://www.instagram.com/swaveyprints/?hl=en" aria-label="Swavey Prints Instagram" target="_blank" rel="noopener">
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-					<span>Prints</span>
-				</a>
-			</div>
-			<p class="orb-footer-copy">&copy; 2026 Swavey Services</p>
-		</div>
-	</footer>
+	<footer class="orb-footer" id="footer"></footer>
 </section>
+
+<!-- Instagram Banner -->
+<div class="ig-banner">
+	<a class="ig-banner-item ig-landscape" href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener">
+		<img src="images/Events/Events/H21A1203.jpeg" alt="Swavey Shots Photography" loading="lazy">
+		<div class="ig-banner-overlay">
+			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+			<p class="ig-banner-label">Instagram</p>
+			<p class="ig-banner-handle">@swavey.shots</p>
+		</div>
+	</a>
+	<a class="ig-banner-item ig-square" href="https://www.instagram.com/swaveyprints/" target="_blank" rel="noopener">
+		<img src="images/PhotoGrid/sew.jpg" alt="Swavey Prints Apparel" loading="lazy">
+		<div class="ig-banner-overlay">
+			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+			<p class="ig-banner-label">Instagram</p>
+			<p class="ig-banner-handle">@swaveyprints</p>
+		</div>
+	</a>
+</div>
+<footer class="site-footer site-footer-dark">
+	<div class="site-footer-inner">
+		<div class="site-footer-links">
+			<a href="portfolio.html">Portfolio</a>
+			<span class="site-footer-dot"></span>
+			<a href="service.html">Services</a>
+			<span class="site-footer-dot"></span>
+			<a href="contact.html">Contact</a>
+		</div>
+		<p class="site-footer-copy">&copy; 2026 Swavey Services</p>
+	</div>
+</footer>
 <!-- 
     Essential Scripts
     =====================================-->
@@ -417,6 +427,11 @@ Expanding Orbs Hero
     /* Show everything together after splash */
     setTimeout(function() {
       main.classList.add("visible");
+      /* Slide in IG banner after slam words finish (2.0s delay + 0.55s anim) */
+      var igBanner = document.querySelector('.ig-banner');
+      if (igBanner) {
+        setTimeout(function() { igBanner.classList.add('visible'); }, 2800);
+      }
     }, 200);
 
     /* Get orb center position for clip-path origin */
@@ -509,6 +524,7 @@ Expanding Orbs Hero
       });
     });
   }
+
 })();
 </script>
 
