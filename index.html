@@ -63,7 +63,7 @@
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=48">
+  <link rel="stylesheet" href="css/style.min.css?v=50">
 
   <script type="application/ld+json">
   {
@@ -117,13 +117,18 @@
     }
   }
   </script>
+<script src="js/theme-toggle.js"></script>
 </head>
 <body id="body" class="home-page">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+</button>
 
   <!--
   Camera Splash Intro
   ==================================== -->
-  <div id="splashIntro" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a1628;z-index:9999999999;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+  <div id="splashIntro" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#e8f0f8;z-index:9999999999;display:flex;align-items:center;justify-content:center;cursor:pointer;">
     <div class="splash-content">
       <div class="splash-logo-group" id="splashCamera">
         <img src="images/swaveycamera-clean.png?v=3" alt="Swavey Services" class="splash-camera">
@@ -325,27 +330,49 @@ Expanding Orbs Hero
         flash.classList.add("fire");
       }, 400);
 
-      /* Step 3: after flash peaks, fade out splash to reveal site */
+      /* Step 3: after flash peaks, TV-split open to reveal site */
       setTimeout(function() {
-        splash.classList.add("exit");
-        document.body.style.overflow = "";
-      }, 900);
+        /* Get splash background color for curtains */
+        var bg = getComputedStyle(splash).backgroundColor || '#e8f0f8';
 
-      /* Step 4: remove splash from DOM after transition */
-      setTimeout(function() {
+        /* Create two curtain halves */
+        var topCurtain = document.createElement('div');
+        var botCurtain = document.createElement('div');
+        topCurtain.className = 'tv-curtain tv-curtain-top';
+        botCurtain.className = 'tv-curtain tv-curtain-bottom';
+        topCurtain.style.background = bg;
+        botCurtain.style.background = bg;
+        document.body.appendChild(topCurtain);
+        document.body.appendChild(botCurtain);
+
+        /* Hide splash immediately behind the curtains */
         splash.remove();
-        /* Trigger entrance animations now */
-        var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
-        els.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add("show"); }, i * 100);
+        document.body.style.overflow = "";
+
+        /* Trigger the split on next frame */
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            topCurtain.classList.add('open');
+            botCurtain.classList.add('open');
+          });
         });
-        var items = document.querySelectorAll(".filtr-item");
-        items.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add("revealed"); }, i * 50);
-        });
-        /* Start the orb hero after splash */
-        initOrbHero();
-      }, 1500);
+
+        /* Remove curtains after animation */
+        setTimeout(function() {
+          topCurtain.remove();
+          botCurtain.remove();
+          /* Trigger entrance animations */
+          var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
+          els.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add("show"); }, i * 100);
+          });
+          var items = document.querySelectorAll(".filtr-item");
+          items.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+          });
+          initOrbHero();
+        }, 700);
+      }, 900);
     }
 
     splash.addEventListener("click", triggerEntry);
@@ -425,13 +452,15 @@ Expanding Orbs Hero
       expand.classList.add("active");
     }
 
-    /* Collapse: circle shrinks back to orb */
+    /* Collapse: circle shrinks to center of screen */
     function collapseOrb() {
+      expand.style.setProperty("--orb-cx", "50%");
+      expand.style.setProperty("--orb-cy", "50%");
       expand.classList.add("closing");
       expand.classList.remove("active");
       setTimeout(function() {
         expand.classList.remove("closing");
-      }, 550);
+      }, 850);
     }
 
     /* Click handlers */
