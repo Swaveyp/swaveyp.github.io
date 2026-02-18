@@ -427,10 +427,15 @@ Expanding Orbs Hero
       return { cx: cx + "%", cy: cy + "%" };
     }
 
+    /* Track which orb is currently expanded */
+    var activeOrb = null;
+
     /* Expand an orb */
     function expandOrb(orbEl, brand) {
       var data = brands[brand];
       if (!data) return;
+
+      activeOrb = orbEl;
 
       /* Populate expanded content */
       exLogo.src = data.logo;
@@ -452,14 +457,18 @@ Expanding Orbs Hero
       expand.classList.add("active");
     }
 
-    /* Collapse: circle shrinks to center of screen */
+    /* Collapse: circle shrinks back to the orb that was clicked */
     function collapseOrb() {
-      expand.style.setProperty("--orb-cx", "50%");
-      expand.style.setProperty("--orb-cy", "50%");
+      if (activeOrb) {
+        var pos = getOrbCenter(activeOrb);
+        expand.style.setProperty("--orb-cx", pos.cx);
+        expand.style.setProperty("--orb-cy", pos.cy);
+      }
       expand.classList.add("closing");
       expand.classList.remove("active");
       setTimeout(function() {
         expand.classList.remove("closing");
+        activeOrb = null;
       }, 850);
     }
 
