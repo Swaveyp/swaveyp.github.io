@@ -3839,9 +3839,12 @@ html:not([data-theme="dark"]) .splash-flash.fire {
 .filtr-container {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 12px;
   height: auto !important;
   position: relative !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .filtr-item {
   position: relative !important;
