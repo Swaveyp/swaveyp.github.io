@@ -1485,8 +1485,9 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   animation: expandShimmer 1s 0.6s ease forwards;
 }
 @keyframes expandShimmer {
-  0%   { left: -100%; }
-  100% { left: 200%; }
+  0%   { left: -100%; opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 200%; opacity: 0; }
 }
 .orb-expand.active .orb-expand-content {
   opacity: 1;
