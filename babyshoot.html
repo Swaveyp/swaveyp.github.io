@@ -49,6 +49,7 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
 
   <!-- CSS
   ================================================== -->
@@ -57,13 +58,11 @@
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="plugins/photoswipe/photoswipe.css">
   <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=51">
+  <link rel="stylesheet" href="css/style.min.css?v=54">
 
   <script type="application/ld+json">
   {
@@ -103,7 +102,9 @@
     ]
   }
   </script>
-<script src="js/theme-toggle.js"></script>
+<script>
+(function(){if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
 </head>
 <body id="body">
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
@@ -140,11 +141,11 @@ Fixed Navigation
       <a class="navbar-brand logo" href="index.html#home">
         <picture>
 									<source type="image/webp" srcset="images/swaveylogo23.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
+									<img class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
         <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
+									<img class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
         
       </a>
@@ -218,151 +219,26 @@ End Fixed Navigation
 	<div class="container-fluid">
 				<div class="row entrance">
 					<div class="col-12">
-						<div class="filtr-container">
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/aj1-thumb.webp 800w, images/Baby Shoots/Baby Shoots/aj1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/aj1.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/aj1.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, ios">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/aj2-thumb.webp 800w, images/Baby Shoots/Baby Shoots/aj2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid baby" src="images/Baby Shoots/Baby Shoots/aj2.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/aj2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/aj3-thumb.webp 800w, images/Baby Shoots/Baby Shoots/aj3.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid baby" src="images/Baby Shoots/Baby Shoots/aj3.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/aj3.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, ios">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/djshf-thumb.webp 800w, images/Baby Shoots/Baby Shoots/djshf.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/djshf.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/djshf.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/efe-thumb.webp 800w, images/Baby Shoots/Baby Shoots/efe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/efe.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/efe.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/efw-thumb.webp 800w, images/Baby Shoots/Baby Shoots/efw.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/efw.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/efw.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/erghweg-thumb.webp 800w, images/Baby Shoots/Baby Shoots/erghweg.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/erghweg.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/erghweg.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/ersdgw-thumb.webp 800w, images/Baby Shoots/Baby Shoots/ersdgw.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/ersdgw.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/ersdgw.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/fewf-thumb.webp 800w, images/Baby Shoots/Baby Shoots/fewf.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/fewf.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/fewf.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/gwwge-thumb.webp 800w, images/Baby Shoots/Baby Shoots/gwwge.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/gwwge.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/gwwge.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/hgjh-thumb.webp 800w, images/Baby Shoots/Baby Shoots/hgjh.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/hgjh.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/hgjh.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/jdfjfe-thumb.webp 800w, images/Baby Shoots/Baby Shoots/jdfjfe.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/jdfjfe.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/jdfjfe.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/re-thumb.webp 800w, images/Baby Shoots/Baby Shoots/re.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/re.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/re.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/Untiefftled-2-thumb.webp 800w, images/Baby Shoots/Baby Shoots/Untiefftled-2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/Untiefftled-2.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/Untiefftled-2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/Untitled-2-thumb.webp 800w, images/Baby Shoots/Baby Shoots/Untitled-2.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/Untitled-2.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/Untitled-2.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, development">
-								<div class="portfolio-block">
-									<picture>
-									<source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/wdgf-thumb.webp 800w, images/Baby Shoots/Baby Shoots/wdgf.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/wdgf.jpg" alt="Baby photography by Swavey Shots">
-								</picture>
-									<a href="images/Baby Shoots/Baby Shoots/wdgf.jpg" data-lightbox="image-1" class="portfolio-link" aria-label="View full size image"></a>
-								</div>
-							</div>              
+						<div class="filtr-container pswp-gallery" id="gallery">
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/7P0A8410-thumb.webp 800w, images/Baby Shoots/Baby Shoots/7P0A8410.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/7P0A8410.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/7P0A8410.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/7P0A8428-thumb.webp 800w, images/Baby Shoots/Baby Shoots/7P0A8428.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/7P0A8428.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/7P0A8428.jpg" data-pswp-width="1227" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/7P0A8611-Edit-thumb.webp 800w, images/Baby Shoots/Baby Shoots/7P0A8611-Edit.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/7P0A8611-Edit.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/7P0A8611-Edit.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/7P0A8729-thumb.webp 800w, images/Baby Shoots/Baby Shoots/7P0A8729.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/7P0A8729.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/7P0A8729.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/7P0A8796-thumb.webp 800w, images/Baby Shoots/Baby Shoots/7P0A8796.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/7P0A8796.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/7P0A8796.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A0692-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A0692.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A0692.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A0692.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A0749-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A0749.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A0749.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A0749.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A0793-Edit-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A0793-Edit.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A0793-Edit.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A0793-Edit.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A0810-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A0810.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A0810.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A0810.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A0997-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A0997.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A0997.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A0997.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/871A1108-Edit-thumb.webp 800w, images/Baby Shoots/Baby Shoots/871A1108-Edit.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/871A1108-Edit.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/871A1108-Edit.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A0006-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A0006.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A0006.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A0006.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9220-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9220.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9220.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9220.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9222-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9222.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9222.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9222.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9224-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9224.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9224.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9224.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9231-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9231.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9231.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9231.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9337-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9337.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9337.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9337.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9930-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9930.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9930.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9930.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
+							<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 filtr-item" data-category="mix"><div class="portfolio-block"><picture><source type="image/webp" srcset="images/Baby Shoots/Baby Shoots/H21A9988-thumb.webp 800w, images/Baby Shoots/Baby Shoots/H21A9988.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw"><img loading="lazy" class="img-fluid" src="images/Baby Shoots/Baby Shoots/H21A9988.jpg" alt="Baby photography by Swavey Shots"></picture><a href="images/Baby Shoots/Baby Shoots/H21A9988.jpg" data-pswp-width="1280" data-pswp-height="1920" target="_blank" class="portfolio-link" aria-label="View full size image"></a></div></div>
 						</div>
 					</div>
 				</div>
@@ -372,7 +248,7 @@ End Fixed Navigation
 <!-- Instagram Banner -->
 <div class="ig-banner">
 	<a class="ig-banner-item ig-landscape" href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener">
-		<img src="images/Events/Events/H21A1203.jpeg" alt="Swavey Shots Photography" loading="lazy">
+		<picture><source type="image/webp" srcset="images/ig-banner-shots.webp"><img src="images/ig-banner-shots.jpg" alt="Swavey Shots Photography" loading="lazy"></picture>
 		<div class="ig-banner-overlay">
 			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
 			<p class="ig-banner-label">Instagram</p>
@@ -380,7 +256,7 @@ End Fixed Navigation
 		</div>
 	</a>
 	<a class="ig-banner-item ig-square" href="https://www.instagram.com/swaveyprints/" target="_blank" rel="noopener">
-		<img src="images/PhotoGrid/sew.jpg" alt="Swavey Prints Apparel" loading="lazy">
+		<picture><source type="image/webp" srcset="images/ig-banner-prints.webp"><img src="images/ig-banner-prints.jpg" alt="Swavey Prints Apparel" loading="lazy"></picture>
 		<div class="ig-banner-overlay">
 			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
 			<p class="ig-banner-label">Instagram</p>
@@ -407,21 +283,22 @@ End Fixed Navigation
       Essential Scripts
       =====================================-->
   <!-- Main jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/jquery/jquery.min.js" defer></script>
   
   <!-- Bootstrap4 -->
-  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
   <!-- Parallax -->
-  <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+  <script src="plugins/parallax/jquery.parallax-1.1.3.js" defer></script>
   <!-- lightbox -->
-  <script src="plugins/lightbox2/js/lightbox.min.js"></script>
+  <script src="plugins/photoswipe/photoswipe-lightbox.umd.min.js"></script>
+  <script src="plugins/photoswipe/photoswipe.umd.min.js"></script>
   <!-- Owl Carousel -->
     <!-- filter -->
     <!-- Smooth Scroll js -->
-  <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+  <script src="plugins/smooth-scroll/smooth-scroll.min.js" defer></script>
   <!-- Google Map -->
 <!-- Custom js -->
-  <script src="js/script.min.js?v=4"></script>
+  <script src="js/script.min.js?v=5" defer></script>
 <script>
 (function() {
   window.addEventListener("load", function() {
@@ -441,6 +318,20 @@ End Fixed Navigation
 })();
 </script>
   
-  </body>
+  <script>
+  var lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a[data-pswp-width]',
+    pswpModule: PhotoSwipe,
+    bgOpacity: 0.92,
+    padding: { top: 20, bottom: 20, left: 20, right: 20 },
+    wheelToZoom: true
+  });
+  lightbox.init();
+  </script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeToggle');if(!b)return;var d=document.documentElement.getAttribute('data-theme')==='dark';function u(){var s=b.querySelector('.theme-icon-sun'),m=b.querySelector('.theme-icon-moon');if(s)s.style.display=d?'block':'none';if(m)m.style.display=d?'none':'block'}function p(){var sp=document.getElementById('splashIntro');if(sp)sp.style.background=d?'#0a1628':'#e8f0f8'}u();p();b.addEventListener('click',function(){d=!d;if(d){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}else{document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}u();p()})});
+</script>
+</body>
   
   </html>

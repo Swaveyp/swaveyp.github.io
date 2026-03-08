@@ -49,21 +49,17 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
 
   <!-- CSS
   ================================================== -->
-  <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
-  <!-- bootstrap.min css -->
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" type="image/webp" href="images/babies-genre-tiny.webp">
+  <!-- Main Stylesheet (critical) -->
+  <link rel="stylesheet" href="css/style.min.css?v=54">
+  <!-- Deferred CSS -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-  <!-- Lightbox.min css -->
-  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css" media="print" onload="this.media='all'">
-  <!-- animation css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css" media="print" onload="this.media='all'">
-  <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css" media="print" onload="this.media='all'">
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=51">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
 
   <script type="application/ld+json">
   {
@@ -103,7 +99,9 @@
     ]
   }
   </script>
-<script src="js/theme-toggle.js"></script>
+<script>
+(function(){if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
 </head>
 <body id="body">
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
@@ -140,11 +138,11 @@ Fixed Navigation
         <a class="navbar-brand logo" href="index.html#home">
           <picture>
 									<source type="image/webp" srcset="images/swaveylogo23.webp">
-									<img loading="lazy" class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
+									<img class="logo-default" src="images/swaveylogo23.png" alt="logo" width="263" height="194" />
 								</picture>
           <picture>
 									<source type="image/webp" srcset="images/swaveylogow.webp">
-									<img loading="lazy" class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
+									<img class="logo-white" src="images/swaveylogow.png" alt="logo" width="250" height="125" />
 								</picture>
           
         </a>
@@ -231,70 +229,136 @@ End Fixed Navigation
 				<div class="row entrance">
 					<div class="col-12">
 						<div class="filtr-container">
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/babies1-thumb.webp 800w, images/babies1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/babies1.jpg" alt="Baby photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="babyshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/babies-genre-tiny.webp 250w, images/babies-genre-thumb.webp 600w, images/babies-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img fetchpriority="high" class="img-fluid" src="images/babies-genre.jpg" alt="Baby photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Babies</span>
+									<a href="babyshoot.html" class="portfolio-link" aria-label="View baby photography"></a>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design, ios">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/families1-thumb.webp 800w, images/families1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/families1.jpg" alt="Family photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="familyshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/engagement-genre-tiny.webp 250w, images/engagement-genre-thumb.webp 600w, images/engagement-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/engagement-genre.jpg" alt="Engagement photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Engagement</span>
+									<a href="engagementshoot.html" class="portfolio-link" aria-label="View engagement photography"></a>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, development">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/lifestyle1-thumb.webp 800w, images/lifestyle1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/lifestyle1.jpg" alt="Lifestyle photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="lifestyleshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/events-genre-tiny.webp 250w, images/events-genre-thumb.webp 600w, images/events-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/events-genre.jpg" alt="Event photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Events</span>
+									<a href="events.html" class="portfolio-link" aria-label="View event photography"></a>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, photography, ios">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/maternity1-thumb.webp 800w, images/maternity1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/maternity1.jpg" alt="Maternity photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="maternityshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/families-genre-tiny.webp 250w, images/families-genre-thumb.webp 600w, images/families-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/families-genre.jpg" alt="Family photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Families</span>
+									<a href="familyshoot.html" class="portfolio-link" aria-label="View family photography"></a>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/portraits1-thumb.webp 800w, images/portraits1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/portraits1.jpg" alt="Portrait photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="portraitshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/headshots-genre-tiny.webp 250w, images/headshots-genre-thumb.webp 600w, images/headshots-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/headshots-genre.jpg" alt="Headshot photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Headshots</span>
+									<a href="headshotshoot.html" class="portfolio-link" aria-label="View headshot photography"></a>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/events-thumb.webp 800w, images/events.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/events.jpg" alt="Event photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="events.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/lifestyle-genre-tiny.webp 250w, images/lifestyle-genre-thumb.webp 600w, images/lifestyle-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/lifestyle-genre.jpg" alt="Lifestyle photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Lifestyle</span>
+									<a href="lifestyleshoot.html" class="portfolio-link" aria-label="View lifestyle photography"></a>
 								</div>
 							</div>
-              				<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
+							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
-									<source type="image/webp" srcset="images/sports1-thumb.webp 800w, images/sports1.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/sports1.jpg" alt="Sports photography portfolio by Swavey Shots" width="800" height="1200">
-								</picture>
-									<a href="sportshoot.html" class="portfolio-link" aria-label="View full size image"></a>
+										<source type="image/webp" srcset="images/maternity-genre-tiny.webp 250w, images/maternity-genre-thumb.webp 600w, images/maternity-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/maternity-genre.jpg" alt="Maternity photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Maternity</span>
+									<a href="maternityshoot.html" class="portfolio-link" aria-label="View maternity photography"></a>
 								</div>
 							</div>
-							
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/mediaday-genre-tiny.webp 250w, images/mediaday-genre-thumb.webp 600w, images/mediaday-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/mediaday-genre.jpg" alt="Media Day photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Media Day</span>
+									<a href="mediadayshoot.html" class="portfolio-link" aria-label="View media day photography"></a>
+								</div>
+							</div>
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/portrait-genre-tiny.webp 250w, images/portrait-genre-thumb.webp 600w, images/portrait-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/portrait-genre.jpg" alt="Portrait photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Portrait</span>
+									<a href="portraitshoot.html" class="portfolio-link" aria-label="View portrait photography"></a>
+								</div>
+							</div>
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/prom-genre-tiny.webp 250w, images/prom-genre-thumb.webp 600w, images/prom-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/prom-genre.jpg" alt="Prom photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Prom</span>
+									<a href="promshoot.html" class="portfolio-link" aria-label="View prom photography"></a>
+								</div>
+							</div>
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/realestate-genre-tiny.webp 250w, images/realestate-genre-thumb.webp 600w, images/realestate-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/realestate-genre.jpg" alt="Real Estate photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Real Estate</span>
+									<a href="realestateshoot.html" class="portfolio-link" aria-label="View real estate photography"></a>
+								</div>
+							</div>
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/senior-genre-tiny.webp 250w, images/senior-genre-thumb.webp 600w, images/senior-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/senior-genre.jpg" alt="Senior photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Senior</span>
+									<a href="seniorshoot.html" class="portfolio-link" aria-label="View senior photography"></a>
+								</div>
+							</div>
+							<div class="filtr-item" data-category="mix">
+								<div class="portfolio-block">
+									<picture>
+										<source type="image/webp" srcset="images/sports-genre-tiny.webp 250w, images/sports-genre-thumb.webp 600w, images/sports-genre.webp 1920w" sizes="(max-width: 768px) 33vw, 25vw">
+										<img loading="lazy" class="img-fluid" src="images/sports-genre.jpg" alt="Sports photography by Swavey Shots" width="250" height="333">
+									</picture>
+									<span class="genre-label">Sports</span>
+									<a href="sportshoot.html" class="portfolio-link" aria-label="View sports photography"></a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -305,7 +369,7 @@ End Fixed Navigation
 <!-- Instagram Banner -->
 <div class="ig-banner">
 	<a class="ig-banner-item ig-landscape" href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener">
-		<img src="images/Events/Events/H21A1203.jpeg" alt="Swavey Shots Photography" loading="lazy">
+		<picture><source type="image/webp" srcset="images/ig-banner-shots.webp"><img src="images/ig-banner-shots.jpg" alt="Swavey Shots Photography" loading="lazy"></picture>
 		<div class="ig-banner-overlay">
 			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
 			<p class="ig-banner-label">Instagram</p>
@@ -313,7 +377,7 @@ End Fixed Navigation
 		</div>
 	</a>
 	<a class="ig-banner-item ig-square" href="https://www.instagram.com/swaveyprints/" target="_blank" rel="noopener">
-		<img src="images/PhotoGrid/sew.jpg" alt="Swavey Prints Apparel" loading="lazy">
+		<picture><source type="image/webp" srcset="images/ig-banner-prints.webp"><img src="images/ig-banner-prints.jpg" alt="Swavey Prints Apparel" loading="lazy"></picture>
 		<div class="ig-banner-overlay">
 			<svg class="ig-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
 			<p class="ig-banner-label">Instagram</p>
@@ -340,21 +404,20 @@ End Fixed Navigation
     Essential Scripts
     =====================================-->
 <!-- Main jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js" defer></script>
 
 <!-- Bootstrap4 -->
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
 <!-- Parallax -->
-<script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<script src="plugins/parallax/jquery.parallax-1.1.3.js" defer></script>
 <!-- lightbox -->
-<script src="plugins/lightbox2/js/lightbox.min.js"></script>
 <!-- Owl Carousel -->
 <!-- filter -->
 <!-- Smooth Scroll js -->
-<script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+<script src="plugins/smooth-scroll/smooth-scroll.min.js" defer></script>
 <!-- Google Map -->
 <!-- Custom js -->
-<script src="js/script.min.js?v=4"></script>
+<script src="js/script.min.js?v=5" defer></script>
 <script>
 (function() {
   window.addEventListener("load", function() {
@@ -374,6 +437,9 @@ End Fixed Navigation
 })();
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeToggle');if(!b)return;var d=document.documentElement.getAttribute('data-theme')==='dark';function u(){var s=b.querySelector('.theme-icon-sun'),m=b.querySelector('.theme-icon-moon');if(s)s.style.display=d?'block':'none';if(m)m.style.display=d?'none':'block'}function p(){var sp=document.getElementById('splashIntro');if(sp)sp.style.background=d?'#0a1628':'#e8f0f8'}u();p();b.addEventListener('click',function(){d=!d;if(d){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}else{document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}u();p()})});
+</script>
 </body>
 
 </html>

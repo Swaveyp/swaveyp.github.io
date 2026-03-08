@@ -2,8 +2,7 @@
  * Swavey Services – Light Modern Theme
  */
 
-/*=== FONTS ===*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+/*=== FONTS === (loaded via <link> in HTML head for performance) */
 
 /*=== CSS CUSTOM PROPERTIES ===*/
 :root {
@@ -2362,24 +2361,37 @@ html:not([data-theme="dark"]) .splash-flash.fire {
 
 .portfolio-block {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   overflow: hidden;
   display: block;
   border-radius: var(--radius-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+  aspect-ratio: 3 / 4;
+}
+.portfolio-block img.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .portfolio-block:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(40, 171, 227, 0.3), 0 0 15px rgba(40, 171, 227, 0.15);
 }
 .portfolio-block picture {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 .portfolio-block img.img-fluid {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+}
+.portfolio-block:hover img.img-fluid {
+  transform: scale(1.1);
+  filter: brightness(0.7);
 }
 .portfolio-link {
   position: absolute;
@@ -2390,9 +2402,10 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   z-index: 10;
   cursor: pointer;
 }
+/* Gradient overlay on hover */
 .portfolio-block:before {
-  transition: all 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease;
+  background: linear-gradient(180deg, transparent 30%, rgba(10, 22, 40, 0.85) 100%);
   opacity: 0;
   top: 0;
   right: 0;
@@ -2401,10 +2414,55 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   position: absolute;
   content: "";
   border-radius: var(--radius-sm);
+  z-index: 2;
 }
 .portfolio-block:hover:before {
   opacity: 1;
 }
+/* Shimmer line on hover */
+.portfolio-block:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: none;
+  z-index: 3;
+  pointer-events: none;
+}
+.portfolio-block:hover:after {
+  animation: genreShimmer 0.6s ease forwards;
+}
+@keyframes genreShimmer {
+  0% { left: -100%; }
+  100% { left: 150%; }
+}
+/* Genre label */
+.genre-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 5;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+  opacity: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.portfolio-block:hover .genre-label {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* Old caption styles kept for compatibility */
 .portfolio-block:hover .caption h4 {
   top: 45%;
 }
@@ -2439,6 +2497,82 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   margin-bottom: 20px;
   text-align: center;
   line-height: 47px;
+}
+@media (max-width: 768px) {
+  /* Genre label always visible on mobile with gradient backdrop */
+  .genre-label {
+    transform: translateY(0);
+    opacity: 1;
+    font-size: 11px;
+    padding: 8px 6px;
+    letter-spacing: 1px;
+    background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.85) 100%);
+  }
+  /* Disable desktop hover effects */
+  .portfolio-block img.img-fluid {
+    transition: none;
+  }
+  .portfolio-block:hover img.img-fluid {
+    transform: none;
+    filter: none;
+  }
+  .portfolio-block:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .portfolio-block:hover:after {
+    animation: none;
+  }
+  /* Continuous subtle shimmer sweep across genre cards */
+  .filtr-item .portfolio-block:before {
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(40, 171, 227, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(40, 171, 227, 0.08) 55%,
+      transparent 70%
+    );
+    opacity: 1;
+    animation: mobileShimmer 6s ease-in-out infinite;
+    background-size: 200% 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  @keyframes mobileShimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  /* Tap feedback - active state press effect */
+  .filtr-item .portfolio-block:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+  }
+  .filtr-item .portfolio-block:active img.img-fluid {
+    filter: brightness(0.85);
+    transition: filter 0.1s ease;
+  }
+  /* Staggered reveal animation for genre cards */
+  .filtr-item:nth-child(1) { animation-delay: 0s; }
+  .filtr-item:nth-child(2) { animation-delay: 0.08s; }
+  .filtr-item:nth-child(3) { animation-delay: 0.16s; }
+  .filtr-item:nth-child(4) { animation-delay: 0.24s; }
+  .filtr-item:nth-child(5) { animation-delay: 0.32s; }
+  .filtr-item:nth-child(6) { animation-delay: 0.40s; }
+  .filtr-item:nth-child(7) { animation-delay: 0.48s; }
+  .filtr-item:nth-child(8) { animation-delay: 0.56s; }
+  .filtr-item:nth-child(9) { animation-delay: 0.64s; }
+  .filtr-item:nth-child(10) { animation-delay: 0.72s; }
+  .filtr-item:nth-child(11) { animation-delay: 0.80s; }
+  .filtr-item:nth-child(12) { animation-delay: 0.88s; }
+  .filtr-item:nth-child(13) { animation-delay: 0.96s; }
+  .filtr-item.revealed {
+    animation: mobileReveal 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  @keyframes mobileReveal {
+    0%   { opacity: 0; transform: translateY(20px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
 }
 
 /*=================================================================
@@ -3705,7 +3839,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
 .filtr-container {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  gap: 8px;
   height: auto !important;
   position: relative !important;
 }
@@ -3715,7 +3849,6 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   width: 100% !important;
   max-width: 100% !important;
   flex: none !important;
-  height: auto !important;
   left: auto !important;
   top: auto !important;
   opacity: 0;
