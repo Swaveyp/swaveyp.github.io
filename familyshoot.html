@@ -318,12 +318,38 @@ End Fixed Navigation
       });
     }, 300);
 
-    // Scroll reveal with staggered entrance for initial cards
-    var items = document.querySelectorAll(".gallery-reveal .filtr-item");
-    if ("IntersectionObserver" in window) {
+    // Scroll reveal — sequential on mobile, batch on desktop
+    var allItems = Array.from(document.querySelectorAll(".gallery-reveal .filtr-item"));
+    var isMobile = window.innerWidth <= 768;
+    if ("IntersectionObserver" in window && isMobile) {
+      // Mobile: one at a time, strict DOM order
+      var cur = 0;
+      function revealMobile() {
+        if (cur >= allItems.length) return;
+        allItems[cur].classList.add("revealed");
+        cur++;
+        if (cur < allItems.length) {
+          var r = allItems[cur].getBoundingClientRect();
+          if (r.top < window.innerHeight + 50) {
+            setTimeout(revealMobile, 60);
+          } else { observeMobile(); }
+        }
+      }
+      var mObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { mObs.unobserve(e.target); revealMobile(); }
+        });
+      }, { threshold: 0.05 });
+      function observeMobile() {
+        if (cur < allItems.length) mObs.observe(allItems[cur]);
+      }
+      setTimeout(function() { revealMobile(); }, 400);
+    } else if ("IntersectionObserver" in window) {
+      // Desktop: batch reveal sorted by DOM order
       var initialBatch = true;
       var io = new IntersectionObserver(function(entries) {
         var visible = entries.filter(function(e) { return e.isIntersecting; });
+        visible.sort(function(a, b) { return allItems.indexOf(a.target) - allItems.indexOf(b.target); });
         if (initialBatch && visible.length > 0) {
           initialBatch = false;
           visible.forEach(function(e, i) {
@@ -338,10 +364,10 @@ End Fixed Navigation
         }
       }, { threshold: 0.1 });
       setTimeout(function() {
-        items.forEach(function(el) { io.observe(el); });
+        allItems.forEach(function(el) { io.observe(el); });
       }, 300);
     } else {
-      items.forEach(function(el) { el.classList.add("revealed"); });
+      allItems.forEach(function(el) { el.classList.add("revealed"); });
     }
 
     // Hide scroll hint if not needed or on scroll

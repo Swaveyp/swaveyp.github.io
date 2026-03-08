@@ -2717,13 +2717,13 @@ html:not([data-theme="dark"]) .splash-flash.fire {
 .title-animated.revealed .title-line {
   transform: scaleX(1);
 }
-/* ── Flashy Staggered Card Entrance ── */
-.filtr-item {
+/* ── Flashy Staggered Card Entrance (portfolio genre grid only) ── */
+.genre-grid .filtr-item {
   opacity: 0;
   transform: translateY(80px) scale(0.8) rotate(-3deg);
   filter: blur(8px);
 }
-.filtr-item.revealed {
+.genre-grid .filtr-item.revealed {
   animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes cardEntrance {
@@ -2733,7 +2733,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); filter: blur(0); }
 }
 /* Glow flash on genre card entrance */
-.filtr-item.revealed .portfolio-block {
+.genre-grid .filtr-item.revealed .portfolio-block {
   animation: entranceGlow 1.2s ease forwards;
 }
 @keyframes entranceGlow {
@@ -2743,25 +2743,25 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   100% { box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
 }
 /* Shimmer sweep on entrance */
-.filtr-item.revealed .portfolio-block:after {
+.genre-grid .filtr-item.revealed .portfolio-block:after {
   animation: genreShimmer 0.7s 0.2s ease forwards;
 }
 /* Stagger delays – bigger gaps for drama */
-.filtr-item:nth-child(1)  { animation-delay: 0s; }
-.filtr-item:nth-child(2)  { animation-delay: 0.08s; }
-.filtr-item:nth-child(3)  { animation-delay: 0.16s; }
-.filtr-item:nth-child(4)  { animation-delay: 0.24s; }
-.filtr-item:nth-child(5)  { animation-delay: 0.32s; }
-.filtr-item:nth-child(6)  { animation-delay: 0.40s; }
-.filtr-item:nth-child(7)  { animation-delay: 0.48s; }
-.filtr-item:nth-child(8)  { animation-delay: 0.56s; }
-.filtr-item:nth-child(9)  { animation-delay: 0.64s; }
-.filtr-item:nth-child(10) { animation-delay: 0.72s; }
-.filtr-item:nth-child(11) { animation-delay: 0.80s; }
-.filtr-item:nth-child(12) { animation-delay: 0.88s; }
-.filtr-item:nth-child(13) { animation-delay: 0.96s; }
+.genre-grid .filtr-item:nth-child(1)  { animation-delay: 0s; }
+.genre-grid .filtr-item:nth-child(2)  { animation-delay: 0.08s; }
+.genre-grid .filtr-item:nth-child(3)  { animation-delay: 0.16s; }
+.genre-grid .filtr-item:nth-child(4)  { animation-delay: 0.24s; }
+.genre-grid .filtr-item:nth-child(5)  { animation-delay: 0.32s; }
+.genre-grid .filtr-item:nth-child(6)  { animation-delay: 0.40s; }
+.genre-grid .filtr-item:nth-child(7)  { animation-delay: 0.48s; }
+.genre-grid .filtr-item:nth-child(8)  { animation-delay: 0.56s; }
+.genre-grid .filtr-item:nth-child(9)  { animation-delay: 0.64s; }
+.genre-grid .filtr-item:nth-child(10) { animation-delay: 0.72s; }
+.genre-grid .filtr-item:nth-child(11) { animation-delay: 0.80s; }
+.genre-grid .filtr-item:nth-child(12) { animation-delay: 0.88s; }
+.genre-grid .filtr-item:nth-child(13) { animation-delay: 0.96s; }
 /* Alternate rows rotate opposite direction */
-.filtr-item:nth-child(n+5):nth-child(-n+8) {
+.genre-grid .filtr-item:nth-child(n+5):nth-child(-n+8) {
   transform: translateY(80px) scale(0.8) rotate(3deg);
 }
 /* Old caption styles kept for compatibility */
@@ -2857,13 +2857,13 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     30%  { background-position: -200% center; }
     100% { background-position: -200% center; }
   }
-  /* ── Mobile Genre Card Entrance – BIG and flashy ── */
-  .filtr-item {
+  /* ── Mobile Genre Card Entrance – BIG and flashy (portfolio only) ── */
+  .genre-grid .filtr-item {
     opacity: 0;
     transform: translateY(70px) scale(0.75);
     filter: blur(6px);
   }
-  .filtr-item.revealed {
+  .genre-grid .filtr-item.revealed {
     animation: mobileCardPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes mobileCardPop {
@@ -2873,7 +2873,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
   /* Cyan glow burst on entrance */
-  .filtr-item.revealed .portfolio-block {
+  .genre-grid .filtr-item.revealed .portfolio-block {
     animation: mobileEntranceGlow 1s ease forwards !important;
   }
   @keyframes mobileEntranceGlow {
@@ -2883,7 +2883,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     100% { box-shadow: none; }
   }
   /* Shimmer flash across each card on entrance */
-  .filtr-item.revealed .portfolio-block:after {
+  .genre-grid .filtr-item.revealed .portfolio-block:after {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
@@ -2900,19 +2900,19 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     100% { left: 150%; opacity: 0; }
   }
   /* Stagger: pairs animate together for 3-col grid */
-  .filtr-item:nth-child(1)  { animation-delay: 0s !important; }
-  .filtr-item:nth-child(2)  { animation-delay: 0.07s !important; }
-  .filtr-item:nth-child(3)  { animation-delay: 0.14s !important; }
-  .filtr-item:nth-child(4)  { animation-delay: 0.24s !important; }
-  .filtr-item:nth-child(5)  { animation-delay: 0.31s !important; }
-  .filtr-item:nth-child(6)  { animation-delay: 0.38s !important; }
-  .filtr-item:nth-child(7)  { animation-delay: 0.48s !important; }
-  .filtr-item:nth-child(8)  { animation-delay: 0.55s !important; }
-  .filtr-item:nth-child(9)  { animation-delay: 0.62s !important; }
-  .filtr-item:nth-child(10) { animation-delay: 0.72s !important; }
-  .filtr-item:nth-child(11) { animation-delay: 0.79s !important; }
-  .filtr-item:nth-child(12) { animation-delay: 0.86s !important; }
-  .filtr-item:nth-child(13) { animation-delay: 0.96s !important; }
+  .genre-grid .filtr-item:nth-child(1)  { animation-delay: 0s !important; }
+  .genre-grid .filtr-item:nth-child(2)  { animation-delay: 0.07s !important; }
+  .genre-grid .filtr-item:nth-child(3)  { animation-delay: 0.14s !important; }
+  .genre-grid .filtr-item:nth-child(4)  { animation-delay: 0.24s !important; }
+  .genre-grid .filtr-item:nth-child(5)  { animation-delay: 0.31s !important; }
+  .genre-grid .filtr-item:nth-child(6)  { animation-delay: 0.38s !important; }
+  .genre-grid .filtr-item:nth-child(7)  { animation-delay: 0.48s !important; }
+  .genre-grid .filtr-item:nth-child(8)  { animation-delay: 0.55s !important; }
+  .genre-grid .filtr-item:nth-child(9)  { animation-delay: 0.62s !important; }
+  .genre-grid .filtr-item:nth-child(10) { animation-delay: 0.72s !important; }
+  .genre-grid .filtr-item:nth-child(11) { animation-delay: 0.79s !important; }
+  .genre-grid .filtr-item:nth-child(12) { animation-delay: 0.86s !important; }
+  .genre-grid .filtr-item:nth-child(13) { animation-delay: 0.96s !important; }
   /* Tap feedback – spring bounce + glow */
   .filtr-item .portfolio-block {
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
