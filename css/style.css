@@ -2925,29 +2925,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     filter: brightness(0.75) saturate(1.3);
     transition: filter 0.15s ease;
   }
-  /* ── Mobile Sub-genre: Smooth scroll reveal ── */
-  .gallery-reveal .filtr-item {
-    opacity: 0;
-    transform: translateY(30px) scale(0.94);
-    filter: blur(8px);
-    will-change: transform, opacity, filter;
-  }
-  .gallery-reveal .filtr-item.revealed {
-    animation: mobileGalleryReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes mobileGalleryReveal {
-    0%   { opacity: 0; transform: translateY(30px) scale(0.94); filter: blur(8px); }
-    40%  { opacity: 1; filter: blur(4px); }
-    70%  { filter: blur(1px); }
-    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-  }
-  .gallery-reveal .filtr-item.revealed .portfolio-block {
-    animation: mobileEntranceGlow 0.8s ease forwards !important;
-  }
-  .gallery-reveal .filtr-item.revealed .portfolio-block:after {
-    animation: mobileRevealShimmer 0.5s 0.1s ease forwards !important;
-  }
-  /* Stagger delay set via JS for sequential order */
+  /* ── Mobile Sub-genre: scroll reveal (uses global .gallery-reveal rules) ── */
 }
 
 /*=================================================================
@@ -4240,49 +4218,56 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   .filtr-container { grid-template-columns: repeat(3, 1fr); gap: 6px; }
 }
 
-/* ── Sub-genre Gallery: Flashy scroll reveal (desktop) ── */
-@media (min-width: 769px) {
-  .gallery-reveal .filtr-item {
-    opacity: 0;
-    transform: translateY(40px) scale(0.92);
-    filter: blur(8px);
-    will-change: transform, opacity, filter;
-  }
-  .gallery-reveal .filtr-item.revealed {
-    animation: galleryReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  .gallery-reveal .filtr-item.revealed .portfolio-block {
-    animation: revealGlow 1s ease forwards;
-  }
+/* ── Sub-genre Gallery: scroll reveal ── */
+.gallery-reveal .filtr-item {
+  opacity: 0;
+  transform: translateY(50px) scale(0.88);
+}
+.gallery-reveal .filtr-item.revealed {
+  animation: galleryReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes galleryReveal {
-  0%   { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px); }
-  40%  { opacity: 1; filter: blur(4px); }
-  70%  { filter: blur(1px); }
+  0%   { opacity: 0; transform: translateY(50px) scale(0.88); filter: blur(10px); }
+  30%  { opacity: 0.7; filter: blur(6px); }
+  55%  { opacity: 1; transform: translateY(-4px) scale(1.01); filter: blur(2px); }
+  75%  { filter: blur(0); transform: translateY(1px) scale(0.995); }
   100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+/* Glow flash on reveal */
+.gallery-reveal .filtr-item.revealed .portfolio-block {
+  animation: revealGlow 1.2s ease forwards;
 }
 @keyframes revealGlow {
   0%   { box-shadow: 0 0 0 rgba(40,171,227,0); }
-  40%  { box-shadow: 0 0 25px rgba(40,171,227,0.4), 0 0 60px rgba(40,171,227,0.15); }
+  35%  { box-shadow: 0 0 30px rgba(40,171,227,0.5), 0 0 70px rgba(40,171,227,0.2), inset 0 0 10px rgba(40,171,227,0.05); }
+  60%  { box-shadow: 0 0 15px rgba(40,171,227,0.2), 0 0 40px rgba(99,102,241,0.1); }
   100% { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 }
-/* Stagger delay set via JS inline style for sequential reveal order */
-/* Shimmer flash on each card as it reveals */
-.gallery-reveal .filtr-item.revealed .portfolio-block:after {
+/* Shimmer sweep on reveal */
+.gallery-reveal .filtr-item.revealed .portfolio-block::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  z-index: 3;
-  pointer-events: none;
+  top: 0; left: -100%; width: 70%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), rgba(40,171,227,0.08), transparent);
+  z-index: 3; pointer-events: none;
   animation: revealShimmer 0.8s 0.3s ease forwards;
 }
 @keyframes revealShimmer {
-  0% { left: -100%; opacity: 1; }
-  100% { left: 150%; opacity: 0; }
+  0%   { left: -100%; opacity: 1; }
+  100% { left: 160%; opacity: 0; }
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .gallery-reveal .filtr-item {
+    transform: translateY(40px) scale(0.9);
+  }
+  @keyframes galleryReveal {
+    0%   { opacity: 0; transform: translateY(40px) scale(0.9); filter: blur(8px); }
+    35%  { opacity: 0.7; filter: blur(4px); }
+    60%  { opacity: 1; transform: translateY(-3px) scale(1.01); filter: blur(1px); }
+    80%  { filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  }
 }
 
 /* ── Gallery scroll-down indicator ── */

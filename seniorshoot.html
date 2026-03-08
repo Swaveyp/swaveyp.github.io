@@ -62,7 +62,7 @@
   <!-- animation css -->
   <!-- Slick Carousel -->
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=55">
+  <link rel="stylesheet" href="css/style.min.css?v=56">
 
   <script type="application/ld+json">
   {
@@ -224,7 +224,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9591-Edit-thumb.webp 800w, images/Senior Shoots/H21A9591-Edit.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9591-Edit.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9591-Edit-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9591-Edit.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -233,7 +233,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9592-thumb.webp 800w, images/Senior Shoots/H21A9592.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9592.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9592-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9592.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -242,7 +242,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9596-thumb.webp 800w, images/Senior Shoots/H21A9596.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9596.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9596-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9596.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -251,7 +251,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9638-thumb.webp 800w, images/Senior Shoots/H21A9638.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9638.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9638-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9638.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -260,7 +260,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9658-thumb.webp 800w, images/Senior Shoots/H21A9658.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9658.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9658-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9658.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -269,7 +269,7 @@ End Fixed Navigation
 								<div class="portfolio-block">
 									<picture>
 									<source type="image/webp" srcset="images/Senior Shoots/H21A9670-thumb.webp 800w, images/Senior Shoots/H21A9670.webp 1920w" sizes="(max-width: 768px) 100vw, 25vw">
-									<img loading="lazy" class="img-fluid" src="images/Senior Shoots/H21A9670.jpg" alt="Senior photography by Swavey Shots">
+									<img loading="lazy" decoding="async" class="img-fluid" src="images/Senior Shoots/H21A9670-thumb.jpg" alt="Senior photography by Swavey Shots">
 								</picture>
 									<a href="images/Senior Shoots/H21A9670.jpg" data-pswp-width="1280" data-pswp-height="1920" class="portfolio-link" aria-label="View full size image"></a>
 								</div>
@@ -352,40 +352,31 @@ End Fixed Navigation
       });
     }, 300);
 
-    // IntersectionObserver: flashy reveal gallery images on scroll
-    setTimeout(function() {
-      if ("IntersectionObserver" in window) {
-        var allItems = Array.from(document.querySelectorAll(".gallery-reveal .filtr-item"));
-        var current = 0;
-        function revealNext() {
-          if (current >= allItems.length) return;
-          allItems[current].classList.add("revealed");
-          current++;
-          if (current < allItems.length && isNearViewport(allItems[current])) {
-            setTimeout(revealNext, 50);
-          } else if (current < allItems.length) {
-            observeNext();
-          }
-        }
-        function isNearViewport(el) {
-          var r = el.getBoundingClientRect();
-          return r.top < window.innerHeight + 100;
-        }
-        var singleObs = new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) {
-            if (e.isIntersecting) { singleObs.unobserve(e.target); revealNext(); }
+    // Scroll reveal with staggered entrance for initial cards
+    var items = document.querySelectorAll(".gallery-reveal .filtr-item");
+    if ("IntersectionObserver" in window) {
+      var initialBatch = true;
+      var io = new IntersectionObserver(function(entries) {
+        var visible = entries.filter(function(e) { return e.isIntersecting; });
+        if (initialBatch && visible.length > 0) {
+          initialBatch = false;
+          visible.forEach(function(e, i) {
+            setTimeout(function() { e.target.classList.add("revealed"); }, i * 60);
+            io.unobserve(e.target);
           });
-        }, { threshold: 0.01, rootMargin: "0px 0px 60px 0px" });
-        function observeNext() {
-          if (current < allItems.length) singleObs.observe(allItems[current]);
+        } else {
+          visible.forEach(function(e) {
+            e.target.classList.add("revealed");
+            io.unobserve(e.target);
+          });
         }
-        revealNext();
-      } else {
-        document.querySelectorAll(".filtr-item").forEach(function(el) {
-          el.classList.add("revealed");
-        });
-      }
-    }, 200);
+      }, { threshold: 0.1 });
+      setTimeout(function() {
+        items.forEach(function(el) { io.observe(el); });
+      }, 300);
+    } else {
+      items.forEach(function(el) { el.classList.add("revealed"); });
+    }
 
     // Hide scroll hint if not needed or on scroll
     var hint = document.getElementById("galleryScrollHint");
