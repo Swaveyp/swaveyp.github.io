@@ -2929,15 +2929,16 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   .gallery-reveal .filtr-item {
     opacity: 0;
     transform: translateY(30px) scale(0.94);
-    filter: blur(6px);
+    filter: blur(8px);
     will-change: transform, opacity, filter;
   }
   .gallery-reveal .filtr-item.revealed {
-    animation: mobileGalleryReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: mobileGalleryReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes mobileGalleryReveal {
-    0%   { opacity: 0; transform: translateY(30px) scale(0.94); filter: blur(6px); }
-    50%  { opacity: 1; filter: blur(1.5px); }
+    0%   { opacity: 0; transform: translateY(30px) scale(0.94); filter: blur(8px); }
+    40%  { opacity: 1; filter: blur(4px); }
+    70%  { filter: blur(1px); }
     100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
   .gallery-reveal .filtr-item.revealed .portfolio-block {
@@ -4248,7 +4249,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
     will-change: transform, opacity, filter;
   }
   .gallery-reveal .filtr-item.revealed {
-    animation: galleryReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: galleryReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .gallery-reveal .filtr-item.revealed .portfolio-block {
     animation: revealGlow 1s ease forwards;
@@ -4256,7 +4257,8 @@ html:not([data-theme="dark"]) .splash-flash.fire {
 }
 @keyframes galleryReveal {
   0%   { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px); }
-  50%  { opacity: 1; filter: blur(2px); }
+  40%  { opacity: 1; filter: blur(4px); }
+  70%  { filter: blur(1px); }
   100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 @keyframes revealGlow {
