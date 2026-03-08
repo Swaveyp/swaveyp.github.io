@@ -337,27 +337,30 @@ End Fixed Navigation
 
   <script>
   var lightbox = new PhotoSwipeLightbox({
-    gallery: "#gallery",
-    children: "a[data-pswp-width]",
+    gallery: '#gallery',
+    children: 'a[data-pswp-width]',
     pswpModule: PhotoSwipe,
     bgOpacity: 0.92,
     padding: { top: 20, bottom: 20, left: 20, right: 20 },
     wheelToZoom: true,
-    preloadFirstSlide: true,
     preload: [1, 2]
   });
-  lightbox.addFilter("itemData", function(itemData, index) {
+  lightbox.addFilter('itemData', function(itemData, index) {
     var el = itemData.element;
     if (el) {
-      var pic = el.closest(".portfolio-block");
+      var pic = el.closest('.portfolio-block');
       if (pic) {
-        var src = pic.querySelector('picture source[type="image/webp"]');
-        if (src) {
-          var parts = src.getAttribute("srcset").split(",");
-          var last = parts[parts.length - 1].trim().split(" ")[0];
-          var first = parts[0].trim().split(" ")[0];
-          itemData.src = last;
-          itemData.msrc = first;
+        var srcEl = pic.querySelector('picture source[type="image/webp"]');
+        if (srcEl) {
+          var entries = srcEl.getAttribute('srcset').split(',');
+          // Use thumb (first entry ~800w) for lightbox to save memory
+          var thumb = entries[0].trim();
+          var thumbUrl = thumb.substring(0, thumb.lastIndexOf(' '));
+          // Use full (last entry ~1920w) only if available
+          var full = entries[entries.length - 1].trim();
+          var fullUrl = full.substring(0, full.lastIndexOf(' '));
+          itemData.src = fullUrl || thumbUrl;
+          itemData.msrc = thumbUrl;
         }
       }
     }

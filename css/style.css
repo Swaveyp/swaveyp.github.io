@@ -439,7 +439,8 @@ a:focus, a:hover {
   background: var(--color-bg-alt);
 }
 
-.header-bradcrumb {
+.header-bradcrumb,
+ol.header-bradcrumb.breadcrumb {
   background: transparent;
 }
 .header-bradcrumb a, .header-bradcrumb .active {
