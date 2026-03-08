@@ -56,7 +56,7 @@
   <!-- Preload LCP image -->
   <link rel="preload" as="image" type="image/webp" href="images/babies-genre-tiny.webp">
   <!-- Main Stylesheet (critical) -->
-  <link rel="stylesheet" href="css/style.min.css?v=54">
+  <link rel="stylesheet" href="css/style.min.css?v=55">
   <!-- Deferred CSS -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
@@ -214,21 +214,20 @@ End Fixed Navigation
 <section class="portfolio section-sm dark-bg dark-bg-camera" id="portfolio">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-8 entrance">
+			<div class="col-xl-6 col-lg-8">
 				<!-- section title -->
-				<div class="title text-center">
+				<div class="title title-animated text-center entrance">
 					<h2>Genres</h2>
-					<div class="border"></div>
+					<div class="title-line"></div>
 				</div>
 				<!-- /section title -->
 			</div>
 		</div>
 
-
-
-				<div class="row entrance">
+				<div class="row">
 					<div class="col-12">
-						<div class="filtr-container">
+						<div class="filtr-container genre-grid">
+							<div class="genre-cursor-glow"></div>
 							<div class="filtr-item" data-category="mix">
 								<div class="portfolio-block">
 									<picture>
@@ -421,18 +420,54 @@ End Fixed Navigation
 <script>
 (function() {
   window.addEventListener("load", function() {
+    // Entrance animations
     setTimeout(function() {
       var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
       els.forEach(function(el, i) {
         setTimeout(function() { el.classList.add("show"); }, i * 100);
       });
     }, 300);
+
+    // Animated title line reveal
+    setTimeout(function() {
+      var titles = document.querySelectorAll(".title-animated");
+      titles.forEach(function(t) { t.classList.add("revealed"); });
+    }, 600);
+
+    // Genre card staggered entrance
     setTimeout(function() {
       var items = document.querySelectorAll(".filtr-item");
       items.forEach(function(el, i) {
-        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
+        setTimeout(function() { el.classList.add("revealed"); }, i * 60);
       });
-    }, 800);
+    }, 900);
+
+    // Cursor glow on genre grid (desktop only)
+    var grid = document.querySelector(".genre-grid");
+    var glow = document.querySelector(".genre-cursor-glow");
+    if (grid && glow && window.innerWidth > 768) {
+      grid.addEventListener("mousemove", function(e) {
+        var rect = grid.getBoundingClientRect();
+        glow.style.left = (e.clientX - rect.left) + "px";
+        glow.style.top = (e.clientY - rect.top) + "px";
+      });
+    }
+
+    // 3D tilt effect on genre cards (desktop only)
+    if (window.innerWidth > 768) {
+      var cards = document.querySelectorAll(".genre-grid .portfolio-block");
+      cards.forEach(function(card) {
+        card.addEventListener("mousemove", function(e) {
+          var rect = card.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = "perspective(600px) rotateY(" + (x * 8) + "deg) rotateX(" + (-y * 8) + "deg) scale(1.03)";
+        });
+        card.addEventListener("mouseleave", function() {
+          card.style.transform = "perspective(600px) rotateY(0) rotateX(0) scale(1)";
+        });
+      });
+    }
   });
 })();
 </script>

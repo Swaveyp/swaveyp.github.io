@@ -62,7 +62,7 @@
   <!-- animation css -->
   <!-- Slick Carousel -->
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=54">
+  <link rel="stylesheet" href="css/style.min.css?v=55">
 
   <script type="application/ld+json">
   {
@@ -219,7 +219,7 @@ End Fixed Navigation
 	<div class="container-fluid">
 				<div class="row entrance">
 					<div class="col-12">
-						<div class="filtr-container pswp-gallery" id="gallery">
+						<div class="filtr-container gallery-reveal pswp-gallery" id="gallery">
 							<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 filtr-item" data-category="mix, design">
 								<div class="portfolio-block">
 									<picture>
@@ -319,18 +319,34 @@ End Fixed Navigation
 <script>
 (function() {
   window.addEventListener("load", function() {
+    // Entrance animations
     setTimeout(function() {
       var els = document.querySelectorAll(".entrance, .entrance-left, .entrance-right");
       els.forEach(function(el, i) {
         setTimeout(function() { el.classList.add("show"); }, i * 100);
       });
     }, 300);
+
+    // IntersectionObserver: flashy reveal gallery images on scroll
     setTimeout(function() {
-      var items = document.querySelectorAll(".filtr-item");
-      items.forEach(function(el, i) {
-        setTimeout(function() { el.classList.add("revealed"); }, i * 50);
-      });
-    }, 800);
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05, rootMargin: "0px 0px -60px 0px" });
+        document.querySelectorAll(".gallery-reveal .filtr-item").forEach(function(el) {
+          io.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".filtr-item").forEach(function(el) {
+          el.classList.add("revealed");
+        });
+      }
+    }, 200);
   });
 })();
 </script>
@@ -343,7 +359,10 @@ End Fixed Navigation
     bgOpacity: 0.92,
     padding: { top: 20, bottom: 20, left: 20, right: 20 },
     wheelToZoom: true,
-    preload: [1, 2]
+    preload: [1, 2],
+    showHideAnimationType: 'zoom',
+    showAnimationDuration: 350,
+    hideAnimationDuration: 250
   });
   lightbox.addFilter('itemData', function(itemData, index) {
     var el = itemData.element;
@@ -353,18 +372,28 @@ End Fixed Navigation
         var srcEl = pic.querySelector('picture source[type="image/webp"]');
         if (srcEl) {
           var entries = srcEl.getAttribute('srcset').split(',');
-          // Use thumb (first entry ~800w) for lightbox to save memory
           var thumb = entries[0].trim();
           var thumbUrl = thumb.substring(0, thumb.lastIndexOf(' '));
-          // Use full (last entry ~1920w) only if available
           var full = entries[entries.length - 1].trim();
           var fullUrl = full.substring(0, full.lastIndexOf(' '));
           itemData.src = fullUrl || thumbUrl;
           itemData.msrc = thumbUrl;
         }
+        var imgEl = pic.querySelector('img');
+        if (imgEl) {
+          itemData.thumbCropped = true;
+          itemData.element = imgEl;
+        }
       }
     }
     return itemData;
+  });
+  lightbox.addFilter('thumbEl', function(thumbEl, itemData, index) {
+    var slide = lightbox.pswp ? lightbox.pswp.currSlide : null;
+    if (itemData.element && itemData.element.tagName === 'IMG') {
+      return itemData.element;
+    }
+    return thumbEl;
   });
   lightbox.init();
   </script>
