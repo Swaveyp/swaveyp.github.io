@@ -2946,9 +2946,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   .gallery-reveal .filtr-item.revealed .portfolio-block:after {
     animation: mobileRevealShimmer 0.5s 0.1s ease forwards !important;
   }
-  /* Row stagger for 3-col mobile grid */
-  .gallery-reveal .filtr-item:nth-child(3n+2) { animation-delay: 0.06s; }
-  .gallery-reveal .filtr-item:nth-child(3n+3) { animation-delay: 0.12s; }
+  /* Stagger delay set via JS for sequential order */
 }
 
 /*=================================================================
@@ -4265,14 +4263,7 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   40%  { box-shadow: 0 0 25px rgba(40,171,227,0.4), 0 0 60px rgba(40,171,227,0.15); }
   100% { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 }
-/* Row stagger */
-.gallery-reveal .filtr-item:nth-child(4n+2) { animation-delay: 0.08s; }
-.gallery-reveal .filtr-item:nth-child(4n+3) { animation-delay: 0.16s; }
-.gallery-reveal .filtr-item:nth-child(4n+4) { animation-delay: 0.24s; }
-@media (max-width: 991px) {
-  .gallery-reveal .filtr-item:nth-child(3n+2) { animation-delay: 0.06s; }
-  .gallery-reveal .filtr-item:nth-child(3n+3) { animation-delay: 0.12s; }
-}
+/* Stagger delay set via JS inline style for sequential reveal order */
 /* Shimmer flash on each card as it reveals */
 .gallery-reveal .filtr-item.revealed .portfolio-block:after {
   content: "";
