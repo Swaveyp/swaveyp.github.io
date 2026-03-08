@@ -409,21 +409,20 @@ End Fixed Navigation
     // IntersectionObserver: flashy reveal gallery images on scroll
     setTimeout(function() {
       if ("IntersectionObserver" in window) {
+        var allItems = Array.from(document.querySelectorAll(".gallery-reveal .filtr-item"));
         var revealIndex = 0;
         var io = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var delay = revealIndex * 0.06;
-              entry.target.style.animationDelay = delay + "s";
-              entry.target.classList.add("revealed");
-              revealIndex++;
-              io.unobserve(entry.target);
-            }
+          var visible = entries.filter(function(e) { return e.isIntersecting; });
+          visible.sort(function(a, b) { return allItems.indexOf(a.target) - allItems.indexOf(b.target); });
+          visible.forEach(function(entry) {
+            var delay = revealIndex * 0.03;
+            entry.target.style.animationDelay = delay + "s";
+            entry.target.classList.add("revealed");
+            revealIndex++;
+            io.unobserve(entry.target);
           });
         }, { threshold: 0.05, rootMargin: "0px 0px -60px 0px" });
-        document.querySelectorAll(".gallery-reveal .filtr-item").forEach(function(el) {
-          io.observe(el);
-        });
+        allItems.forEach(function(el) { io.observe(el); });
       } else {
         document.querySelectorAll(".filtr-item").forEach(function(el) {
           el.classList.add("revealed");
@@ -431,17 +430,22 @@ End Fixed Navigation
       }
     }, 200);
 
-    // Hide scroll hint on scroll
+    // Hide scroll hint if not needed or on scroll
     var hint = document.getElementById("galleryScrollHint");
     if (hint) {
-      var scrolled = false;
-      window.addEventListener("scroll", function() {
-        if (!scrolled && window.scrollY > 120) {
-          scrolled = true;
-          hint.classList.add("hidden");
-          setTimeout(function() { hint.remove(); }, 600);
-        }
-      }, { passive: true });
+      var gallery = document.getElementById("portfolio") || document.querySelector(".gallery-reveal");
+      if (gallery && gallery.getBoundingClientRect().bottom <= window.innerHeight + 80) {
+        hint.remove();
+      } else {
+        var scrolled = false;
+        window.addEventListener("scroll", function() {
+          if (!scrolled && window.scrollY > 120) {
+            scrolled = true;
+            hint.classList.add("hidden");
+            setTimeout(function() { hint.remove(); }, 600);
+          }
+        }, { passive: true });
+      }
     }
   });
 })();

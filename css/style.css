@@ -2928,16 +2928,16 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   /* ── Mobile Sub-genre: Smooth scroll reveal ── */
   .gallery-reveal .filtr-item {
     opacity: 0;
-    transform: translateY(40px) scale(0.92);
-    filter: blur(3px);
+    transform: translateY(30px) scale(0.94);
+    filter: blur(6px);
     will-change: transform, opacity, filter;
   }
   .gallery-reveal .filtr-item.revealed {
     animation: mobileGalleryReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes mobileGalleryReveal {
-    0%   { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(3px); }
-    60%  { opacity: 1; filter: blur(0); }
+    0%   { opacity: 0; transform: translateY(30px) scale(0.94); filter: blur(6px); }
+    50%  { opacity: 1; filter: blur(1.5px); }
     100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
   .gallery-reveal .filtr-item.revealed .portfolio-block {
@@ -4239,24 +4239,25 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   .filtr-container { grid-template-columns: repeat(3, 1fr); gap: 6px; }
 }
 
-/* ── Sub-genre Gallery: Flashy scroll reveal ── */
-.gallery-reveal .filtr-item {
-  opacity: 0;
-  transform: translateY(50px) scale(0.9);
-  filter: blur(4px);
-  will-change: transform, opacity, filter;
-}
-.gallery-reveal .filtr-item.revealed {
-  animation: galleryReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* ── Sub-genre Gallery: Flashy scroll reveal (desktop) ── */
+@media (min-width: 769px) {
+  .gallery-reveal .filtr-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+    filter: blur(8px);
+    will-change: transform, opacity, filter;
+  }
+  .gallery-reveal .filtr-item.revealed {
+    animation: galleryReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .gallery-reveal .filtr-item.revealed .portfolio-block {
+    animation: revealGlow 1s ease forwards;
+  }
 }
 @keyframes galleryReveal {
-  0%   { opacity: 0; transform: translateY(50px) scale(0.9); filter: blur(4px); }
-  60%  { opacity: 1; filter: blur(0); }
+  0%   { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px); }
+  50%  { opacity: 1; filter: blur(2px); }
   100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-}
-/* Glow flash on reveal */
-.gallery-reveal .filtr-item.revealed .portfolio-block {
-  animation: revealGlow 1s ease forwards;
 }
 @keyframes revealGlow {
   0%   { box-shadow: 0 0 0 rgba(40,171,227,0); }
