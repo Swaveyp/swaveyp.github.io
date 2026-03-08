@@ -46,6 +46,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png" />
 
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" type="image/webp" href="images/swaveycamera-clean.webp">
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,12 +59,12 @@
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css" media="print" onload="this.media='all'">
   <!-- Lightbox.min css -->
   <!-- animation css -->
   <!-- Slick Carousel -->
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=56">
+  <link rel="stylesheet" href="css/style.min.css?v=57">
 
   <script type="application/ld+json">
   {
@@ -131,7 +134,10 @@
   <div id="splashIntro" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#e8f0f8;z-index:9999999999;display:flex;align-items:center;justify-content:center;cursor:pointer;">
     <div class="splash-content">
       <div class="splash-logo-group" id="splashCamera">
-        <img src="images/swaveycamera-clean.png?v=3" alt="Swavey Services" class="splash-camera">
+        <picture>
+          <source type="image/webp" srcset="images/swaveycamera-clean.webp">
+          <img src="images/swaveycamera-clean.png?v=3" alt="Swavey Services" class="splash-camera" fetchpriority="high">
+        </picture>
         <h2 class="splash-title"><span class="splash-title-top">Swavey</span><span class="splash-title-bottom">Services</span></h2>
       </div>
       <p class="splash-text">tap to enter</p>
@@ -226,7 +232,10 @@ Expanding Orbs Hero
 				<div class="orb-ring"></div>
 				<div class="orb-ring orb-ring-2"></div>
 				<div class="orb-core">
+					<picture>
+					<source type="image/webp" srcset="images/swaveyshotslogo.webp">
 					<img src="images/swaveyshotslogo.png" alt="Swavey Shots" class="orb-logo" width="600" height="390">
+				</picture>
 				</div>
 				<span class="orb-label">Shots</span>
 			</div>
@@ -236,7 +245,10 @@ Expanding Orbs Hero
 				<div class="orb-ring"></div>
 				<div class="orb-ring orb-ring-2"></div>
 				<div class="orb-core">
+					<picture>
+					<source type="image/webp" srcset="images/swaveyprintslogo.webp">
 					<img src="images/swaveyprintslogo.png" alt="Swavey Prints" class="orb-logo" width="600" height="390">
+				</picture>
 				</div>
 				<span class="orb-label">Prints</span>
 			</div>
