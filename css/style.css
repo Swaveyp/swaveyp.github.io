@@ -2668,18 +2668,25 @@ html:not([data-theme="dark"]) .splash-flash.fire {
   text-align: center;
   z-index: 5;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-.portfolio-block:hover .genre-label {
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transform: translateY(0);
   opacity: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease,
+              background 0.4s ease,
+              box-shadow 0.4s ease,
+              letter-spacing 0.4s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.portfolio-block:hover .genre-label {
+  background: rgba(40, 171, 227, 0.6);
+  border-color: rgba(40, 171, 227, 0.5);
+  box-shadow: 0 4px 20px rgba(40, 171, 227, 0.35);
+  transform: translateY(-4px);
+  letter-spacing: 2.5px;
 }
 /* ── Cursor Glow on Genre Grid ── */
 .filtr-container.genre-grid {
