@@ -52,11 +52,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
-
-  <!-- Calendly popup widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <!-- CSS
   ================================================== -->
@@ -276,20 +271,26 @@ End Fixed Navigation
             <form class="dark-form" id="apparelForm" novalidate>
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <label for="af-name">Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="af-name" name="name" required placeholder="Your name">
+                  <label for="af-first-name">First Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="af-first-name" name="firstName" autocomplete="given-name" data-autocap="words" required placeholder="First">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="af-email">Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" id="af-email" name="email" required placeholder="you@email.com">
+                  <label for="af-last-name">Last Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="af-last-name" name="lastName" autocomplete="family-name" data-autocap="words" required placeholder="Last">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <label for="af-phone">Phone <span class="text-danger">*</span></label>
-                  <input type="tel" class="form-control" id="af-phone" name="phone" required placeholder="(555) 123-4567">
+                  <label for="af-email">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="af-email" name="email" autocomplete="email" required placeholder="you@email.com">
                 </div>
                 <div class="col-md-6 form-group">
+                  <label for="af-phone">Phone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" id="af-phone" name="phone" autocomplete="tel" inputmode="tel" data-phone-format="us" required placeholder="(555) 123-4567" maxlength="14">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
                   <label for="af-inquiry">Printing Inquiry</label>
                   <select class="form-control" id="af-inquiry" name="inquiry">
                     <option value="" disabled selected>Select a service</option>
@@ -348,9 +349,7 @@ End Fixed Navigation
           <h3>Photography Sessions</h3>
           <p>Professional portrait, lifestyle, event, and sports photography. Pick a session length and book a time that works for you.</p>
           <div class="contact-card-buttons">
-            <a href="https://calendly.com/swaveyshots/1hr" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyshots/1hr')">1 Hr Session</a>
-            <a href="https://calendly.com/swaveyprints/2hr" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyprints/2hr')">2 Hr Session</a>
-            <a href="https://calendly.com/swaveyservices/3-hour-session" class="btn btn-main" onclick="return openCalendly(this, 'https://calendly.com/swaveyservices/3-hour-session')">3+ Hr Session</a>
+            <a href="book-photoshoot.html" class="btn btn-main">Start Booking</a>
           </div>
         </div>
       </div>
@@ -434,19 +433,11 @@ End Fixed Navigation
 </script>
 
 <script>
-/* ── Calendly Popup (fallback to new tab if widget not loaded) ── */
-function openCalendly(el, url) {
-  if (window.Calendly && Calendly.initPopupWidget) {
-    Calendly.initPopupWidget({ url: url });
-    return false;          /* prevent <a> navigation */
-  }
-  window.open(url, '_blank', 'noopener');
-  return false;
-}
-
-/* ── Apparel Order Form → Google Forms ── */
+/* ── Apparel Order Form → Apps Script Web App ── */
 (function() {
-  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdmu8PjKuTAP6e9hFL1Cd85mzhwHe4mgn3N3wMtT7Z7XxgI4w/formResponse';
+  // TODO: After deploying apparel-email.gs as a Web App (see apps-script/README.md),
+  // paste the deployment URL here:
+  var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby2ZW_MPUmhm8J6d2SUXUd93fLnRl8GVII6pXmevpotdz-iEkTd_WCUyuVA8USgB7C4QQ/exec';
 
   var toggleBtn   = document.getElementById('toggleApparelForm');
   var wrapper     = document.getElementById('apparelFormWrapper');
@@ -456,7 +447,6 @@ function openCalendly(el, url) {
   var shipFields  = document.getElementById('shippingFields');
   var shipRadios  = form.querySelectorAll('input[name="shipping"]');
 
-  /* Toggle form open / close */
   toggleBtn.addEventListener('click', function() {
     var open = wrapper.classList.toggle('open');
     toggleBtn.textContent = open ? 'Close Form' : 'Place Your Order';
@@ -465,7 +455,32 @@ function openCalendly(el, url) {
       : 'col-lg-5 col-md-6 mb-4 entrance show';
   });
 
-  /* Show / hide shipping fields */
+  function titleCase(s) {
+    return s.replace(/\b([a-zA-Z])/g, function(m) { return m.toUpperCase(); });
+  }
+  function formatPhone(v) {
+    var d = v.replace(/\D/g, '').slice(0, 10);
+    if (!d) return '';
+    if (d.length < 4) return '(' + d;
+    if (d.length < 7) return '(' + d.slice(0,3) + ') ' + d.slice(3);
+    return '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+  }
+  form.querySelectorAll('input[data-autocap="words"]').forEach(function(el) {
+    el.addEventListener('input', function() {
+      var pos = el.selectionStart;
+      var next = titleCase(el.value);
+      if (next !== el.value) {
+        el.value = next;
+        try { el.setSelectionRange(pos, pos); } catch (e) {}
+      }
+    });
+  });
+  form.querySelectorAll('input[data-phone-format="us"]').forEach(function(el) {
+    el.addEventListener('input', function() {
+      el.value = formatPhone(el.value);
+    });
+  });
+
   shipRadios.forEach(function(radio) {
     radio.addEventListener('change', function() {
       if (this.value === 'Yes') {
@@ -476,7 +491,6 @@ function openCalendly(el, url) {
     });
   });
 
-  /* Submit form → Google Forms */
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -486,34 +500,51 @@ function openCalendly(el, url) {
     status.textContent = '';
     status.className = 'form-status';
 
-    var body = new URLSearchParams();
-    body.append('entry.1573658226', form.name.value.trim());
-    body.append('entry.489538164',  form.email.value.trim());
-    body.append('entry.1024381023', form.phone.value.trim());
-    body.append('entry.494247540',  form.inquiry.value);
-    body.append('entry.1916355278', form.details.value.trim());
-    body.append('entry.835858048',  form.shipping.value);
-    body.append('entry.573020802',  form.address.value.trim());
-    body.append('entry.1468813709', form.city.value.trim());
-    body.append('entry.329634963',  form.state.value.trim());
-    body.append('entry.1179119042', form.zip.value.trim());
+    var firstName = form.firstName.value.trim();
+    var lastName  = form.lastName.value.trim();
+    var payload = {
+      firstName: firstName,
+      lastName:  lastName,
+      name:      (firstName + ' ' + lastName).trim(),
+      email:     form.email.value.trim(),
+      phone:     form.phone.value.trim(),
+      inquiry:   form.inquiry.value,
+      details:   form.details.value.trim(),
+      shipping:  form.shipping.value,
+      address:   form.address.value.trim(),
+      city:      form.city.value.trim(),
+      state:     form.state.value.trim(),
+      zip:       form.zip.value.trim(),
+      submittedAt: new Date().toISOString()
+    };
 
-    fetch(FORM_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    }).then(function() {
-      status.textContent = 'Order request sent! We\'ll be in touch soon.';
-      status.className = 'form-status success';
-      form.reset();
-      shipFields.classList.remove('visible');
-    }).catch(function() {
-      status.textContent = 'Something went wrong. Please try again.';
-      status.className = 'form-status error';
-    }).finally(function() {
+    var done = function(ok) {
+      if (ok) {
+        status.textContent = 'Order request sent! We\'ll be in touch soon.';
+        status.className = 'form-status success';
+        form.reset();
+        shipFields.classList.remove('visible');
+      } else {
+        status.textContent = 'Something went wrong. Please try again.';
+        status.className = 'form-status error';
+      }
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Order Request';
+    };
+
+    fetch(WEB_APP_URL, {
+      method: 'POST',
+      // text/plain avoids CORS preflight on Apps Script Web Apps.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    }).then(function(res) {
+      if (!res.ok) { done(false); return; }
+      return res.json().then(function(data) {
+        done(!!(data && data.ok));
+      }).catch(function() { done(false); });
+    }).catch(function() {
+      done(false);
     });
   });
 })();
