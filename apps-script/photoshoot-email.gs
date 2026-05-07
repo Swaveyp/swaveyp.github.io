@@ -197,7 +197,7 @@ function renderHtml_(d) {
     + '<tr><td align="center" style="padding:32px 12px;">'
     + '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(15,23,42,0.08);">'
     + '<tr><td style="background:linear-gradient(135deg,' + HERO_FROM + ' 0%,' + HERO_TO + ' 100%);padding:36px 32px;text-align:center;">'
-    + '<img src="' + BRAND_LOGO + '" alt="Swavey Services" width="180" style="display:inline-block;max-width:180px;height:auto;">'
+    + '<img src="' + BRAND_LOGO + '" alt="Swavey Services" width="220" style="display:inline-block;max-width:220px;height:auto;">'
     + '<p style="margin:18px 0 0;color:' + HERO_LABEL + ';font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">New Photoshoot Booking</p>'
     + '<h1 style="margin:8px 0 0;color:' + HERO_TEXT + ';font-size:24px;font-weight:700;">' + esc_(d.shootType || 'Photoshoot Request') + '</h1>'
     + '</td></tr>'
