@@ -1422,7 +1422,9 @@ End Fixed Navigation
     return s.replace(/\b([a-zA-Z])/g, function(m) { return m.toUpperCase(); });
   }
   function formatPhone(v) {
-    var d = v.replace(/\D/g, '').slice(0, 10);
+    var d = v.replace(/\D/g, '');
+    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+    d = d.slice(0, 10);
     if (!d) return '';
     if (d.length < 4) return '(' + d;
     if (d.length < 7) return '(' + d.slice(0,3) + ') ' + d.slice(3);

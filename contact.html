@@ -258,85 +258,15 @@ End Fixed Navigation
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-6 mb-4 entrance" id="apparelCol">
+      <div class="col-lg-5 col-md-6 mb-4 entrance">
         <div class="contact-card text-center">
           <div class="contact-card-icon">
             <i class="tf-ion-tshirt-outline"></i>
           </div>
           <h3>Apparel Printing &amp; Embroidery</h3>
           <p>Custom t-shirts, polos, hats, and more. No minimum order required. Fill out our quick order form and we'll send you a free quote.</p>
-          <button class="btn btn-main" id="toggleApparelForm" type="button">Place Your Order</button>
-
-          <div class="apparel-form-wrapper" id="apparelFormWrapper">
-            <form class="dark-form" id="apparelForm" novalidate>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <label for="af-first-name">First Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="af-first-name" name="firstName" autocomplete="given-name" data-autocap="words" required placeholder="First">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="af-last-name">Last Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="af-last-name" name="lastName" autocomplete="family-name" data-autocap="words" required placeholder="Last">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <label for="af-email">Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" id="af-email" name="email" autocomplete="email" required placeholder="you@email.com">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="af-phone">Phone <span class="text-danger">*</span></label>
-                  <input type="tel" class="form-control" id="af-phone" name="phone" autocomplete="tel" inputmode="tel" data-phone-format="us" required placeholder="(555) 123-4567" maxlength="14">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label for="af-inquiry">Printing Inquiry</label>
-                  <select class="form-control" id="af-inquiry" name="inquiry">
-                    <option value="" disabled selected>Select a service</option>
-                    <option value="T-Shirt Printing">T-Shirt Printing</option>
-                    <option value="Embroidery">Embroidery</option>
-                    <option value="Decal Printing">Decal Printing</option>
-                    <option value="Logo Design">Logo Design</option>
-                    <option value="Graphics Design">Graphics Design</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="af-details">Order Details</label>
-                <textarea class="form-control" id="af-details" name="details" rows="4" placeholder="Please share any helpful information to help us with your inquiry. Include Type of Garment (t-shirts, hoodies, etc.), Quantity, Size Breakdown, Garment Colors, &amp; Number of Print Locations (Front print, Back Print, Sleeve Print, etc.)"></textarea>
-              </div>
-              <div class="form-group">
-                <label>Require Shipping?</label>
-                <div class="radio-group">
-                  <label class="radio-label"><input type="radio" name="shipping" value="No" checked> No</label>
-                  <label class="radio-label"><input type="radio" name="shipping" value="Yes"> Yes</label>
-                </div>
-              </div>
-              <div class="shipping-fields" id="shippingFields">
-                <div class="form-group">
-                  <label for="af-address">Street Address</label>
-                  <input type="text" class="form-control" id="af-address" name="address" placeholder="123 Main St">
-                </div>
-                <div class="row">
-                  <div class="col-md-5 form-group">
-                    <label for="af-city">City</label>
-                    <input type="text" class="form-control" id="af-city" name="city" placeholder="City">
-                  </div>
-                  <div class="col-md-3 form-group">
-                    <label for="af-state">State</label>
-                    <input type="text" class="form-control" id="af-state" name="state" placeholder="FL" maxlength="2">
-                  </div>
-                  <div class="col-md-4 form-group">
-                    <label for="af-zip">Zip Code</label>
-                    <input type="text" class="form-control" id="af-zip" name="zip" placeholder="33101" maxlength="10">
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-main btn-block" id="apparelSubmit">Send Order Request</button>
-              <p class="form-status" id="formStatus"></p>
-            </form>
+          <div class="contact-card-buttons">
+            <a href="order-apparel.html" class="btn btn-main">Place Your Order</a>
           </div>
         </div>
       </div>
@@ -428,124 +358,6 @@ End Fixed Navigation
         setTimeout(function() { el.classList.add("revealed"); }, i * 50);
       });
     }, 800);
-  });
-})();
-</script>
-
-<script>
-/* ── Apparel Order Form → Apps Script Web App ── */
-(function() {
-  // TODO: After deploying apparel-email.gs as a Web App (see apps-script/README.md),
-  // paste the deployment URL here:
-  var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby2ZW_MPUmhm8J6d2SUXUd93fLnRl8GVII6pXmevpotdz-iEkTd_WCUyuVA8USgB7C4QQ/exec';
-
-  var toggleBtn   = document.getElementById('toggleApparelForm');
-  var wrapper     = document.getElementById('apparelFormWrapper');
-  var col         = document.getElementById('apparelCol');
-  var form        = document.getElementById('apparelForm');
-  var status      = document.getElementById('formStatus');
-  var shipFields  = document.getElementById('shippingFields');
-  var shipRadios  = form.querySelectorAll('input[name="shipping"]');
-
-  toggleBtn.addEventListener('click', function() {
-    var open = wrapper.classList.toggle('open');
-    toggleBtn.textContent = open ? 'Close Form' : 'Place Your Order';
-    col.className = open
-      ? 'col-lg-10 col-md-12 mb-4 entrance show'
-      : 'col-lg-5 col-md-6 mb-4 entrance show';
-  });
-
-  function titleCase(s) {
-    return s.replace(/\b([a-zA-Z])/g, function(m) { return m.toUpperCase(); });
-  }
-  function formatPhone(v) {
-    var d = v.replace(/\D/g, '').slice(0, 10);
-    if (!d) return '';
-    if (d.length < 4) return '(' + d;
-    if (d.length < 7) return '(' + d.slice(0,3) + ') ' + d.slice(3);
-    return '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
-  }
-  form.querySelectorAll('input[data-autocap="words"]').forEach(function(el) {
-    el.addEventListener('input', function() {
-      var pos = el.selectionStart;
-      var next = titleCase(el.value);
-      if (next !== el.value) {
-        el.value = next;
-        try { el.setSelectionRange(pos, pos); } catch (e) {}
-      }
-    });
-  });
-  form.querySelectorAll('input[data-phone-format="us"]').forEach(function(el) {
-    el.addEventListener('input', function() {
-      el.value = formatPhone(el.value);
-    });
-  });
-
-  shipRadios.forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      if (this.value === 'Yes') {
-        shipFields.classList.add('visible');
-      } else {
-        shipFields.classList.remove('visible');
-      }
-    });
-  });
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var submitBtn = document.getElementById('apparelSubmit');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    status.textContent = '';
-    status.className = 'form-status';
-
-    var firstName = form.firstName.value.trim();
-    var lastName  = form.lastName.value.trim();
-    var payload = {
-      firstName: firstName,
-      lastName:  lastName,
-      name:      (firstName + ' ' + lastName).trim(),
-      email:     form.email.value.trim(),
-      phone:     form.phone.value.trim(),
-      inquiry:   form.inquiry.value,
-      details:   form.details.value.trim(),
-      shipping:  form.shipping.value,
-      address:   form.address.value.trim(),
-      city:      form.city.value.trim(),
-      state:     form.state.value.trim(),
-      zip:       form.zip.value.trim(),
-      submittedAt: new Date().toISOString()
-    };
-
-    var done = function(ok) {
-      if (ok) {
-        status.textContent = 'Order request sent! We\'ll be in touch soon.';
-        status.className = 'form-status success';
-        form.reset();
-        shipFields.classList.remove('visible');
-      } else {
-        status.textContent = 'Something went wrong. Please try again.';
-        status.className = 'form-status error';
-      }
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Order Request';
-    };
-
-    fetch(WEB_APP_URL, {
-      method: 'POST',
-      // text/plain avoids CORS preflight on Apps Script Web Apps.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
-      redirect: 'follow'
-    }).then(function(res) {
-      if (!res.ok) { done(false); return; }
-      return res.json().then(function(data) {
-        done(!!(data && data.ok));
-      }).catch(function() { done(false); });
-    }).catch(function() {
-      done(false);
-    });
   });
 })();
 </script>
