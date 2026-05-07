@@ -15,7 +15,7 @@
  */
 
 var NOTIFY_TO = 'support@swavey.biz';
-var BRAND_LOGO = 'https://swavey.biz/images/swaveylogo23.png';
+var BRAND_LOGO = 'https://swavey.biz/images/swaveylogo2final.png';
 var ACCENT = '#28ABE3';
 var ACCENT_DEEP = '#1a8fbf';
 var HERO_FROM = '#e8f2fc';
