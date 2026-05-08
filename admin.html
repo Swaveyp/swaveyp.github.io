@@ -393,74 +393,112 @@
     }
 
     /* ============================================================
-       Mobile + tablet
+       Universal safety: prevent horizontal overflow anywhere
+       on the admin page (long emails, URLs, etc.)
        ============================================================ */
+    #adminLogin *, #adminDashboard *, .admin-modal * { box-sizing: border-box; }
+    #adminLogin, #adminDashboard { overflow-x: clip; }
+    #adminDashboard a, #adminDashboard dd, #adminDashboard dt,
+    #adminDashboard p, #adminDashboard span, #adminDashboard h1,
+    #adminDashboard h2, #adminDashboard h3, #adminDashboard h4 {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    .admin-card-summary dd, .admin-card-details dd {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    .admin-card { overflow: hidden; }
 
-    /* Tablet */
+    /* Beat Bootstrap's .form-control min-height/padding on the
+       admin-search and admin Log Out button. */
+    .admin-toolbar .admin-search.form-control {
+      height: auto; min-height: 0;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       Tablet
+       ============================================================ */
     @media (max-width: 900px) {
       .admin-section { padding: 36px 0 72px; }
       #adminDashboard .admin-block-head h2 { font-size: 22px; }
       .admin-card-details dl { grid-template-columns: minmax(120px, 160px) 1fr; gap: 6px 14px; }
     }
 
-    /* Mobile */
+    /* ============================================================
+       Mobile
+       ============================================================ */
     @media (max-width: 640px) {
       /* Section + page padding */
-      .admin-section { padding: 24px 0 56px; }
-      #adminLogin { padding: 32px 0 48px; }
-      #adminLogin .contact-card { padding: 28px 22px; border-radius: 14px; }
+      .admin-section { padding: 20px 0 48px; }
+      #adminLogin { padding: 28px 0 40px; }
+      #adminLogin .contact-card { padding: 24px 18px; border-radius: 14px; }
       #adminLogin .contact-card h3 { font-size: 19px; margin-bottom: 18px; }
 
-      /* Section title */
-      #adminDashboard .admin-block-head h2 { font-size: 20px; margin-bottom: 14px; }
-      .admin-block { padding: 24px 0; }
+      /* Container side padding tighter so cards have more breathing room */
+      #adminDashboard > .container,
+      #adminLogin > .container { padding-left: 12px; padding-right: 12px; }
 
-      /* Toolbar: stack and make touch-friendly */
+      /* Section title */
+      #adminDashboard .admin-block-head h2 { font-size: 19px; margin-bottom: 12px; }
+      .admin-block { padding: 20px 0; }
+
+      /* Toolbar: stack, tighter sizing */
       .admin-toolbar {
         flex-direction: column; align-items: stretch;
-        gap: 10px; margin-bottom: 24px;
+        gap: 8px; margin-bottom: 20px;
       }
       .admin-toolbar .admin-search,
-      .admin-toolbar .btn-back { width: 100%; min-height: 44px; }
-      .admin-last-refresh { text-align: center; padding: 4px 0; }
+      .admin-toolbar .admin-search.form-control {
+        width: 100%; min-width: 0;
+        height: 40px; min-height: 40px;
+        padding: 8px 12px; font-size: 14px; line-height: 1.4;
+        flex: none;
+      }
+      .admin-toolbar .admin-search::placeholder { font-size: 13px; }
+      .admin-toolbar .btn-back {
+        width: 100%; min-height: 38px;
+        padding: 8px 14px; font-size: 13px;
+      }
+      .admin-last-refresh { text-align: center; padding: 2px 0; font-size: 11px; }
 
-      /* Tabs: tighter padding, ensure horizontal scroll is smooth */
-      .admin-tabs { gap: 2px; margin-bottom: 18px; }
-      .admin-tab { padding: 10px 14px; font-size: 13px; }
-      .admin-tab-count { min-width: 20px; height: 18px; font-size: 10px; padding: 0 6px; }
+      /* Tabs */
+      .admin-tabs { gap: 2px; margin-bottom: 16px; }
+      .admin-tab { padding: 9px 12px; font-size: 12.5px; }
+      .admin-tab-count { min-width: 20px; height: 18px; font-size: 10px; padding: 0 5px; margin-left: 6px; }
 
       /* Cards */
-      .admin-list { gap: 12px; }
+      .admin-list { gap: 10px; }
       .admin-card {
-        padding: 16px 16px 16px 20px;
+        padding: 14px 14px 14px 18px;
         border-radius: 10px;
+        min-width: 0;
       }
       .admin-card::before { width: 3px; }
 
       .admin-card-head {
-        gap: 8px; margin-bottom: 12px;
-        align-items: flex-start;
+        gap: 6px; margin-bottom: 10px;
+        flex-direction: column; align-items: stretch;
       }
-      .admin-card-name { font-size: 16px; flex: 1 1 100%; min-width: 0; }
-      .admin-card-meta { gap: 8px; flex-basis: 100%; justify-content: space-between; }
+      .admin-card-name { font-size: 16px; min-width: 0; }
+      .admin-card-meta { gap: 8px; justify-content: space-between; flex-wrap: wrap; }
       .admin-card-time { font-size: 11px; }
 
       .status-pill { padding: 3px 9px; font-size: 10px; letter-spacing: 0.4px; }
 
-      /* Summary grid: stack as label-value pairs */
+      /* Summary: single column, label-above-value */
       .admin-card-summary {
         grid-template-columns: 1fr;
-        gap: 10px; margin-bottom: 14px;
+        gap: 10px; margin-bottom: 12px;
       }
-      .admin-card-summary dt { font-size: 10px; letter-spacing: 1.1px; }
+      .admin-card-summary dt { font-size: 10px; letter-spacing: 1px; }
       .admin-card-summary dd { font-size: 13.5px; }
 
-      .admin-card-toggle { width: 100%; padding: 9px 14px; font-size: 13px; min-height: 40px; }
+      .admin-card-toggle { width: 100%; padding: 9px 14px; font-size: 13px; min-height: 38px; }
 
-      /* Detail panel: stacked label/value (no two-col grid) */
-      .admin-card-details { margin-top: 14px; padding-top: 14px; }
+      /* Detail panel: stacked label/value */
+      .admin-card-details { margin-top: 12px; padding-top: 12px; }
       .admin-card-details dl {
-        display: block; padding: 12px 14px; border-radius: 8px;
+        display: block; padding: 10px 12px; border-radius: 8px;
       }
       .admin-card-details dl > dt {
         margin: 8px 0 2px; font-size: 11px; letter-spacing: 0.7px;
@@ -469,49 +507,63 @@
       .admin-card-details dl > dd {
         margin: 0; padding-bottom: 8px;
         border-bottom: 1px solid rgba(255,255,255,0.05);
-        font-size: 13.5px;
+        font-size: 13.5px; line-height: 1.45;
       }
       .admin-card-details dl > dd:last-child { border-bottom: 0; padding-bottom: 0; }
-      .admin-card-details h4 { font-size: 12px; margin: 16px 0 8px; }
+      .admin-card-details h4 { font-size: 12px; margin: 14px 0 6px; }
 
-      /* Action buttons: full-width stacked */
+      /* Action buttons: stacked full-width */
       .admin-card-actions {
         flex-direction: column; gap: 8px;
-        margin-top: 14px; padding-top: 14px;
+        margin-top: 12px; padding-top: 12px;
       }
       .admin-card-actions .admin-action {
-        width: 100%; min-height: 44px; padding: 11px 18px; font-size: 14px;
+        width: 100%; min-height: 42px; padding: 10px 16px; font-size: 14px;
       }
 
       /* Empty state */
-      .admin-empty { padding: 36px 18px; }
+      .admin-empty { padding: 32px 16px; }
 
-      /* Toasts: full-width-ish at top */
-      #adminToasts { top: 70px; right: 8px; left: 8px; max-width: none; }
-      .admin-toast { font-size: 12.5px; padding: 11px 14px; }
+      /* Toasts pinned to top */
+      #adminToasts { top: 64px; right: 8px; left: 8px; max-width: none; }
+      .admin-toast { font-size: 12.5px; padding: 10px 13px; }
 
-      /* Modal */
+      /* Modal: full-screen sheet */
       .admin-modal-backdrop { padding: 0; align-items: stretch; }
       .admin-modal {
         max-height: 100vh; max-height: 100dvh;
-        height: 100%; border-radius: 0; border-left: 0; border-right: 0;
+        height: 100%; width: 100%; max-width: 100%;
+        border-radius: 0; border-left: 0; border-right: 0;
       }
-      .admin-modal-head { padding: 14px 18px; }
+      .admin-modal-head { padding: 12px 16px; }
       .admin-modal-head h3 { font-size: 16px; }
-      .admin-modal-body { padding: 16px 18px; }
+      .admin-modal-body { padding: 14px 16px; }
       .admin-modal-foot {
-        padding: 12px 18px; gap: 8px;
+        padding: 10px 16px; gap: 8px;
         flex-direction: column-reverse;
       }
       .admin-modal-foot .btn { width: 100%; min-height: 44px; }
       .admin-modal .modal-row { grid-template-columns: 1fr; gap: 10px; }
-      .admin-modal .form-control { padding: 10px 12px; font-size: 15px; margin-bottom: 12px; }
+      .admin-modal .form-control {
+        padding: 9px 11px; font-size: 15px; margin-bottom: 10px;
+        width: 100%; min-width: 0;
+      }
       .admin-modal .shoot-specific-row {
-        grid-template-columns: 1fr; gap: 4px; margin-bottom: 12px;
+        grid-template-columns: 1fr; gap: 4px; margin-bottom: 10px;
       }
       .admin-modal .shoot-specific-row label {
         font-size: 11px; text-transform: uppercase; letter-spacing: 0.7px;
       }
+    }
+
+    /* Extra-narrow phones (<= 380px) */
+    @media (max-width: 380px) {
+      #adminDashboard > .container,
+      #adminLogin > .container { padding-left: 10px; padding-right: 10px; }
+      .admin-card { padding: 12px 12px 12px 16px; }
+      .admin-card-name { font-size: 15px; }
+      .admin-card-summary dd, .admin-card-details dl > dd { font-size: 13px; }
+      .admin-tab { padding: 8px 10px; font-size: 12px; }
     }
   </style>
 
