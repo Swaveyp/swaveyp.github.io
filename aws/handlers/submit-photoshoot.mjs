@@ -3,6 +3,7 @@ import { ddb, TABLE } from './lib/ddb.mjs';
 import { newBookingId, pkFor, SK, gsi1For } from './lib/ids.mjs';
 import { parseDateOrTimeframe } from './lib/parse-date.mjs';
 import { jsonResponse } from './lib/cors.mjs';
+import { decorateImages } from './lib/s3.mjs';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -60,6 +61,8 @@ export async function handler(event) {
     dateOrTimeframe:  body.dateOrTimeframe || body.dateValue || '',
     timeOfDay:        body.timeOfDay || '',
     location:         body.location || body.locationPref || '',
+    locationName:     body.locationName || '',
+    locationAddress:  body.locationAddress || '',
     numberOfPeople:   body.numberOfPeople || body.peopleCount || '',
     budget:           body.budget || '',
     workedBefore:     body.workedBefore || body.priorExperience || '',
@@ -83,6 +86,7 @@ export async function handler(event) {
 
   // Fire admin-notify email — failures must not break the user submission.
   try {
+    const decorated = await decorateImages(item);
     await fetch(process.env.EMAIL_SCRIPT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -91,7 +95,7 @@ export async function handler(event) {
         kind: 'photoshoot-admin-notify',
         to: ['support@swavey.biz'],
         replyTo: email,
-        data: item,
+        data: decorated,
         calendar: null
       })
     });

@@ -3,7 +3,7 @@ import { ddb, TABLE } from './lib/ddb.mjs';
 import { verifyPassword } from './lib/auth.mjs';
 import { todayUtc } from './lib/parse-date.mjs';
 import { jsonResponse } from './lib/cors.mjs';
-import { decorateInspiration } from './lib/s3.mjs';
+import { decorateImages } from './lib/s3.mjs';
 
 // GET /admin/list?type=photoshoot|apparel|all&view=pending|upcoming|past|denied|archived
 export async function handler(event) {
@@ -55,11 +55,12 @@ export async function handler(event) {
     }
   }
 
-  // Strip internal keys from response and decorate any inspirationImages
-  // with short-lived presigned GET URLs so the admin UI can render them.
+  // Strip internal keys from response and decorate any image-array fields
+  // (inspirationImages, designImages) with short-lived presigned GET URLs
+  // so the admin UI can render them.
   const cleaned = await Promise.all(items.map(async (it) => {
     const { gsi1pk, gsi1sk, gsi2pk, gsi2sk, ...rest } = it;
-    return decorateInspiration(rest);
+    return decorateImages(rest);
   }));
 
   return jsonResponse(200, { ok: true, items: cleaned });

@@ -186,12 +186,39 @@
   line-height: 1.5;
 }
 .step-errors[hidden] { display: none; }
+.dark-form .radio-group { flex-wrap: wrap; row-gap: 8px; }
+.dark-form .radio-label { max-width: 100%; }
 .upcharge-callout {
   background: rgba(40,171,227,0.08);
   border: 1px solid rgba(40,171,227,0.35);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   margin-top: 8px;
+}
+.upcharge-callout .radio-group { flex-wrap: wrap; row-gap: 10px; }
+.upcharge-callout .radio-group-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.upcharge-callout .radio-group-stacked .radio-label {
+  flex-wrap: wrap;
+  white-space: normal;
+  max-width: 100%;
+}
+.upcharge-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(40,171,227,0.14);
+  border: 1px solid rgba(40,171,227,0.3);
+  border-radius: 999px;
+  line-height: 1.4;
 }
 .upcharge-note {
   display: block;
@@ -557,21 +584,23 @@ End Fixed Navigation
 
               <div class="form-group">
                 <label>Time of Day <span class="required">*</span></label>
-                <div class="radio-group">
-                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Morning"> Morning</label>
-                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Afternoon"> Afternoon</label>
-                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Evening"> Evening</label>
-                  <label class="radio-label"><input type="radio" name="timeOfDay" value="No preference"> No preference</label>
+                <div class="radio-group" role="radiogroup">
+                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Morning" data-label="Time of Day"> Morning</label>
+                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Afternoon" data-label="Time of Day"> Afternoon</label>
+                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Evening" data-label="Time of Day"> Evening</label>
+                  <label class="radio-label"><input type="radio" name="timeOfDay" value="Specific time" data-label="Time of Day" id="pw-time-specific-radio"> Specific time</label>
                 </div>
+                <input type="text" class="form-control is-hidden" id="pw-time-specific-input" placeholder="e.g., 5:30 PM, after sunset" autocomplete="off" style="margin-top:8px;">
               </div>
 
-              <div class="form-group">
-                <label>Location Preference <span class="required">*</span></label>
-                <div class="radio-group" style="flex-direction:column;align-items:flex-start;gap:10px;">
-                  <label class="radio-label"><input type="radio" name="locationPref" value="Studio"> Studio</label>
-                  <label class="radio-label"><input type="radio" name="locationPref" value="Outdoor"> Outdoor</label>
-                  <label class="radio-label"><input type="radio" name="locationPref" value="Client location"> Client location</label>
-                  <label class="radio-label"><input type="radio" name="locationPref" value="Undecided"> Undecided</label>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="pw-location-name">Location Name <span class="helper-text" style="font-weight:normal;">(optional)</span></label>
+                  <input type="text" class="form-control" id="pw-location-name" autocomplete="off" placeholder="e.g., Crandon Park, my backyard, your studio">
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="pw-location-address">Address <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="pw-location-address" autocomplete="off" required aria-required="true" placeholder="123 Main St, City, State, Zip">
                 </div>
               </div>
 
@@ -617,7 +646,7 @@ End Fixed Navigation
                   <input type="file" id="pw-inspiration-input" name="inspirationImages" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif,image/webp,image/gif" multiple hidden>
                   <button type="button" class="btn-back bp-uploader-trigger" id="pw-inspiration-trigger">+ Add photos</button>
                   <div class="bp-uploader-grid" id="pw-inspiration-grid"></div>
-                  <p class="helper-text" id="pw-inspiration-help">JPG, PNG, HEIC, or WEBP. Max 10 MB per photo.</p>
+                  <p class="helper-text" id="pw-inspiration-help">JPG, PNG, HEIC, or WEBP. Max 20 MB per photo.</p>
                   <p class="form-status" id="pw-inspiration-status"></p>
                 </div>
               </div>
@@ -986,10 +1015,10 @@ End Fixed Navigation
   <div class="form-group">
     <label data-label-for="Media type">Media Type</label>
     <div class="upcharge-callout">
-      <div class="radio-group">
+      <div class="radio-group radio-group-stacked">
         <label class="radio-label"><input type="radio" name="sp-media" data-label="Media type" value="Action shots"> Action shots</label>
-        <label class="radio-label"><input type="radio" name="sp-media" data-label="Media type" value="Video Highlights"> Video Highlights <span class="helper-text" style="display:inline;margin-left:4px;">+additional cost</span></label>
-        <label class="radio-label"><input type="radio" name="sp-media" data-label="Media type" value="Both"> Both <span class="helper-text" style="display:inline;margin-left:4px;">+additional cost</span></label>
+        <label class="radio-label"><input type="radio" name="sp-media" data-label="Media type" value="Video Highlights"> Video Highlights <span class="helper-text upcharge-tag">+additional cost</span></label>
+        <label class="radio-label"><input type="radio" name="sp-media" data-label="Media type" value="Both (Photo + Video)"> Both (Photo + Video) <span class="helper-text upcharge-tag">+additional cost</span></label>
       </div>
     </div>
   </div>
@@ -1134,7 +1163,8 @@ End Fixed Navigation
     dateMode: 'exact',
     dateValue: '',
     timeOfDay: '',
-    locationPref: '',
+    locationName: '',
+    locationAddress: '',
     peopleCount: '',
     priorExperience: '',
     shootSpecific: {},
@@ -1245,15 +1275,22 @@ End Fixed Navigation
           errors.push('date');
         }
       }
-      if (!state.timeOfDay) {
+      var todChecked = form.querySelector('input[name="timeOfDay"]:checked');
+      if (!todChecked) {
         var tod = form.querySelector('input[name="timeOfDay"]');
         setFieldError(tod, 'Pick a time of day.');
         errors.push('timeOfDay');
+      } else if (todChecked.value === 'Specific time') {
+        var todInput = form.querySelector('#pw-time-specific-input');
+        if (!todInput.value.trim()) {
+          setFieldError(todInput, 'Tell us the specific time.');
+          errors.push('timeOfDay');
+        }
       }
-      if (!state.locationPref) {
-        var loc = form.querySelector('input[name="locationPref"]');
-        setFieldError(loc, 'Pick a location preference.');
-        errors.push('location');
+      var addrEl = form.querySelector('#pw-location-address');
+      if (!addrEl.value.trim()) {
+        setFieldError(addrEl, 'Address is required.');
+        errors.push('locationAddress');
       }
       var people = form.querySelector('#pw-people');
       var pc = parseInt(people.value, 10);
@@ -1284,9 +1321,14 @@ End Fixed Navigation
       ? form.querySelector('#pw-date-exact').value
       : form.querySelector('#pw-date-flexible').value.trim();
     var todEl = form.querySelector('input[name="timeOfDay"]:checked');
-    state.timeOfDay = todEl ? todEl.value : '';
-    var locEl = form.querySelector('input[name="locationPref"]:checked');
-    state.locationPref = locEl ? locEl.value : '';
+    if (todEl && todEl.value === 'Specific time') {
+      var todInput = form.querySelector('#pw-time-specific-input');
+      state.timeOfDay = (todInput.value || '').trim();
+    } else {
+      state.timeOfDay = todEl ? todEl.value : '';
+    }
+    state.locationName = form.querySelector('#pw-location-name').value.trim();
+    state.locationAddress = form.querySelector('#pw-location-address').value.trim();
     state.peopleCount = form.querySelector('#pw-people').value.trim();
     var peEl = form.querySelector('input[name="priorExperience"]:checked');
     state.priorExperience = peEl ? peEl.value : '';
@@ -1475,6 +1517,21 @@ End Fixed Navigation
     });
   });
 
+  // Time-of-day "Specific time" reveal
+  form.querySelectorAll('input[name="timeOfDay"]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      if (!r.checked) return;
+      var input = form.querySelector('#pw-time-specific-input');
+      if (r.value === 'Specific time') {
+        input.classList.remove('is-hidden');
+        setTimeout(function() { try { input.focus(); } catch (e) {} }, 50);
+      } else {
+        input.classList.add('is-hidden');
+        input.value = '';
+      }
+    });
+  });
+
   // Persistence (debounced)
   var saveTimer = null;
   function saveDraft() {
@@ -1523,7 +1580,7 @@ End Fixed Navigation
 
   // ── Inspiration photo picker ──
   var INSPIRATION_MAX = 6;
-  var INSPIRATION_MAX_BYTES = 10 * 1024 * 1024;
+  var INSPIRATION_MAX_BYTES = 20 * 1024 * 1024;
   var INSPIRATION_TYPE_RE = /^image\/(jpeg|jpg|png|heic|heif|webp|gif)$/i;
   var inspirationInput = form.querySelector('#pw-inspiration-input');
   var inspirationTrigger = form.querySelector('#pw-inspiration-trigger');
@@ -1583,7 +1640,7 @@ End Fixed Navigation
     picked.forEach(function(f) {
       if (existing.length >= INSPIRATION_MAX) { rejected.push(f.name + ' (limit reached)'); return; }
       if (!INSPIRATION_TYPE_RE.test(f.type || '')) { rejected.push(f.name + ' (unsupported type)'); return; }
-      if (f.size <= 0 || f.size > INSPIRATION_MAX_BYTES) { rejected.push(f.name + ' (over 10 MB)'); return; }
+      if (f.size <= 0 || f.size > INSPIRATION_MAX_BYTES) { rejected.push(f.name + ' (over 20 MB)'); return; }
       var dup = existing.some(function(x) { return x.name === f.name && x.size === f.size; });
       if (dup) { dupes++; return; }
       existing.push(f);
@@ -1629,13 +1686,23 @@ End Fixed Navigation
       else form.querySelector('#pw-date-flexible').value = data.dateValue;
     }
     if (data.timeOfDay) {
-      var tEl = form.querySelector('input[name="timeOfDay"][value="' + data.timeOfDay + '"]');
-      if (tEl) tEl.checked = true;
+      var BUCKETS = ['Morning', 'Afternoon', 'Evening'];
+      if (BUCKETS.indexOf(data.timeOfDay) >= 0) {
+        var tEl = form.querySelector('input[name="timeOfDay"][value="' + data.timeOfDay + '"]');
+        if (tEl) tEl.checked = true;
+      } else {
+        var sEl = form.querySelector('#pw-time-specific-radio');
+        var sIn = form.querySelector('#pw-time-specific-input');
+        if (sEl) sEl.checked = true;
+        if (sIn) {
+          sIn.value = data.timeOfDay;
+          sIn.classList.remove('is-hidden');
+        }
+      }
     }
-    if (data.locationPref) {
-      var lEl = form.querySelector('input[name="locationPref"][value="' + data.locationPref + '"]');
-      if (lEl) lEl.checked = true;
-    }
+    if (data.locationName) form.querySelector('#pw-location-name').value = data.locationName;
+    if (data.locationAddress) form.querySelector('#pw-location-address').value = data.locationAddress;
+    // Legacy `locationPref` from older drafts is intentionally ignored.
     if (data.peopleCount) form.querySelector('#pw-people').value = data.peopleCount;
     if (data.priorExperience) {
       var pEl = form.querySelector('input[name="priorExperience"][value="' + data.priorExperience + '"]');
@@ -1788,7 +1855,8 @@ End Fixed Navigation
         shootType:         rawState.shootType,
         dateOrTimeframe:   rawState.dateValue,
         timeOfDay:         rawState.timeOfDay,
-        location:          rawState.locationPref,
+        locationName:      rawState.locationName,
+        locationAddress:   rawState.locationAddress,
         numberOfPeople:    rawState.peopleCount,
         budget:            rawState.budget,
         workedBefore:      rawState.priorExperience,

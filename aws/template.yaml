@@ -132,8 +132,13 @@ Resources:
           DDB_TABLE_NAME: !Ref BookingsTable
           EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
           EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+          INSPIRATION_BUCKET: !Ref InspirationBucket
       Policies:
         - DynamoDBWritePolicy: { TableName: !Ref BookingsTable }
+        - Statement:
+            - Effect: Allow
+              Action: s3:GetObject
+              Resource: !Sub "${InspirationBucket.Arn}/*"
       Events:
         Post:
           Type: HttpApi
@@ -152,8 +157,13 @@ Resources:
           DDB_TABLE_NAME: !Ref BookingsTable
           EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
           EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+          INSPIRATION_BUCKET: !Ref InspirationBucket
       Policies:
         - DynamoDBWritePolicy: { TableName: !Ref BookingsTable }
+        - Statement:
+            - Effect: Allow
+              Action: s3:GetObject
+              Resource: !Sub "${InspirationBucket.Arn}/*"
       Events:
         Post:
           Type: HttpApi

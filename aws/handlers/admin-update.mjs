@@ -4,17 +4,17 @@ import { verifyPassword } from './lib/auth.mjs';
 import { gsi1For, gsi2For, pkFor, SK } from './lib/ids.mjs';
 import { parseDateOrTimeframe } from './lib/parse-date.mjs';
 import { jsonResponse } from './lib/cors.mjs';
-import { decorateInspiration } from './lib/s3.mjs';
+import { decorateImages } from './lib/s3.mjs';
 
 async function decorateForResponse(record) {
   if (!record) return record;
   const { gsi1pk, gsi1sk, gsi2pk, gsi2sk, ...clean } = record;
-  return decorateInspiration(clean);
+  return decorateImages(clean);
 }
 
 const EDITABLE_FIELDS = new Set([
   'firstName', 'lastName', 'fullName', 'email', 'phone',
-  'shootType', 'dateOrTimeframe', 'timeOfDay', 'location', 'locationAddress',
+  'shootType', 'dateOrTimeframe', 'timeOfDay', 'location', 'locationName', 'locationAddress',
   'numberOfPeople', 'budget', 'workedBefore', 'heardAbout',
   'inspirationLinks', 'vision', 'additionalDetails',
   'shootSpecific', 'adminNotes',

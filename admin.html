@@ -291,6 +291,18 @@
       object-fit: cover;
       display: block;
     }
+    .admin-image-tile .admin-image-doc {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1f2937;
+      color: #f1f5f9;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
     .admin-image-tile .admin-image-name {
       position: absolute;
       left: 0; right: 0; bottom: 0;
@@ -1066,6 +1078,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       row('Scheduled (admin)', r.scheduledAtISO ? fmtDate(r.scheduledAtISO) : '');
       row('Time of Day', r.timeOfDay);
       row('Location', r.location);
+      row('Location Name', r.locationName);
       row('Location Address', r.locationAddress);
       row('Number of People', r.numberOfPeople);
       row('Budget', r.budget);
@@ -1096,19 +1109,32 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       html += '</dl>';
     }
     if (type === 'photoshoot' && Array.isArray(r.inspirationImages) && r.inspirationImages.length) {
-      html += '<h4>Inspiration Photos</h4><div class="admin-image-grid">';
-      r.inspirationImages.forEach(function (img) {
-        if (!img || !img.viewUrl) return;
-        var name = img.name || 'photo';
-        html += '<a class="admin-image-tile" href="' + esc(img.viewUrl) + '"'
-              + ' target="_blank" rel="noopener" download="' + esc(name) + '">'
-              + '<img src="' + esc(img.viewUrl) + '" alt="' + esc(name) + '" loading="lazy">'
-              + '<span class="admin-image-name">' + esc(name) + '</span>'
-              + '</a>';
-      });
-      html += '</div>';
+      html += '<h4>Inspiration Photos</h4>' + renderImageGrid(r.inspirationImages);
+    }
+    if (type === 'apparel' && Array.isArray(r.designImages) && r.designImages.length) {
+      html += '<h4>Logo / Design Files</h4>' + renderImageGrid(r.designImages);
     }
     return html;
+  }
+
+  function renderImageGrid(imgs) {
+    var out = '<div class="admin-image-grid">';
+    imgs.forEach(function (img) {
+      if (!img || !img.viewUrl) return;
+      var name = img.name || 'file';
+      var ct = img.contentType || '';
+      var isPdf = ct === 'application/pdf' || /\.pdf$/i.test(name);
+      var inner = isPdf
+        ? '<span class="admin-image-doc">PDF</span>'
+        : '<img src="' + esc(img.viewUrl) + '" alt="' + esc(name) + '" loading="lazy">';
+      out += '<a class="admin-image-tile" href="' + esc(img.viewUrl) + '"'
+           + ' target="_blank" rel="noopener" download="' + esc(name) + '">'
+           + inner
+           + '<span class="admin-image-name">' + esc(name) + '</span>'
+           + '</a>';
+    });
+    out += '</div>';
+    return out;
   }
 
   // ---------- click handling ----------
@@ -1243,6 +1269,8 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
         + '<div><label>Time of Day</label><input class="form-control" name="timeOfDay" value="' + esc(rec.timeOfDay || '') + '"></div>'
         + '<div><label>Location Preference</label><input class="form-control" name="location" value="' + esc(rec.location || '') + '"></div>'
         + '</div>';
+      fieldsHtml += '<label>Location Name (optional, e.g. Crandon Park)</label>'
+        + '<input class="form-control" name="locationName" value="' + esc(rec.locationName || '') + '">';
       fieldsHtml += '<label>Location Address (appears in calendar invite)</label>'
         + '<input class="form-control" name="locationAddress" value="' + esc(rec.locationAddress || '') + '">';
       fieldsHtml += '<div class="modal-row">'

@@ -109,12 +109,14 @@ function normPhoto_(data) {
     dateOrTime:   str_(data.dateOrTimeframe || data.dateValue || data.dateExact || data.dateFlexible),
     timeOfDay:    str_(data.timeOfDay),
     location:     str_(data.location || data.locationPref),
+    locationName: str_(data.locationName),
     locationAddr: str_(data.locationAddress),
     people:       str_(data.numberOfPeople || data.peopleCount),
     budget:       str_(data.budget),
     workedBefore: str_(data.workedBefore || data.priorExperience),
     heard:        str_(data.heardAbout || data.referral),
     inspiration:  str_(data.inspirationLinks),
+    inspirationImages: Array.isArray(data.inspirationImages) ? data.inspirationImages : [],
     inspirationImageCount: (Array.isArray(data.inspirationImages) ? data.inspirationImages.length : 0),
     visionText:   str_(data.vision),
     additional:   str_(data.additionalDetails),
@@ -141,6 +143,8 @@ function normApparel_(data) {
     city:         str_(data.city),
     state:        str_(data.state),
     zip:          str_(data.zip),
+    designImages: Array.isArray(data.designImages) ? data.designImages : [],
+    designImageCount: (Array.isArray(data.designImages) ? data.designImages.length : 0),
     scheduledType:  str_(data.scheduledType),
     scheduledISO:   str_(data.scheduledAtISO),
     scheduledHuman: str_(data.scheduledAtHuman),
@@ -172,7 +176,7 @@ function renderPhotoshootAdminNotify_(d) {
     ['Shoot Type', d.shootType],
     ['Date / Timeframe', d.dateOrTime],
     ['Time of Day', d.timeOfDay],
-    ['Location', d.location],
+    ['Location', photoshootLocation_(d)],
     ['Number of People', d.people],
     ['Budget', d.budget],
     ['Worked w/ photographer before?', d.workedBefore],
@@ -182,7 +186,10 @@ function renderPhotoshootAdminNotify_(d) {
 
   var sections = '';
   if (d.visionText)    sections += sectionPara_('Vision', d.visionText);
-  if (d.inspirationImageCount > 0) {
+  var inspGrid = imageGridSection_('Inspiration Photos', d.inspirationImages);
+  if (inspGrid) {
+    sections += inspGrid;
+  } else if (d.inspirationImageCount > 0) {
     sections += sectionPara_('Inspiration Photos', d.inspirationImageCount + ' uploaded — view in admin panel');
   } else if (d.inspiration) {
     sections += sectionLinks_('Inspiration Links', d.inspiration);
@@ -214,7 +221,8 @@ function plainPhotoshootAdmin_(d) {
   if (d.shootType)    L.push('  Type:                 ' + d.shootType);
   if (d.dateOrTime)   L.push('  Date / Timeframe:     ' + d.dateOrTime);
   if (d.timeOfDay)    L.push('  Time of Day:          ' + d.timeOfDay);
-  if (d.location)     L.push('  Location:             ' + d.location);
+  var loc = photoshootLocation_(d);
+  if (loc)            L.push('  Location:             ' + loc);
   if (d.people)       L.push('  Number of People:     ' + d.people);
   if (d.budget)       L.push('  Budget:               ' + d.budget);
   if (d.workedBefore) L.push('  Prior experience:     ' + d.workedBefore);
@@ -249,6 +257,12 @@ function renderApparelAdminNotify_(d) {
 
   var sections = '';
   if (d.details) sections += sectionPara_('Order Details', d.details);
+  var designGrid = imageGridSection_('Logo / Design Files', d.designImages);
+  if (designGrid) {
+    sections += designGrid;
+  } else if (d.designImageCount > 0) {
+    sections += sectionPara_('Logo / Design Files', d.designImageCount + ' uploaded — view in admin panel');
+  }
   if (d.shipping === 'Yes') {
     var addr = [d.address, d.city, d.state, d.zip].filter(function(x){return x;}).join(', ');
     sections += sectionPara_('Shipping', addr || '(address not provided)');
@@ -276,6 +290,9 @@ function plainApparelAdmin_(d) {
   if (d.phone)    L.push('  Phone:    ' + d.phone);
   if (d.inquiry)  L.push('  Inquiry:  ' + d.inquiry);
   if (d.details)  { L.push(''); L.push('DETAILS'); L.push(d.details); }
+  if (d.designImageCount > 0) {
+    L.push(''); L.push('DESIGN FILES'); L.push('  ' + d.designImageCount + ' uploaded — view in admin panel');
+  }
   L.push(''); L.push('SHIPPING');
   if (d.shipping === 'Yes') {
     if (d.address) L.push('  ' + d.address);
@@ -295,7 +312,7 @@ function renderPhotoshootConfirmation_(d) {
 
   var detailRows = [
     ['Date & Time',          d.scheduledHuman || d.dateOrTime],
-    ['Location',             d.locationAddr || d.location],
+    ['Location',             photoshootLocation_(d)],
     ['Shoot Type',           d.shootType],
     ['Number of People',     d.people],
     ['Photographer Contact', '<a href="mailto:'+SUPPORT_EMAIL+'" style="color:'+ACCENT+';">'+SUPPORT_EMAIL+'</a>']
@@ -343,7 +360,8 @@ function plainPhotoshootConfirm_(d, first) {
   L.push('');
   L.push('CONFIRMED DETAILS');
   if (d.scheduledHuman || d.dateOrTime) L.push('  Date & Time: ' + (d.scheduledHuman||d.dateOrTime));
-  if (d.locationAddr || d.location)     L.push('  Location:    ' + (d.locationAddr||d.location));
+  var locC = photoshootLocation_(d);
+  if (locC)                             L.push('  Location:    ' + locC);
   if (d.shootType)                      L.push('  Type:        ' + d.shootType);
   if (d.people)                         L.push('  People:      ' + d.people);
   L.push('  Contact:     ' + SUPPORT_EMAIL);
@@ -514,6 +532,41 @@ function sectionLinks_(label, text) {
     + '<h3 style="margin:32px 0 12px;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:'+ACCENT+';font-weight:700;">'+esc_(label)+'</h3>'
     + '<p style="margin:0;font-size:14px;line-height:1.7;color:#334155;white-space:pre-wrap;">'+linked+'</p>';
 }
+function imageGridSection_(label, items) {
+  if (!Array.isArray(items) || !items.length) return '';
+  var renderable = items.filter(function(it){ return it && it.viewUrl; });
+  if (!renderable.length) return '';
+  var cells = renderable.map(function(it) {
+    var ct = String(it.contentType || '');
+    var name = esc_(it.name || '');
+    var href = esc_(it.viewUrl);
+    var isImage = ct.indexOf('image/') === 0;
+    var inner = isImage
+      ? '<img src="' + href + '" alt="' + name + '" width="180" style="display:block;width:100%;max-width:180px;height:auto;border-radius:6px;border:1px solid #e2e8f0;background:#f1f5f9;">'
+      : '<div style="display:flex;align-items:center;justify-content:center;width:180px;max-width:100%;height:130px;border-radius:6px;border:1px solid #e2e8f0;background:#f1f5f9;color:' + ACCENT_DEEP + ';font-size:13px;font-weight:700;letter-spacing:1px;">'
+        + esc_((ct.split('/')[1] || 'FILE').toUpperCase())
+        + '</div>';
+    return ''
+      + '<td valign="top" style="padding:6px;width:50%;">'
+      +   '<a href="' + href + '" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">'
+      +     inner
+      +     '<div style="margin-top:4px;font-size:11px;color:#64748b;line-height:1.3;word-break:break-all;">' + name + '</div>'
+      +   '</a>'
+      + '</td>';
+  });
+  // Render in rows of 2 cells each
+  var rows = '';
+  for (var i = 0; i < cells.length; i += 2) {
+    var pair = cells[i] + (cells[i+1] || '<td style="padding:6px;width:50%;"></td>');
+    rows += '<tr>' + pair + '</tr>';
+  }
+  return ''
+    + '<h3 style="margin:32px 0 12px;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:'+ACCENT+';font-weight:700;">'+esc_(label)+'</h3>'
+    + '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:separate;border-spacing:0;">'
+    +   rows
+    + '</table>';
+}
+
 function sectionTable_(label, pairs) {
   return ''
     + '<h3 style="margin:32px 0 12px;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:'+ACCENT+';font-weight:700;">'+esc_(label)+'</h3>'
@@ -542,6 +595,15 @@ function renderRows_(rows) {
 }
 function linkMail_(em)   { return em ? '<a href="mailto:'+esc_(em)+'" style="color:'+ACCENT+';text-decoration:none;">'+esc_(em)+'</a>' : ''; }
 function linkPhone_(ph)  { return ph ? '<a href="tel:'+esc_(ph.replace(/[^0-9+]/g,''))+'" style="color:'+ACCENT+';text-decoration:none;">'+esc_(ph)+'</a>' : ''; }
+
+// Photoshoot location string. Prefers locationAddress (with locationName
+// prepended if provided); falls back to legacy `location`.
+function photoshootLocation_(d) {
+  if (d.locationAddr) {
+    return d.locationName ? (d.locationName + ' — ' + d.locationAddr) : d.locationAddr;
+  }
+  return d.location || '';
+}
 
 // =============================================================
 // .ics generation (RFC 5545)

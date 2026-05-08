@@ -2,8 +2,8 @@ import crypto from 'node:crypto';
 import { presignPut } from './lib/s3.mjs';
 import { jsonResponse } from './lib/cors.mjs';
 
-const CONTENT_TYPE_RE = /^image\/(jpeg|jpg|png|heic|heif|webp|gif)$/;
-const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
+const CONTENT_TYPE_RE = /^(image\/(jpeg|jpg|png|heic|heif|webp|gif)|application\/pdf)$/;
+const MAX_BYTES = 20 * 1024 * 1024; // 20 MB
 const EXPIRES = 300; // 5 minutes
 
 export async function handler(event) {
