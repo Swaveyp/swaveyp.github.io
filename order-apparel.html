@@ -136,6 +136,31 @@
     border-color: #e2e8f0;
   }
   html:not([data-theme="dark"]) .helper-text { color: #64748b; }
+
+  .success-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 56px 36px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(15,23,42,0.08);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .success-card .check {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: rgba(40,171,227,0.1);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .success-card .check svg { width: 36px; height: 36px; stroke: #28ABE3; }
+  .success-card h2 {
+    color: #0f172a; font-size: 24px; font-weight: 700; margin: 0 0 12px;
+  }
+  .success-card p {
+    color: #475569; font-size: 15px; line-height: 1.7; margin: 0 0 8px;
+  }
+  .success-card a { color: #28ABE3; font-weight: 600; text-decoration: none; }
+  .success-card a:hover { text-decoration: underline; }
   </style>
 
   <script type="application/ld+json">
@@ -271,7 +296,7 @@
                   <option value="T-Shirt Printing">T-Shirt Printing</option>
                   <option value="Embroidery">Embroidery</option>
                   <option value="Decal Printing">Decal Printing</option>
-                  <option value="Logo Design">Logo Design</option>
+                  <option value="Logo Creation">Logo Creation</option>
                   <option value="Graphics Design">Graphics Design</option>
                   <option value="Other">Other</option>
                 </select>
@@ -542,19 +567,24 @@
 
     var done = function(ok) {
       if (ok) {
-        status.textContent = 'Order request sent! We\'ll be in touch soon.';
-        status.className = 'form-status success';
-        form.reset();
-        shipFields.classList.remove('visible');
-        designFiles = [];
-        renderDesignGrid();
-        setDesignStatus('');
+        var emailValue = form.email.value.trim();
+        var card = form.closest('.contact-card');
+        if (card) {
+          card.innerHTML = ''
+            + '<div class="success-card">'
+            + '<div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>'
+            + '<h2>Order request received</h2>'
+            + '<p>Thanks — we\'ll reply to <strong>' + (emailValue || 'your email') + '</strong> within 1-2 business days to confirm your order.</p>'
+            + '<p>In the meantime, follow <a href="https://www.instagram.com/swaveyprints/" target="_blank" rel="noopener">@swaveyprints</a> for recent designs and <a href="https://www.instagram.com/swavey.shots/" target="_blank" rel="noopener">@swavey.shots</a> for our latest work.</p>'
+            + '</div>';
+          window.scrollTo({ top: card.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+        }
       } else {
         status.textContent = 'Something went wrong. Please try again, or email us at support@swavey.biz.';
         status.className = 'form-status error';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Order Request';
       }
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Order Request';
     };
 
     var uploadStep;
