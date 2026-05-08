@@ -115,6 +115,7 @@ function normPhoto_(data) {
     workedBefore: str_(data.workedBefore || data.priorExperience),
     heard:        str_(data.heardAbout || data.referral),
     inspiration:  str_(data.inspirationLinks),
+    inspirationImageCount: (Array.isArray(data.inspirationImages) ? data.inspirationImages.length : 0),
     visionText:   str_(data.vision),
     additional:   str_(data.additionalDetails),
     adminNotes:   str_(data.adminNotes),
@@ -181,7 +182,11 @@ function renderPhotoshootAdminNotify_(d) {
 
   var sections = '';
   if (d.visionText)    sections += sectionPara_('Vision', d.visionText);
-  if (d.inspiration)   sections += sectionLinks_('Inspiration Links', d.inspiration);
+  if (d.inspirationImageCount > 0) {
+    sections += sectionPara_('Inspiration Photos', d.inspirationImageCount + ' uploaded — view in admin panel');
+  } else if (d.inspiration) {
+    sections += sectionLinks_('Inspiration Links', d.inspiration);
+  }
   if (d.shootSpecific && d.shootSpecific.length) {
     sections += sectionTable_('Shoot-Specific Details', d.shootSpecific.map(function(it){return [it.label,it.value];}));
   }
@@ -215,7 +220,11 @@ function plainPhotoshootAdmin_(d) {
   if (d.workedBefore) L.push('  Prior experience:     ' + d.workedBefore);
   if (d.heard)        L.push('  Heard via:            ' + d.heard);
   if (d.visionText)   { L.push(''); L.push('VISION'); L.push(d.visionText); }
-  if (d.inspiration)  { L.push(''); L.push('INSPIRATION LINKS'); L.push(d.inspiration); }
+  if (d.inspirationImageCount > 0) {
+    L.push(''); L.push('INSPIRATION PHOTOS'); L.push('  ' + d.inspirationImageCount + ' uploaded — view in admin panel');
+  } else if (d.inspiration) {
+    L.push(''); L.push('INSPIRATION LINKS'); L.push(d.inspiration);
+  }
   if (d.shootSpecific && d.shootSpecific.length) {
     L.push(''); L.push('SHOOT-SPECIFIC');
     d.shootSpecific.forEach(function(it){ L.push('  ' + it.label + ': ' + it.value); });

@@ -26,6 +26,34 @@ Globals:
 
 Resources:
 
+  InspirationBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "swavey-inspiration-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      CorsConfiguration:
+        CorsRules:
+          - AllowedMethods: [PUT, GET]
+            AllowedOrigins:
+              - https://swaveyp.github.io
+              - https://swavey.biz
+              - https://www.swavey.biz
+              - http://localhost:8080
+              - http://127.0.0.1:8080
+            AllowedHeaders:
+              - Content-Type
+              - Content-Length
+            MaxAge: 600
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldImages
+            Status: Enabled
+            ExpirationInDays: 365
+
   BookingsTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -72,6 +100,27 @@ Resources:
       DefaultRouteSettings:
         ThrottlingBurstLimit: 10
         ThrottlingRateLimit: 5
+
+  PresignUploadFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/
+      Handler: presign-upload.handler
+      Environment:
+        Variables:
+          INSPIRATION_BUCKET: !Ref InspirationBucket
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: s3:PutObject
+              Resource: !Sub "arn:aws:s3:::${InspirationBucket}/*"
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: POST
+            Path: /presign-upload
 
   SubmitPhotoshootFn:
     Type: AWS::Serverless::Function
@@ -122,8 +171,13 @@ Resources:
         Variables:
           DDB_TABLE_NAME: !Ref BookingsTable
           ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
+          INSPIRATION_BUCKET: !Ref InspirationBucket
       Policies:
         - DynamoDBReadPolicy: { TableName: !Ref BookingsTable }
+        - Statement:
+            - Effect: Allow
+              Action: s3:GetObject
+              Resource: !Sub "arn:aws:s3:::${InspirationBucket}/*"
       Events:
         Get:
           Type: HttpApi
@@ -143,8 +197,13 @@ Resources:
           ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
           EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
           EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+          INSPIRATION_BUCKET: !Ref InspirationBucket
       Policies:
         - DynamoDBCrudPolicy: { TableName: !Ref BookingsTable }
+        - Statement:
+            - Effect: Allow
+              Action: s3:GetObject
+              Resource: !Sub "arn:aws:s3:::${InspirationBucket}/*"
       Events:
         Post:
           Type: HttpApi
@@ -159,3 +218,6 @@ Outputs:
     Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com"
   TableName:
     Value: !Ref BookingsTable
+  InspirationBucketName:
+    Description: S3 bucket holding uploaded inspiration photos
+    Value: !Ref InspirationBucket

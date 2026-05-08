@@ -4,6 +4,13 @@ import { verifyPassword } from './lib/auth.mjs';
 import { gsi1For, gsi2For, pkFor, SK } from './lib/ids.mjs';
 import { parseDateOrTimeframe } from './lib/parse-date.mjs';
 import { jsonResponse } from './lib/cors.mjs';
+import { decorateInspiration } from './lib/s3.mjs';
+
+async function decorateForResponse(record) {
+  if (!record) return record;
+  const { gsi1pk, gsi1sk, gsi2pk, gsi2sk, ...clean } = record;
+  return decorateInspiration(clean);
+}
 
 const EDITABLE_FIELDS = new Set([
   'firstName', 'lastName', 'fullName', 'email', 'phone',
@@ -164,7 +171,7 @@ export async function handler(event) {
       data: merged,
       calendar
     });
-    return jsonResponse(200, { ok: true });
+    return jsonResponse(200, { ok: true, record: await decorateForResponse(merged) });
   }
 
   if (action === 'edit') {
@@ -205,7 +212,7 @@ export async function handler(event) {
         calendar
       });
     }
-    return jsonResponse(200, { ok: true });
+    return jsonResponse(200, { ok: true, record: await decorateForResponse(merged) });
   }
 
   if (action === 'deny') {

@@ -20,6 +20,22 @@ export async function handler(event) {
   if (!EMAIL_RE.test(email)) return jsonResponse(400, { ok: false, error: 'Invalid email' });
   if (!phone) return jsonResponse(400, { ok: false, error: 'Missing phone' });
 
+  // Validate inspirationImages: array of {key, name, contentType, size}, max 6.
+  let inspirationImages = [];
+  if (Array.isArray(body.inspirationImages)) {
+    if (body.inspirationImages.length > 6) {
+      return jsonResponse(400, { ok: false, error: 'Too many inspiration images (max 6)' });
+    }
+    inspirationImages = body.inspirationImages
+      .filter(img => img && typeof img === 'object' && typeof img.key === 'string' && img.key.startsWith('inspiration/'))
+      .map(img => ({
+        key:         String(img.key),
+        name:        String(img.name || '').slice(0, 200),
+        contentType: String(img.contentType || ''),
+        size:        Number(img.size) || 0
+      }));
+  }
+
   const id = newBookingId();
   const pk = pkFor(id);
   const submittedAt = new Date().toISOString();
@@ -49,6 +65,7 @@ export async function handler(event) {
     workedBefore:     body.workedBefore || body.priorExperience || '',
     heardAbout:       body.heardAbout || body.referral || '',
     inspirationLinks: body.inspirationLinks || '',
+    inspirationImages,
     vision:           body.vision || '',
     additionalDetails: body.additionalDetails || '',
     shootSpecific:    body.shootSpecific || {},

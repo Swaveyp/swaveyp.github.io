@@ -172,4 +172,38 @@ sam local invoke SubmitPhotoshootFn -e events/photoshoot.json
   execution log.
 - **AWS SDK v3 missing import errors.** The `@aws-sdk/*` libraries are
   built into the Node 20 runtime; no `package.json` is needed in the
-  handlers folder.
+  handlers folder. **Exception:** `@aws-sdk/client-s3` and
+  `@aws-sdk/s3-request-presigner` are NOT in the Node 20 runtime — they
+  are declared in `handlers/package.json` and bundled by `sam build`.
+
+## Inspiration photo uploads
+
+The photoshoot booking wizard lets clients attach up to 6 inspiration
+images (≤10 MB each, JPG/PNG/HEIC/WEBP/GIF). The flow:
+
+1. Client picks files → wizard POSTs `/presign-upload` for each → receives
+   a 5-minute presigned PUT URL with `Content-Type` and `Content-Length`
+   pinned (so the URL can't be reused for an arbitrary blob).
+2. Client PUTs each file directly to S3, then submits the booking with
+   `inspirationImages: [{key, name, contentType, size}, …]`.
+3. Admin endpoints fetch the record, then call `decorateInspiration()` to
+   generate 1-hour presigned GET URLs (`viewUrl`) before responding.
+4. `admin.html` renders thumbnails and download links from `viewUrl`.
+
+### Resources
+
+- `InspirationBucket` — `swavey-inspiration-<account-id>`, all public access
+  blocked, CORS allows `PUT, GET` from the same origins as the API.
+  Lifecycle rule `ExpireOldImages` deletes objects after 365 days.
+- `PresignUploadFn` — `POST /presign-upload`, only `s3:PutObject` on the
+  bucket.
+- `AdminListFn` / `AdminUpdateFn` — gain `s3:GetObject` for presigning view
+  URLs.
+
+### Email behavior
+
+The Apps Script admin-notify email previously pasted the user's inspiration
+links inline. With image uploads, it now shows a one-line count ("4
+uploaded — view in admin panel") because Gmail can't reliably embed
+private S3 thumbnails. Old records with `inspirationLinks` still render
+the legacy block.

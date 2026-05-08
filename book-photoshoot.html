@@ -307,6 +307,72 @@ html:not([data-theme="dark"]) .upcharge-callout {
   background: rgba(40,171,227,0.06);
   border-color: rgba(40,171,227,0.3);
 }
+
+/* ── Inspiration uploader ── */
+.bp-uploader-trigger {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.bp-uploader-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 0 8px;
+}
+.bp-uploader-grid:empty { display: none; }
+.bp-uploader-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: flex-end;
+  justify-content: stretch;
+}
+.bp-uploader-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bp-uploader-tile .bp-tile-name {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0));
+  color: #fff;
+  font-size: 11px;
+  padding: 14px 8px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bp-uploader-tile .bp-tile-remove {
+  position: absolute;
+  top: 4px; right: 4px;
+  z-index: 2;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(15,23,42,0.85);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.bp-uploader-tile .bp-tile-remove:hover { background: #dc2626; border-color: #dc2626; }
+@media (max-width: 575px) {
+  .bp-uploader-grid { grid-template-columns: repeat(2, 1fr); }
+}
+html:not([data-theme="dark"]) .bp-uploader-tile {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
 </style>
 </head>
 <body id="body">
@@ -546,9 +612,14 @@ End Fixed Navigation
               </div>
 
               <div class="form-group">
-                <label for="pw-inspiration">Inspiration Links</label>
-                <textarea class="form-control" id="pw-inspiration" name="inspirationLinks" rows="3" placeholder="https://…"></textarea>
-                <span class="helper-text">Paste links to inspiration photos (Pinterest, Instagram, Google Drive, etc.)</span>
+                <label>Inspiration Photos <span class="helper-text" style="font-weight:normal;">(optional, up to 6)</span></label>
+                <div class="bp-uploader" id="pw-uploader">
+                  <input type="file" id="pw-inspiration-input" name="inspirationImages" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif,image/webp,image/gif" multiple hidden>
+                  <button type="button" class="btn-back bp-uploader-trigger" id="pw-inspiration-trigger">+ Add photos</button>
+                  <div class="bp-uploader-grid" id="pw-inspiration-grid"></div>
+                  <p class="helper-text" id="pw-inspiration-help">JPG, PNG, HEIC, or WEBP. Max 10 MB per photo.</p>
+                  <p class="form-status" id="pw-inspiration-status"></p>
+                </div>
               </div>
 
               <div class="form-group">
@@ -1068,7 +1139,7 @@ End Fixed Navigation
     priorExperience: '',
     shootSpecific: {},
     vision: '',
-    inspirationLinks: '',
+    inspirationFiles: [],
     budget: 'Prefer not to say',
     referral: '',
     additionalDetails: '',
@@ -1220,7 +1291,7 @@ End Fixed Navigation
     var peEl = form.querySelector('input[name="priorExperience"]:checked');
     state.priorExperience = peEl ? peEl.value : '';
     state.vision = form.querySelector('#pw-vision').value.trim();
-    state.inspirationLinks = form.querySelector('#pw-inspiration').value.trim();
+    // inspirationFiles is maintained by the picker — not derived from DOM.
     state.budget = form.querySelector('#pw-budget').value;
     state.referral = form.querySelector('#pw-heard').value.trim();
     state.additionalDetails = form.querySelector('#pw-additional').value.trim();
@@ -1413,6 +1484,7 @@ End Fixed Navigation
       var snap = {};
       Object.keys(state).forEach(function(k) {
         if (k === '_renderedSpecificsFor') return;
+        if (k === 'inspirationFiles') return; // File objects can't be serialized
         snap[k] = state[k];
       });
       try { sessionStorage.setItem(DRAFT_KEY, JSON.stringify(snap)); } catch (e) {}
@@ -1448,6 +1520,84 @@ End Fixed Navigation
 
   form.addEventListener('input', saveDraft);
   form.addEventListener('change', saveDraft);
+
+  // ── Inspiration photo picker ──
+  var INSPIRATION_MAX = 6;
+  var INSPIRATION_MAX_BYTES = 10 * 1024 * 1024;
+  var INSPIRATION_TYPE_RE = /^image\/(jpeg|jpg|png|heic|heif|webp|gif)$/i;
+  var inspirationInput = form.querySelector('#pw-inspiration-input');
+  var inspirationTrigger = form.querySelector('#pw-inspiration-trigger');
+  var inspirationGrid = form.querySelector('#pw-inspiration-grid');
+  var inspirationStatusEl = form.querySelector('#pw-inspiration-status');
+  var thumbUrls = [];
+
+  function setInspirationStatus(text, kind) {
+    inspirationStatusEl.textContent = text || '';
+    inspirationStatusEl.className = 'form-status' + (kind ? ' ' + kind : '');
+  }
+
+  function renderInspirationGrid() {
+    thumbUrls.forEach(function(u) { try { URL.revokeObjectURL(u); } catch (e) {} });
+    thumbUrls = [];
+    inspirationGrid.innerHTML = '';
+    state.inspirationFiles.forEach(function(file, idx) {
+      var url = URL.createObjectURL(file);
+      thumbUrls.push(url);
+      var tile = document.createElement('div');
+      tile.className = 'bp-uploader-tile';
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = file.name;
+      var nameEl = document.createElement('span');
+      nameEl.className = 'bp-tile-name';
+      nameEl.textContent = file.name;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'bp-tile-remove';
+      btn.setAttribute('aria-label', 'Remove ' + file.name);
+      btn.textContent = '×';
+      btn.addEventListener('click', function() {
+        state.inspirationFiles.splice(idx, 1);
+        renderInspirationGrid();
+        setInspirationStatus('');
+      });
+      tile.appendChild(img);
+      tile.appendChild(nameEl);
+      tile.appendChild(btn);
+      inspirationGrid.appendChild(tile);
+    });
+    inspirationTrigger.disabled = state.inspirationFiles.length >= INSPIRATION_MAX;
+    inspirationTrigger.textContent = state.inspirationFiles.length
+      ? '+ Add more (' + state.inspirationFiles.length + '/' + INSPIRATION_MAX + ')'
+      : '+ Add photos';
+  }
+
+  inspirationTrigger.addEventListener('click', function() { inspirationInput.click(); });
+  inspirationInput.addEventListener('change', function() {
+    var picked = Array.from(inspirationInput.files || []);
+    inspirationInput.value = '';
+    if (!picked.length) return;
+    var existing = state.inspirationFiles.slice();
+    var rejected = [];
+    var dupes = 0;
+    picked.forEach(function(f) {
+      if (existing.length >= INSPIRATION_MAX) { rejected.push(f.name + ' (limit reached)'); return; }
+      if (!INSPIRATION_TYPE_RE.test(f.type || '')) { rejected.push(f.name + ' (unsupported type)'); return; }
+      if (f.size <= 0 || f.size > INSPIRATION_MAX_BYTES) { rejected.push(f.name + ' (over 10 MB)'); return; }
+      var dup = existing.some(function(x) { return x.name === f.name && x.size === f.size; });
+      if (dup) { dupes++; return; }
+      existing.push(f);
+    });
+    state.inspirationFiles = existing;
+    renderInspirationGrid();
+    if (rejected.length) {
+      setInspirationStatus('Skipped: ' + rejected.join(', '), 'error');
+    } else if (dupes) {
+      setInspirationStatus('Skipped ' + dupes + ' duplicate file(s).', '');
+    } else {
+      setInspirationStatus('');
+    }
+  });
 
   function restoreDraft() {
     var raw;
@@ -1492,7 +1642,7 @@ End Fixed Navigation
       if (pEl) pEl.checked = true;
     }
     if (data.vision) form.querySelector('#pw-vision').value = data.vision;
-    if (data.inspirationLinks) form.querySelector('#pw-inspiration').value = data.inspirationLinks;
+    // inspirationFiles intentionally not restored — File objects can't be serialized.
     if (data.budget) form.querySelector('#pw-budget').value = data.budget;
     if (data.referral) form.querySelector('#pw-heard').value = data.referral;
     if (data.additionalDetails) form.querySelector('#pw-additional').value = data.additionalDetails;
@@ -1529,6 +1679,7 @@ End Fixed Navigation
     }
 
     window.__photoshootSubmit(state, {
+      onStatus: function(msg) { setStatus(msg); },
       onSuccess: function() {
         clearDraft();
         showSuccess(state.email);
@@ -1576,44 +1727,90 @@ End Fixed Navigation
   // placeholder. Format: https://<id>.execute-api.us-east-1.amazonaws.com
   var API_BASE_URL = 'https://jk0cqnz5nh.execute-api.us-east-1.amazonaws.com/prod';
 
+  function uploadOne(file) {
+    return fetch(API_BASE_URL + '/presign-upload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filename:    file.name,
+        contentType: file.type,
+        size:        file.size
+      })
+    }).then(function(res) {
+      if (!res.ok) throw new Error('presign HTTP ' + res.status);
+      return res.json();
+    }).then(function(data) {
+      if (!data || !data.ok || !data.url || !data.key) throw new Error('presign bad payload');
+      return fetch(data.url, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type, 'Content-Length': String(file.size) },
+        body: file
+      }).then(function(putRes) {
+        if (!putRes.ok) throw new Error('S3 PUT HTTP ' + putRes.status);
+        return { key: data.key, name: file.name, contentType: file.type, size: file.size };
+      });
+    });
+  }
+
   window.__photoshootSubmit = function(rawState, callbacks) {
     callbacks = callbacks || {};
     var onSuccess = callbacks.onSuccess || function() {};
     var onError = callbacks.onError || function() {};
+    var onStatus = callbacks.onStatus || function() {};
 
-    var firstName = (rawState.firstName || '').trim();
-    var lastName = (rawState.lastName || '').trim();
-    var payload = {
-      firstName:         firstName,
-      lastName:          lastName,
-      fullName:          (firstName + ' ' + lastName).trim(),
-      email:             rawState.email,
-      phone:             rawState.phone,
-      shootType:         rawState.shootType,
-      dateOrTimeframe:   rawState.dateValue,
-      timeOfDay:         rawState.timeOfDay,
-      location:          rawState.locationPref,
-      numberOfPeople:    rawState.peopleCount,
-      budget:            rawState.budget,
-      workedBefore:      rawState.priorExperience,
-      heardAbout:        rawState.referral,
-      inspirationLinks:  rawState.inspirationLinks,
-      vision:            rawState.vision,
-      additionalDetails: rawState.additionalDetails,
-      shootSpecific:     rawState.shootSpecific || {},
-      submittedAt:       new Date().toISOString()
-    };
+    var files = Array.isArray(rawState.inspirationFiles) ? rawState.inspirationFiles : [];
 
-    fetch(API_BASE_URL + '/photoshoot', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function(res) {
-      if (!res.ok) { onError(); return; }
-      return res.json().then(function(data) {
-        if (data && data.ok) onSuccess();
-        else onError();
-      }).catch(function() { onError(); });
+    var uploadStep;
+    if (files.length === 0) {
+      uploadStep = Promise.resolve([]);
+    } else {
+      onStatus('Uploading photos…');
+      uploadStep = Promise.all(files.map(function(f) {
+        return uploadOne(f).catch(function(err) {
+          console.error('inspiration upload failed:', f.name, err);
+          return null;
+        });
+      })).then(function(results) {
+        return results.filter(Boolean);
+      });
+    }
+
+    uploadStep.then(function(inspirationImages) {
+      onStatus('Sending…');
+      var firstName = (rawState.firstName || '').trim();
+      var lastName = (rawState.lastName || '').trim();
+      var payload = {
+        firstName:         firstName,
+        lastName:          lastName,
+        fullName:          (firstName + ' ' + lastName).trim(),
+        email:             rawState.email,
+        phone:             rawState.phone,
+        shootType:         rawState.shootType,
+        dateOrTimeframe:   rawState.dateValue,
+        timeOfDay:         rawState.timeOfDay,
+        location:          rawState.locationPref,
+        numberOfPeople:    rawState.peopleCount,
+        budget:            rawState.budget,
+        workedBefore:      rawState.priorExperience,
+        heardAbout:        rawState.referral,
+        inspirationImages: inspirationImages,
+        vision:            rawState.vision,
+        additionalDetails: rawState.additionalDetails,
+        shootSpecific:     rawState.shootSpecific || {},
+        submittedAt:       new Date().toISOString()
+      };
+
+      return fetch(API_BASE_URL + '/photoshoot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) { onError(); return; }
+        return res.json().then(function(data) {
+          if (data && data.ok) onSuccess();
+          else onError();
+        }).catch(function() { onError(); });
+      });
     }).catch(function() {
       onError();
     });
