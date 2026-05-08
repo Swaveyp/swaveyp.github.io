@@ -796,7 +796,8 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
     bucket:  { photoshoot: 'pending', apparel: 'pending' },
     search: '',
     refreshTimer: null,
-    lastRefresh: 0
+    lastRefresh: 0,
+    expanded: new Set()
   };
 
   var SHOOT_TYPES = ['Family','Maternity','Babies','Engagement','Prom','Lifestyle','Headshots','Graduation','Events','Sports','Real Estate','Media Day'];
@@ -1039,8 +1040,8 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       +     '</div>'
       +   '</header>'
       +   '<dl class="admin-card-summary">' + summaryHtml + '</dl>'
-      +   '<button class="admin-card-toggle" type="button" aria-expanded="false">View details</button>'
-      +   '<section class="admin-card-details" hidden>'
+      +   '<button class="admin-card-toggle" type="button" aria-expanded="' + (state.expanded.has(r.id) ? 'true' : 'false') + '">' + (state.expanded.has(r.id) ? 'Hide details' : 'View details') + '</button>'
+      +   '<section class="admin-card-details"' + (state.expanded.has(r.id) ? '' : ' hidden') + '>'
       +     detailHtml(r, type)
       +     '<div class="admin-card-actions">' + actions + '</div>'
       +   '</section>'
@@ -1123,10 +1124,21 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
     }
     var tog = ev.target.closest('.admin-card-toggle');
     if (tog) {
+      var card = tog.closest('.admin-card');
+      var cardId = card && card.dataset.id;
       var details = tog.parentElement.querySelector('.admin-card-details');
       var open = !details.hasAttribute('hidden');
-      if (open) { details.setAttribute('hidden',''); tog.setAttribute('aria-expanded','false'); tog.textContent = 'View details'; }
-      else      { details.removeAttribute('hidden'); tog.setAttribute('aria-expanded','true');  tog.textContent = 'Hide details'; }
+      if (open) {
+        details.setAttribute('hidden','');
+        tog.setAttribute('aria-expanded','false');
+        tog.textContent = 'View details';
+        if (cardId) state.expanded.delete(cardId);
+      } else {
+        details.removeAttribute('hidden');
+        tog.setAttribute('aria-expanded','true');
+        tog.textContent = 'Hide details';
+        if (cardId) state.expanded.add(cardId);
+      }
       return;
     }
     var act = ev.target.closest('.admin-action');
@@ -1170,9 +1182,8 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
   function stopAutoRefresh() {
     if (state.refreshTimer) { clearInterval(state.refreshTimer); state.refreshTimer = null; }
   }
-  document.addEventListener('visibilitychange', function () {
-    if (!document.hidden && !dashSection.hidden) loadAll();
-  });
+  // Don't auto-reload on tab refocus — opening an inspiration image in a new tab
+  // and switching back was wiping any expanded card. The 60s timer handles refresh.
 
   // ---------- modals ----------
   function openModal(title, bodyHtml, footerHtml) {
