@@ -891,6 +891,7 @@ End Fixed Navigation
 <script>
 document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeToggle');if(!b)return;var d=document.documentElement.getAttribute('data-theme')==='dark';function u(){var s=b.querySelector('.theme-icon-sun'),m=b.querySelector('.theme-icon-moon');if(s)s.style.display=d?'block':'none';if(m)m.style.display=d?'none':'block'}function p(){var sp=document.getElementById('splashIntro');if(sp)sp.style.background=d?'#0a1628':'#e8f0f8'}u();p();b.addEventListener('click',function(){d=!d;if(d){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}else{document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}u();p()})});
 </script>
+<script defer src="js/footer-admin-trigger.js"></script>
 </body>
   
   </html>

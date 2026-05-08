@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Dashboard | Swavey Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="icon" type="image/png" href="images/favicon.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=61">
+
+  <style>
+    /* Admin-only page styles. Nothing here changes the rest of the site. */
+    .admin-section { padding: 56px 0 96px; }
+    .admin-toolbar {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      margin-bottom: 36px;
+    }
+    .admin-toolbar .admin-search { flex: 1 1 280px; min-width: 220px; }
+    .admin-toolbar .btn-back {
+      cursor: pointer; padding: 10px 20px; border-radius: 6px;
+      background: rgba(255,255,255,0.08); color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-weight: 500; font-size: 14px;
+    }
+    .admin-toolbar .btn-back:hover { background: rgba(255,255,255,0.14); }
+    .admin-last-refresh { font-size: 12px; opacity: 0.6; color: #cbd5e1; }
+
+    .admin-block {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .admin-block:last-child { border-bottom: 0; }
+    .admin-block-head h2 { color: #fff; margin-bottom: 12px; font-size: 22px; }
+
+    .admin-tabs {
+      display: flex; flex-wrap: nowrap; overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 6px; margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .admin-tab {
+      flex-shrink: 0;
+      padding: 10px 16px; background: transparent; color: #cbd5e1;
+      border: 0; border-bottom: 2px solid transparent;
+      font-weight: 500; font-size: 14px; cursor: pointer;
+      white-space: nowrap;
+    }
+    .admin-tab:hover { color: #fff; }
+    .admin-tab.is-active {
+      color: #fff; border-bottom-color: var(--color-accent, #28ABE3);
+    }
+    .admin-tab-count {
+      display: inline-block; min-width: 22px; padding: 1px 7px;
+      margin-left: 6px; border-radius: 11px;
+      background: rgba(40,171,227,0.18); color: #fff;
+      font-size: 11px; font-weight: 600;
+    }
+
+    .admin-list { display: grid; gap: 14px; }
+
+    .admin-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .admin-card-head {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      align-items: baseline; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .admin-card-name { color: #fff; font-weight: 600; font-size: 16px; }
+    .admin-card-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .admin-card-time { color: #94a3b8; font-size: 12px; }
+
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 11px;
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status-pill::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: currentColor;
+    }
+    .status-pending   { background: rgba(217,119,6,0.18); color: #fbbf24; }
+    .status-confirmed { background: rgba(22,163,74,0.18); color: #4ade80; }
+    .status-denied    { background: rgba(100,116,139,0.18); color: #94a3b8; }
+    .status-archived  { background: rgba(100,116,139,0.18); color: #94a3b8; }
+
+    .admin-card-summary {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px; margin: 0 0 12px;
+    }
+    .admin-card-summary > div { min-width: 0; }
+    .admin-card-summary dt {
+      color: #94a3b8; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 1px; font-weight: 600; margin-bottom: 2px;
+    }
+    .admin-card-summary dd { color: #e2e8f0; font-size: 14px; margin: 0; word-wrap: break-word; }
+    .admin-card-summary dd a { color: var(--color-accent, #28ABE3); }
+
+    .admin-card-toggle {
+      cursor: pointer; padding: 6px 12px; font-size: 12px;
+      background: transparent; color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+    }
+    .admin-card-toggle:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+    .admin-card-details { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .admin-card-details dl { display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 6px 18px; margin: 0 0 14px; }
+    .admin-card-details dt { color: #94a3b8; font-size: 12px; }
+    .admin-card-details dd { color: #e2e8f0; font-size: 13px; margin: 0; word-wrap: break-word; white-space: pre-wrap; }
+    .admin-card-details h4 {
+      color: #fff; font-size: 13px; text-transform: uppercase;
+      letter-spacing: 1px; margin: 16px 0 8px;
+    }
+
+    .admin-card-actions {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .admin-action {
+      cursor: pointer; padding: 8px 16px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; color: #fff; border: 0;
+    }
+    .admin-approve { background: #16a34a; }
+    .admin-approve:hover { background: #15803d; }
+    .admin-edit    { background: #28ABE3; }
+    .admin-edit:hover { background: #1a8fbf; }
+    .admin-deny    { background: #d97706; }
+    .admin-deny:hover { background: #b45309; }
+    .admin-delete  { background: #dc2626; }
+    .admin-delete:hover { background: #b91c1c; }
+
+    .admin-empty {
+      text-align: center; padding: 40px 20px; color: #94a3b8;
+      background: rgba(255,255,255,0.02); border-radius: 10px;
+      border: 1px dashed rgba(255,255,255,0.1);
+    }
+    .admin-empty p { margin: 0; font-size: 14px; }
+    .admin-card-skel {
+      height: 96px; border-radius: 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+      background-size: 200% 100%;
+      animation: admin-shimmer 1.4s linear infinite;
+    }
+    @keyframes admin-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* Toasts */
+    #adminToasts {
+      position: fixed; top: 80px; right: 16px; z-index: 5000;
+      display: flex; flex-direction: column; gap: 8px; max-width: 360px;
+    }
+    .admin-toast {
+      background: #0f172a; color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 3px solid #28ABE3;
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 13px; box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      animation: admin-toast-in 0.18s ease-out;
+    }
+    .admin-toast.is-error { border-left-color: #dc2626; }
+    .admin-toast.is-success { border-left-color: #16a34a; }
+    @keyframes admin-toast-in { from { opacity:0; transform: translateX(20px); } to { opacity:1; transform: translateX(0); } }
+
+    /* Modal */
+    .admin-modal-backdrop {
+      position: fixed; inset: 0; z-index: 6000;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .admin-modal-backdrop[hidden] { display: none; }
+    .admin-modal {
+      background: #0f172a; color: #e2e8f0;
+      border-radius: 12px; max-width: 720px; width: 100%;
+      max-height: 90vh; overflow: hidden;
+      display: flex; flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .admin-modal-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .admin-modal-head h3 { color: #fff; margin: 0; font-size: 18px; }
+    .admin-modal-head .btn-back {
+      cursor: pointer; padding: 4px 12px; font-size: 22px;
+      background: transparent; color: #94a3b8; border: 0; line-height: 1;
+    }
+    .admin-modal-body { padding: 20px 24px; overflow-y: auto; flex: 1; }
+    .admin-modal-foot {
+      display: flex; gap: 10px; justify-content: flex-end;
+      padding: 16px 24px; border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .admin-modal label { display: block; color: #cbd5e1; font-size: 12px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .admin-modal .form-control {
+      background: rgba(255,255,255,0.05); color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 9px 12px; font-size: 14px;
+      width: 100%; margin-bottom: 14px;
+    }
+    .admin-modal .form-control:focus { outline: 2px solid var(--color-accent, #28ABE3); outline-offset: 1px; }
+    .admin-modal textarea.form-control { min-height: 70px; resize: vertical; }
+    .admin-modal .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .admin-modal .modal-checkbox {
+      display: flex; align-items: center; gap: 8px; margin: 8px 0 14px;
+      color: #cbd5e1; font-size: 13px; text-transform: none; letter-spacing: 0;
+    }
+    .admin-modal .modal-checkbox input { margin: 0; }
+    .admin-modal .read-only-block {
+      font-size: 12px; color: #94a3b8;
+      background: rgba(255,255,255,0.03); padding: 10px 14px;
+      border-radius: 6px; margin-bottom: 16px;
+    }
+    .admin-modal .shoot-specific-row { display: grid; grid-template-columns: 200px 1fr; gap: 10px; align-items: center; margin-bottom: 8px; }
+    .admin-modal .shoot-specific-row label { margin: 0; }
+
+    .admin-modal-foot .btn { cursor: pointer; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 14px; border: 0; color: #fff; }
+    .admin-modal-foot .btn-primary { background: #16a34a; }
+    .admin-modal-foot .btn-primary:hover { background: #15803d; }
+    .admin-modal-foot .btn-cancel  { background: rgba(255,255,255,0.08); }
+    .admin-modal-foot .btn-cancel:hover  { background: rgba(255,255,255,0.14); }
+    .admin-modal-foot .btn-danger  { background: #dc2626; }
+
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .admin-toolbar { flex-direction: column; align-items: stretch; }
+      .admin-card-actions { flex-direction: column; }
+      .admin-card-actions .admin-action { width: 100%; }
+      .admin-modal .modal-row { grid-template-columns: 1fr; }
+      .admin-card-details dl { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script>(function(){if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+</head>
+<body id="body">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+</button>
+
+<header class="navigation fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light px-0">
+      <a class="navbar-brand logo" href="index.html#home">
+        <picture>
+          <source type="image/webp" srcset="images/swaveylogo2final.webp">
+          <img class="logo-default" src="images/swaveylogo2final.png" alt="logo" width="257" height="140">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="images/swaveylogo2final.webp">
+          <img class="logo-white" src="images/swaveylogo2final.png" alt="logo" width="257" height="140">
+        </picture>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Homepage</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="single-page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Admin Dashboard</h1>
+          <ol class="breadcrumb header-bradcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="index.html#home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Admin</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adminLogin" class="contact-us section dark-bg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7 entrance">
+          <div class="contact-card">
+            <h3>Admin Access</h3>
+            <form id="adminLoginForm" class="dark-form" novalidate>
+              <label for="adminPwd">Password</label>
+              <input type="password" class="form-control" id="adminPwd" autocomplete="current-password" autofocus>
+              <button class="btn btn-main btn-block" type="submit">Unlock</button>
+              <p class="form-status" id="loginStatus" role="alert"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adminDashboard" class="admin-section dark-bg" hidden>
+    <div class="container">
+      <div class="admin-toolbar">
+        <input class="form-control admin-search" id="adminSearch" placeholder="Search by name, email, phone…" autocomplete="off">
+        <button class="btn-back" id="adminRefresh" type="button">Refresh</button>
+        <span class="admin-last-refresh" id="adminLastRefresh"></span>
+        <button class="btn-back" id="adminLogout" type="button">Lock</button>
+      </div>
+
+      <article class="admin-block" data-record-type="photoshoot">
+        <header class="admin-block-head"><h2>Photoshoot Bookings</h2></header>
+        <nav class="admin-tabs" role="tablist" aria-label="Photoshoot booking views">
+          <button class="admin-tab is-active" data-bucket="pending" role="tab" type="button">Pending <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="upcoming" role="tab" type="button">Upcoming Confirmed <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="past" role="tab" type="button">Past Confirmed <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="archived" role="tab" type="button">Denied / Archived <span class="admin-tab-count" data-count>0</span></button>
+        </nav>
+        <div class="admin-list" data-bucket-active="pending" role="tabpanel"></div>
+      </article>
+
+      <article class="admin-block" data-record-type="apparel">
+        <header class="admin-block-head"><h2>Apparel Orders</h2></header>
+        <nav class="admin-tabs" role="tablist" aria-label="Apparel order views">
+          <button class="admin-tab is-active" data-bucket="pending" role="tab" type="button">Pending <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="upcoming" role="tab" type="button">Upcoming Confirmed <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="past" role="tab" type="button">Past Confirmed <span class="admin-tab-count" data-count>0</span></button>
+          <button class="admin-tab" data-bucket="archived" role="tab" type="button">Denied / Archived <span class="admin-tab-count" data-count>0</span></button>
+        </nav>
+        <div class="admin-list" data-bucket-active="pending" role="tabpanel"></div>
+      </article>
+    </div>
+  </section>
+
+  <div id="adminToasts" aria-live="polite"></div>
+  <div id="adminLive" aria-live="polite" class="visually-hidden"></div>
+
+  <div id="adminModal" class="admin-modal-backdrop" hidden>
+    <div class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+      <header class="admin-modal-head">
+        <h3 id="adminModalTitle">Action</h3>
+        <button class="btn-back" data-modal-close type="button" aria-label="Close">×</button>
+      </header>
+      <div class="admin-modal-body" id="adminModalBody"></div>
+      <footer class="admin-modal-foot" id="adminModalFoot"></footer>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer site-footer-dark">
+  <div class="site-footer-inner">
+    <div class="site-footer-links">
+      <a href="portfolio.html">Portfolio</a>
+      <span class="site-footer-dot"></span>
+      <a href="service.html">Services</a>
+      <span class="site-footer-dot"></span>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="site-footer-copy">&copy; 2026 Swavey Services</p>
+  </div>
+</footer>
+
+<script src="plugins/jquery/jquery.min.js" defer></script>
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+<script src="js/script.min.js?v=5" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeToggle');if(!b)return;var d=document.documentElement.getAttribute('data-theme')==='dark';function u(){var s=b.querySelector('.theme-icon-sun'),m=b.querySelector('.theme-icon-moon');if(s)s.style.display=d?'block':'none';if(m)m.style.display=d?'none':'block'}function p(){var sp=document.getElementById('splashIntro');if(sp)sp.style.background=d?'#0a1628':'#e8f0f8'}u();p();b.addEventListener('click',function(){d=!d;if(d){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}else{document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}u();p()})});
+</script>
+
+<script>
+/* ============================================================
+   Swavey Admin App
+   ============================================================ */
+(function () {
+  // Replace after first `sam deploy` (see aws/README.md). Format:
+  // https://<api-id>.execute-api.us-east-1.amazonaws.com
+  var API_BASE = 'https://jk0cqnz5nh.execute-api.us-east-1.amazonaws.com/prod';
+
+  var loginSection = document.getElementById('adminLogin');
+  var dashSection  = document.getElementById('adminDashboard');
+  var loginForm    = document.getElementById('adminLoginForm');
+  var loginPwd     = document.getElementById('adminPwd');
+  var loginStatus  = document.getElementById('loginStatus');
+  var searchInput  = document.getElementById('adminSearch');
+  var refreshBtn   = document.getElementById('adminRefresh');
+  var lockBtn      = document.getElementById('adminLogout');
+  var lastRefreshEl = document.getElementById('adminLastRefresh');
+  var toastsEl     = document.getElementById('adminToasts');
+  var liveEl       = document.getElementById('adminLive');
+  var modalEl      = document.getElementById('adminModal');
+  var modalTitle   = document.getElementById('adminModalTitle');
+  var modalBody    = document.getElementById('adminModalBody');
+  var modalFoot    = document.getElementById('adminModalFoot');
+
+  var state = {
+    records: { photoshoot: [], apparel: [] },
+    bucket:  { photoshoot: 'pending', apparel: 'pending' },
+    search: '',
+    refreshTimer: null,
+    lastRefresh: 0
+  };
+
+  var SHOOT_TYPES = ['Family','Maternity','Babies','Engagement','Prom','Lifestyle','Headshots','Graduation','Events','Sports','Real Estate','Media Day'];
+  var INQUIRIES   = ['T-Shirt Printing','Embroidery','Decal Printing','Logo Design','Graphics Design','Other'];
+
+  // ---------- helpers ----------
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function timeAgo(iso) {
+    if (!iso) return '';
+    var t = Date.parse(iso); if (isNaN(t)) return '';
+    var s = Math.max(1, Math.round((Date.now() - t) / 1000));
+    if (s < 60)   return s + 's ago';
+    if (s < 3600) return Math.round(s/60) + 'm ago';
+    if (s < 86400) return Math.round(s/3600) + 'h ago';
+    return Math.round(s/86400) + 'd ago';
+  }
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso); if (isNaN(d.getTime())) return iso;
+    return d.toLocaleString();
+  }
+  function toast(msg, kind) {
+    var t = document.createElement('div');
+    t.className = 'admin-toast' + (kind === 'error' ? ' is-error' : kind === 'success' ? ' is-success' : '');
+    t.textContent = msg;
+    toastsEl.appendChild(t);
+    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, kind === 'error' ? 8000 : 4000);
+    if (liveEl) liveEl.textContent = msg;
+  }
+
+  // ---------- networking ----------
+  async function adminFetch(path, opts) {
+    opts = opts || {};
+    var pwd = sessionStorage.getItem('swaveyAdminPwd') || '';
+    var headers = { 'Content-Type': 'application/json', 'X-Admin-Password': pwd };
+    if (opts.headers) Object.keys(opts.headers).forEach(function(k){ headers[k] = opts.headers[k]; });
+    var res;
+    try {
+      res = await fetch(API_BASE + path, {
+        method: opts.method || 'GET',
+        headers: headers,
+        body: opts.body
+      });
+    } catch (e) {
+      toast('Network error', 'error');
+      throw e;
+    }
+    if (res.status === 401) {
+      sessionStorage.removeItem('swaveyAdminPwd');
+      showLogin('Session expired — please re-enter your password.');
+      throw new Error('unauth');
+    }
+    if (!res.ok) {
+      toast('Error ' + res.status, 'error');
+      throw new Error('http ' + res.status);
+    }
+    return res.json();
+  }
+
+  // ---------- auth flow ----------
+  function showLogin(message) {
+    stopAutoRefresh();
+    dashSection.hidden = true;
+    loginSection.hidden = false;
+    loginPwd.value = '';
+    if (message) {
+      loginStatus.textContent = message;
+      loginStatus.className = 'form-status error';
+    } else {
+      loginStatus.textContent = '';
+      loginStatus.className = 'form-status';
+    }
+    loginPwd.focus();
+  }
+  function showDashboard() {
+    loginSection.hidden = true;
+    dashSection.hidden = false;
+    loadAll();
+    startAutoRefresh();
+  }
+
+  loginForm.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    loginStatus.textContent = '';
+    loginStatus.className = 'form-status';
+    var pwd = loginPwd.value;
+    if (!pwd) return;
+    sessionStorage.setItem('swaveyAdminPwd', pwd);
+    try {
+      // probe with a cheap call
+      await adminFetch('/admin/list?type=photoshoot&view=pending');
+      showDashboard();
+    } catch (e) {
+      loginStatus.textContent = 'Wrong password.';
+      loginStatus.className = 'form-status error';
+    }
+  });
+
+  lockBtn.addEventListener('click', function () {
+    sessionStorage.removeItem('swaveyAdminPwd');
+    showLogin();
+  });
+
+  // ---------- bucket logic ----------
+  function bucketOf(rec) {
+    if (rec.status === 'denied' || rec.status === 'archived' || rec.status === 'deleted') return 'archived';
+    if (rec.status === 'pending') return 'pending';
+    if (rec.status === 'confirmed') {
+      var d = rec.scheduledAtISO || rec.eventDate || '';
+      var t = d ? Date.parse(d.length === 10 ? d + 'T23:59:59Z' : d) : 0;
+      if (!t) return 'upcoming';
+      return t >= Date.now() ? 'upcoming' : 'past';
+    }
+    return 'pending';
+  }
+
+  function matchesSearch(rec, q) {
+    if (!q) return true;
+    var hay = [rec.fullName, rec.email, rec.phone].filter(Boolean).join(' ').toLowerCase();
+    return hay.indexOf(q.toLowerCase()) >= 0;
+  }
+
+  function bucketFor(type, bucket) {
+    var all = state.records[type] || [];
+    var q = state.search;
+    return all.filter(function (r) {
+      return bucketOf(r) === bucket && matchesSearch(r, q);
+    }).sort(function (a, b) {
+      if (bucket === 'pending')   return (b.submittedAt || '').localeCompare(a.submittedAt || '');
+      if (bucket === 'upcoming')  return (a.scheduledAtISO || a.eventDate || '').localeCompare(b.scheduledAtISO || b.eventDate || '');
+      if (bucket === 'past')      return (b.scheduledAtISO || b.eventDate || '').localeCompare(a.scheduledAtISO || a.eventDate || '');
+      return (b.archivedAt || b.deniedAt || b.submittedAt || '').localeCompare(a.archivedAt || a.deniedAt || a.submittedAt || '');
+    });
+  }
+
+  // ---------- loaders ----------
+  async function loadAll() {
+    var pwd = sessionStorage.getItem('swaveyAdminPwd');
+    if (!pwd) return;
+    try {
+      // Pull each bucket: pending + confirmed (split into upcoming/past in JS) + denied + archived.
+      var photoshoot = [], apparel = [];
+      var views = ['pending', 'confirmed', 'denied', 'archived'];
+      for (var i = 0; i < views.length; i++) {
+        var v = views[i];
+        var pp = await adminFetch('/admin/list?type=photoshoot&view=' + v);
+        (pp.items || []).forEach(function(it){ photoshoot.push(it); });
+        var aa = await adminFetch('/admin/list?type=apparel&view=' + v);
+        (aa.items || []).forEach(function(it){ apparel.push(it); });
+      }
+      // dedupe by id (each record only appears in one status)
+      function dedupe(arr) {
+        var seen = {}, out = [];
+        arr.forEach(function (r) { if (r && r.id && !seen[r.id]) { seen[r.id] = 1; out.push(r); } });
+        return out;
+      }
+      state.records.photoshoot = dedupe(photoshoot);
+      state.records.apparel = dedupe(apparel);
+      state.lastRefresh = Date.now();
+      render();
+    } catch (e) { /* error already toasted */ }
+  }
+
+  // ---------- rendering ----------
+  function render() {
+    ['photoshoot', 'apparel'].forEach(function (type) {
+      var block = document.querySelector('.admin-block[data-record-type="' + type + '"]');
+      if (!block) return;
+      var listEl = block.querySelector('.admin-list');
+      var bucket = state.bucket[type];
+      listEl.dataset.bucketActive = bucket;
+      // counts
+      var tabs = block.querySelectorAll('.admin-tab');
+      tabs.forEach(function (tab) {
+        tab.classList.toggle('is-active', tab.dataset.bucket === bucket);
+        var b = tab.dataset.bucket;
+        var n = bucketFor(type, b).length;
+        var cnt = tab.querySelector('[data-count]');
+        if (cnt) cnt.textContent = n;
+      });
+      var items = bucketFor(type, bucket);
+      if (!items.length) {
+        listEl.innerHTML = '<div class="admin-empty"><p>No ' + esc(bucket) + ' ' + (type === 'photoshoot' ? 'bookings' : 'orders') + '.</p></div>';
+        return;
+      }
+      listEl.innerHTML = items.map(function (r) { return cardHtml(r, type); }).join('');
+    });
+    if (lastRefreshEl) {
+      lastRefreshEl.textContent = state.lastRefresh ? 'Updated ' + timeAgo(new Date(state.lastRefresh).toISOString()) : '';
+    }
+  }
+
+  function cardHtml(r, type) {
+    var statusClass = 'status-' + (r.status === 'deleted' ? 'archived' : (r.status || 'pending'));
+    var statusLabel = (r.status === 'deleted' ? 'archived' : (r.status || 'pending'));
+    var nameRaw = r.fullName || ((r.firstName || '') + ' ' + (r.lastName || '')).trim() || '(no name)';
+    var summaryParts = [];
+    if (type === 'photoshoot') {
+      summaryParts.push(['Type', r.shootType || '—']);
+      summaryParts.push(['Date', (r.scheduledAtISO ? fmtDate(r.scheduledAtISO) : (r.dateOrTimeframe || '—')) + (r.timeOfDay ? ' · ' + r.timeOfDay : '')]);
+    } else {
+      summaryParts.push(['Inquiry', r.inquiry || '—']);
+      summaryParts.push(['Scheduled', r.scheduledAtISO ? (fmtDate(r.scheduledAtISO) + (r.scheduledType ? ' · ' + r.scheduledType : '')) : '—']);
+    }
+    summaryParts.push(['Contact', '<a href="mailto:' + esc(r.email) + '">' + esc(r.email || '') + '</a>' + (r.phone ? ' · <a href="tel:' + esc(r.phone) + '">' + esc(r.phone) + '</a>' : '')]);
+
+    var summaryHtml = summaryParts.map(function(p){
+      return '<div><dt>' + esc(p[0]) + '</dt><dd>' + p[1] + '</dd></div>';
+    }).join('');
+
+    var actions = '';
+    if (r.status === 'pending') {
+      actions =
+        '<button class="admin-action admin-approve" data-act="approve">Approve</button>' +
+        '<button class="admin-action admin-edit"    data-act="edit">Edit</button>' +
+        '<button class="admin-action admin-deny"    data-act="deny">Deny</button>' +
+        '<button class="admin-action admin-delete"  data-act="delete">Delete</button>';
+    } else if (r.status === 'confirmed') {
+      actions =
+        '<button class="admin-action admin-edit"   data-act="edit">Edit</button>' +
+        '<button class="admin-action admin-deny"   data-act="deny">Cancel/Deny</button>' +
+        '<button class="admin-action admin-delete" data-act="delete">Delete</button>';
+    } else {
+      actions =
+        '<button class="admin-action admin-edit"   data-act="edit">View / Edit</button>' +
+        '<button class="admin-action admin-delete" data-act="delete">Delete</button>';
+    }
+
+    return ''
+      + '<div class="admin-card" data-id="' + esc(r.id) + '" data-type="' + esc(type) + '">'
+      +   '<header class="admin-card-head">'
+      +     '<div class="admin-card-name">' + esc(nameRaw) + '</div>'
+      +     '<div class="admin-card-meta">'
+      +       '<span class="status-pill ' + statusClass + '">' + esc(statusLabel) + '</span>'
+      +       '<span class="admin-card-time">Submitted ' + esc(timeAgo(r.submittedAt)) + '</span>'
+      +     '</div>'
+      +   '</header>'
+      +   '<dl class="admin-card-summary">' + summaryHtml + '</dl>'
+      +   '<button class="admin-card-toggle" type="button" aria-expanded="false">View details</button>'
+      +   '<section class="admin-card-details" hidden>'
+      +     detailHtml(r, type)
+      +     '<div class="admin-card-actions">' + actions + '</div>'
+      +   '</section>'
+      + '</div>';
+  }
+
+  function detailHtml(r, type) {
+    var rows = [];
+    function row(k, v) { if (v == null || v === '') return; rows.push('<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>'); }
+    row('ID', r.id);
+    row('Status', r.status);
+    row('Submitted', fmtDate(r.submittedAt));
+    if (r.confirmedAt) row('Confirmed', fmtDate(r.confirmedAt));
+    if (r.deniedAt)    row('Denied', fmtDate(r.deniedAt));
+    if (r.archivedAt)  row('Archived', fmtDate(r.archivedAt));
+    row('Email', r.email);
+    row('Phone', r.phone);
+
+    if (type === 'photoshoot') {
+      row('Shoot Type', r.shootType);
+      row('Date / Timeframe', r.dateOrTimeframe);
+      row('Scheduled (admin)', r.scheduledAtISO ? fmtDate(r.scheduledAtISO) : '');
+      row('Time of Day', r.timeOfDay);
+      row('Location', r.location);
+      row('Location Address', r.locationAddress);
+      row('Number of People', r.numberOfPeople);
+      row('Budget', r.budget);
+      row('Worked Before', r.workedBefore);
+      row('Heard About', r.heardAbout);
+      row('Vision', r.vision);
+      row('Inspiration Links', r.inspirationLinks);
+      row('Additional Details', r.additionalDetails);
+    } else {
+      row('Inquiry', r.inquiry);
+      row('Details', r.details);
+      row('Shipping', r.shipping);
+      row('Address', [r.address, r.city, r.state, r.zip].filter(Boolean).join(', '));
+      row('Scheduled (admin)', r.scheduledAtISO ? fmtDate(r.scheduledAtISO) : '');
+      row('Scheduled Type', r.scheduledType);
+      row('Final Price', r.finalPrice);
+    }
+    if (r.adminNotes) row('Admin Notes', r.adminNotes);
+
+    var html = '<dl>' + rows.join('') + '</dl>';
+    if (type === 'photoshoot' && r.shootSpecific && Object.keys(r.shootSpecific).length) {
+      html += '<h4>Shoot-Specific</h4><dl>';
+      Object.keys(r.shootSpecific).forEach(function (k) {
+        var v = r.shootSpecific[k];
+        if (v == null || v === '') return;
+        html += '<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>';
+      });
+      html += '</dl>';
+    }
+    return html;
+  }
+
+  // ---------- click handling ----------
+  document.addEventListener('click', function (ev) {
+    var tab = ev.target.closest('.admin-tab');
+    if (tab) {
+      var block = tab.closest('.admin-block');
+      if (block) {
+        state.bucket[block.dataset.recordType] = tab.dataset.bucket;
+        render();
+      }
+      return;
+    }
+    var tog = ev.target.closest('.admin-card-toggle');
+    if (tog) {
+      var details = tog.parentElement.querySelector('.admin-card-details');
+      var open = !details.hasAttribute('hidden');
+      if (open) { details.setAttribute('hidden',''); tog.setAttribute('aria-expanded','false'); tog.textContent = 'View details'; }
+      else      { details.removeAttribute('hidden'); tog.setAttribute('aria-expanded','true');  tog.textContent = 'Hide details'; }
+      return;
+    }
+    var act = ev.target.closest('.admin-action');
+    if (act) {
+      var card = act.closest('.admin-card');
+      var rec = findRecord(card.dataset.type, card.dataset.id);
+      if (!rec) return;
+      var action = act.dataset.act;
+      if (action === 'approve' || action === 'edit') openEditModal(rec, action);
+      else if (action === 'deny')   openDenyModal(rec);
+      else if (action === 'delete') openDeleteModal(rec);
+      return;
+    }
+    if (ev.target.matches('[data-modal-close]') || ev.target.classList.contains('admin-modal-backdrop')) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !modalEl.hidden) closeModal();
+  });
+
+  function findRecord(type, id) {
+    return (state.records[type] || []).find(function (r) { return r.id === id; });
+  }
+
+  searchInput.addEventListener('input', function () {
+    state.search = searchInput.value || '';
+    render();
+  });
+
+  refreshBtn.addEventListener('click', loadAll);
+
+  // ---------- auto-refresh ----------
+  function startAutoRefresh() {
+    stopAutoRefresh();
+    state.refreshTimer = setInterval(function () {
+      if (!document.hidden) loadAll();
+    }, 60000);
+  }
+  function stopAutoRefresh() {
+    if (state.refreshTimer) { clearInterval(state.refreshTimer); state.refreshTimer = null; }
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && !dashSection.hidden) loadAll();
+  });
+
+  // ---------- modals ----------
+  function openModal(title, bodyHtml, footerHtml) {
+    modalTitle.textContent = title;
+    modalBody.innerHTML = bodyHtml;
+    modalFoot.innerHTML = footerHtml;
+    modalEl.hidden = false;
+  }
+  function closeModal() { modalEl.hidden = true; modalBody.innerHTML = ''; modalFoot.innerHTML = ''; }
+
+  function isoToLocalInput(iso) {
+    if (!iso) return '';
+    var d = new Date(iso); if (isNaN(d.getTime())) return '';
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate())
+      + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  }
+  function localInputToIso(local) {
+    if (!local) return '';
+    var d = new Date(local); if (isNaN(d.getTime())) return '';
+    return d.toISOString();
+  }
+
+  function openEditModal(rec, mode) {
+    var isApprove = (mode === 'approve');
+    var isPhoto = (rec.type === 'photoshoot');
+    var title = (isApprove ? 'Approve & send confirmation' : 'Edit') + ' — ' + (rec.fullName || '(no name)');
+
+    var readOnly = ''
+      + '<div class="read-only-block">'
+      +   '<strong>ID:</strong> ' + esc(rec.id) + ' &nbsp;·&nbsp; '
+      +   '<strong>Status:</strong> ' + esc(rec.status || 'pending') + ' &nbsp;·&nbsp; '
+      +   '<strong>Submitted:</strong> ' + esc(fmtDate(rec.submittedAt))
+      + '</div>';
+
+    var fieldsHtml = '';
+
+    fieldsHtml += '<div class="modal-row">'
+      + '<div><label>First Name</label><input class="form-control" name="firstName" value="' + esc(rec.firstName || '') + '"></div>'
+      + '<div><label>Last Name</label><input class="form-control" name="lastName" value="' + esc(rec.lastName || '') + '"></div>'
+      + '</div>';
+    fieldsHtml += '<div class="modal-row">'
+      + '<div><label>Email</label><input class="form-control" type="email" name="email" value="' + esc(rec.email || '') + '"></div>'
+      + '<div><label>Phone</label><input class="form-control" name="phone" value="' + esc(rec.phone || '') + '"></div>'
+      + '</div>';
+
+    if (isPhoto) {
+      var shootOpts = SHOOT_TYPES.map(function (t) {
+        return '<option' + (t === rec.shootType ? ' selected' : '') + '>' + esc(t) + '</option>';
+      }).join('');
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Shoot Type</label><select class="form-control" name="shootType"><option value=""></option>' + shootOpts + '</select></div>'
+        + '<div><label>Session Date &amp; Time' + (isApprove ? ' (required)' : '') + '</label>'
+        +   '<input class="form-control" type="datetime-local" name="scheduledAtISO" value="' + esc(isoToLocalInput(rec.scheduledAtISO)) + '"></div>'
+        + '</div>';
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Time of Day</label><input class="form-control" name="timeOfDay" value="' + esc(rec.timeOfDay || '') + '"></div>'
+        + '<div><label>Location Preference</label><input class="form-control" name="location" value="' + esc(rec.location || '') + '"></div>'
+        + '</div>';
+      fieldsHtml += '<label>Location Address (appears in calendar invite)</label>'
+        + '<input class="form-control" name="locationAddress" value="' + esc(rec.locationAddress || '') + '">';
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Number of People</label><input class="form-control" name="numberOfPeople" value="' + esc(rec.numberOfPeople || '') + '"></div>'
+        + '<div><label>Budget</label><input class="form-control" name="budget" value="' + esc(rec.budget || '') + '"></div>'
+        + '</div>';
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Worked Before</label><input class="form-control" name="workedBefore" value="' + esc(rec.workedBefore || '') + '"></div>'
+        + '<div><label>Heard About</label><input class="form-control" name="heardAbout" value="' + esc(rec.heardAbout || '') + '"></div>'
+        + '</div>';
+      fieldsHtml += '<label>Vision</label><textarea class="form-control" name="vision">' + esc(rec.vision || '') + '</textarea>';
+      fieldsHtml += '<label>Inspiration Links</label><textarea class="form-control" name="inspirationLinks">' + esc(rec.inspirationLinks || '') + '</textarea>';
+      fieldsHtml += '<label>Additional Details</label><textarea class="form-control" name="additionalDetails">' + esc(rec.additionalDetails || '') + '</textarea>';
+
+      if (rec.shootSpecific && Object.keys(rec.shootSpecific).length) {
+        fieldsHtml += '<label style="margin-top:8px;">Shoot-Specific Details</label><div data-shoot-specific>';
+        Object.keys(rec.shootSpecific).forEach(function (k) {
+          fieldsHtml += '<div class="shoot-specific-row">'
+            + '<label>' + esc(k) + '</label>'
+            + '<input class="form-control" data-ss-key="' + esc(k) + '" value="' + esc(rec.shootSpecific[k] || '') + '">'
+            + '</div>';
+        });
+        fieldsHtml += '</div>';
+      }
+    } else {
+      var inqOpts = INQUIRIES.map(function (t) {
+        return '<option' + (t === rec.inquiry ? ' selected' : '') + '>' + esc(t) + '</option>';
+      }).join('');
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Inquiry</label><select class="form-control" name="inquiry"><option value=""></option>' + inqOpts + '</select></div>'
+        + '<div><label>Shipping</label>'
+        +   '<select class="form-control" name="shipping">'
+        +     '<option value=""></option>'
+        +     '<option' + (rec.shipping === 'Yes' ? ' selected' : '') + '>Yes</option>'
+        +     '<option' + (rec.shipping === 'No'  ? ' selected' : '') + '>No</option>'
+        +   '</select></div>'
+        + '</div>';
+      fieldsHtml += '<label>Details</label><textarea class="form-control" name="details">' + esc(rec.details || '') + '</textarea>';
+      fieldsHtml += '<label>Address</label><input class="form-control" name="address" value="' + esc(rec.address || '') + '">';
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>City</label><input class="form-control" name="city" value="' + esc(rec.city || '') + '"></div>'
+        + '<div><label>State</label><input class="form-control" name="state" value="' + esc(rec.state || '') + '"></div>'
+        + '</div>';
+      fieldsHtml += '<label>ZIP</label><input class="form-control" name="zip" value="' + esc(rec.zip || '') + '">';
+      fieldsHtml += '<div class="modal-row">'
+        + '<div><label>Scheduled Pickup/Delivery' + (isApprove ? ' (required)' : '') + '</label>'
+        +   '<input class="form-control" type="datetime-local" name="scheduledAtISO" value="' + esc(isoToLocalInput(rec.scheduledAtISO)) + '"></div>'
+        + '<div><label>Scheduled Type</label>'
+        +   '<select class="form-control" name="scheduledType">'
+        +     '<option value=""></option>'
+        +     '<option' + (rec.scheduledType === 'Pickup' ? ' selected' : '') + '>Pickup</option>'
+        +     '<option' + (rec.scheduledType === 'Delivery' ? ' selected' : '') + '>Delivery</option>'
+        +   '</select></div>'
+        + '</div>';
+      fieldsHtml += '<label>Final Price (shown to client)</label><input class="form-control" name="finalPrice" value="' + esc(rec.finalPrice || '') + '">';
+    }
+
+    fieldsHtml += '<label>Admin Notes (visible in confirmation email under "A note from us")</label>'
+      + '<textarea class="form-control" name="adminNotes">' + esc(rec.adminNotes || '') + '</textarea>';
+
+    if (!isApprove && rec.status === 'confirmed') {
+      fieldsHtml += '<label class="modal-checkbox"><input type="checkbox" id="resendConfirm"> Re-send updated confirmation email to client</label>';
+    }
+
+    var foot =
+      '<button class="btn btn-cancel" data-modal-close type="button">Cancel</button>' +
+      '<button class="btn btn-primary" id="modalSubmit" type="button">' + (isApprove ? 'Approve & send confirmation' : 'Save changes') + '</button>';
+
+    openModal(title, '<form id="adminEditForm">' + readOnly + fieldsHtml + '</form>', foot);
+
+    document.getElementById('modalSubmit').addEventListener('click', async function () {
+      var form = document.getElementById('adminEditForm');
+      var fd = new FormData(form);
+      var updates = {};
+      fd.forEach(function (val, key) { updates[key] = val; });
+      // datetime-local → ISO
+      if (updates.scheduledAtISO) {
+        var iso = localInputToIso(updates.scheduledAtISO);
+        if (iso) {
+          var human = new Date(iso).toLocaleString();
+          updates.scheduledAtISO = iso;
+          updates.scheduledAtHuman = human;
+        } else {
+          delete updates.scheduledAtISO;
+        }
+      } else {
+        delete updates.scheduledAtISO;
+      }
+      // shoot-specific
+      var ssInputs = form.querySelectorAll('[data-ss-key]');
+      if (ssInputs.length) {
+        var ss = Object.assign({}, rec.shootSpecific || {});
+        ssInputs.forEach(function (i) { ss[i.dataset.ssKey] = i.value; });
+        updates.shootSpecific = ss;
+      }
+      // re-derived fullName
+      if (updates.firstName != null || updates.lastName != null) {
+        updates.fullName = ((updates.firstName || '') + ' ' + (updates.lastName || '')).trim();
+      }
+
+      if (isApprove && !updates.scheduledAtISO) {
+        toast('Set a session date before approving.', 'error');
+        return;
+      }
+
+      var sendEmail = false;
+      if (!isApprove && rec.status === 'confirmed') {
+        var cb = document.getElementById('resendConfirm');
+        sendEmail = !!(cb && cb.checked);
+      }
+
+      var btn = document.getElementById('modalSubmit');
+      btn.disabled = true; btn.textContent = 'Working…';
+      try {
+        await adminFetch('/admin/update', {
+          method: 'POST',
+          body: JSON.stringify({
+            id: rec.id,
+            action: isApprove ? 'approve' : 'edit',
+            updates: updates,
+            sendEmail: sendEmail
+          })
+        });
+        toast(isApprove ? 'Approved + confirmation sent' : 'Saved', 'success');
+        closeModal();
+        loadAll();
+      } catch (e) { btn.disabled = false; btn.textContent = isApprove ? 'Approve & send confirmation' : 'Save changes'; }
+    });
+  }
+
+  function openDenyModal(rec) {
+    var title = 'Deny — ' + (rec.fullName || '(no name)');
+    var body = ''
+      + '<p style="margin:0 0 14px;color:#cbd5e1;font-size:14px;">Marking this submission as denied moves it to the Denied / Archived tab. The client only sees an email if you opt in below.</p>'
+      + '<label>Admin Notes (optional, included in decline email if sent)</label>'
+      + '<textarea class="form-control" id="denyNotes">' + esc(rec.adminNotes || '') + '</textarea>'
+      + '<label class="modal-checkbox"><input type="checkbox" id="denySendEmail"> Send a polite decline email to the client</label>';
+    var foot =
+      '<button class="btn btn-cancel" data-modal-close type="button">Cancel</button>' +
+      '<button class="btn btn-danger" id="denyConfirm" type="button">Deny</button>';
+    openModal(title, body, foot);
+
+    document.getElementById('denyConfirm').addEventListener('click', async function () {
+      var sendEmail = document.getElementById('denySendEmail').checked;
+      var notes = document.getElementById('denyNotes').value;
+      var btn = document.getElementById('denyConfirm');
+      btn.disabled = true; btn.textContent = 'Working…';
+      try {
+        await adminFetch('/admin/update', {
+          method: 'POST',
+          body: JSON.stringify({
+            id: rec.id,
+            action: 'deny',
+            updates: { adminNotes: notes },
+            sendEmail: sendEmail
+          })
+        });
+        toast('Denied' + (sendEmail ? ' + email sent' : ''), 'success');
+        closeModal();
+        loadAll();
+      } catch (e) { btn.disabled = false; btn.textContent = 'Deny'; }
+    });
+  }
+
+  function openDeleteModal(rec) {
+    var title = 'Delete — ' + (rec.fullName || '(no name)');
+    var body = '<p style="color:#fca5a5;font-size:14px;">This permanently deletes the record. There is no undo.</p>';
+    var foot =
+      '<button class="btn btn-cancel" data-modal-close type="button">Cancel</button>' +
+      '<button class="btn btn-danger" id="deleteConfirm" type="button">Delete permanently</button>';
+    openModal(title, body, foot);
+
+    document.getElementById('deleteConfirm').addEventListener('click', async function () {
+      var btn = document.getElementById('deleteConfirm');
+      btn.disabled = true; btn.textContent = 'Deleting…';
+      try {
+        await adminFetch('/admin/update', {
+          method: 'POST',
+          body: JSON.stringify({ id: rec.id, action: 'delete' })
+        });
+        toast('Deleted', 'success');
+        closeModal();
+        loadAll();
+      } catch (e) { btn.disabled = false; btn.textContent = 'Delete permanently'; }
+    });
+  }
+
+  // ---------- boot ----------
+  if (sessionStorage.getItem('swaveyAdminPwd')) {
+    showDashboard();
+  } else {
+    showLogin();
+  }
+})();
+</script>
+</body>
+</html>

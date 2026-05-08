@@ -1,0 +1,161 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Swavey Services bookings + apparel orders backend
+
+Parameters:
+  AdminPasswordHash:
+    Type: String
+    NoEcho: true
+    Description: SHA-256 hex of the shared admin password
+  EmailScriptUrl:
+    Type: String
+    Description: Apps Script web app URL for email rendering+sending
+  EmailScriptSharedSecret:
+    Type: String
+    NoEcho: true
+    Description: Shared secret Lambda passes to Apps Script
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 256
+    Architectures: [arm64]
+    LoggingConfig:
+      LogFormat: JSON
+
+Resources:
+
+  BookingsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: SwaveyBookings
+      BillingMode: PAY_PER_REQUEST
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      AttributeDefinitions:
+        - { AttributeName: pk,     AttributeType: S }
+        - { AttributeName: sk,     AttributeType: S }
+        - { AttributeName: gsi1pk, AttributeType: S }
+        - { AttributeName: gsi1sk, AttributeType: S }
+        - { AttributeName: gsi2pk, AttributeType: S }
+        - { AttributeName: gsi2sk, AttributeType: S }
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      GlobalSecondaryIndexes:
+        - IndexName: StatusIndex
+          KeySchema:
+            - { AttributeName: gsi1pk, KeyType: HASH }
+            - { AttributeName: gsi1sk, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+        - IndexName: UpcomingIndex
+          KeySchema:
+            - { AttributeName: gsi2pk, KeyType: HASH }
+            - { AttributeName: gsi2sk, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: prod
+      CorsConfiguration:
+        AllowOrigins:
+          - https://swaveyp.github.io
+          - https://swavey.biz
+          - https://www.swavey.biz
+          - http://localhost:8080
+          - http://127.0.0.1:8080
+        AllowMethods: [GET, POST, OPTIONS]
+        AllowHeaders: [content-type, x-admin-password]
+        MaxAge: 600
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 5
+
+  SubmitPhotoshootFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/
+      Handler: submit-photoshoot.handler
+      Environment:
+        Variables:
+          DDB_TABLE_NAME: !Ref BookingsTable
+          EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
+          EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+      Policies:
+        - DynamoDBWritePolicy: { TableName: !Ref BookingsTable }
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: POST
+            Path: /photoshoot
+
+  SubmitApparelFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/
+      Handler: submit-apparel.handler
+      Environment:
+        Variables:
+          DDB_TABLE_NAME: !Ref BookingsTable
+          EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
+          EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+      Policies:
+        - DynamoDBWritePolicy: { TableName: !Ref BookingsTable }
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: POST
+            Path: /apparel
+
+  AdminListFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/
+      Handler: admin-list.handler
+      Environment:
+        Variables:
+          DDB_TABLE_NAME: !Ref BookingsTable
+          ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
+      Policies:
+        - DynamoDBReadPolicy: { TableName: !Ref BookingsTable }
+      Events:
+        Get:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: GET
+            Path: /admin/list
+
+  AdminUpdateFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/
+      Handler: admin-update.handler
+      Environment:
+        Variables:
+          DDB_TABLE_NAME: !Ref BookingsTable
+          ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
+          EMAIL_SCRIPT_URL: !Ref EmailScriptUrl
+          EMAIL_SCRIPT_SHARED_SECRET: !Ref EmailScriptSharedSecret
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref BookingsTable }
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: POST
+            Path: /admin/update
+
+Outputs:
+  ApiUrl:
+    Description: Base URL for the HTTP API
+    Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+  TableName:
+    Value: !Ref BookingsTable

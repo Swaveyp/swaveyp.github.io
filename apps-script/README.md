@@ -208,3 +208,83 @@ the photoshoot one — don't paste the same URL into both.)
   (`docs.google.com/forms/d/e/1FAIpQLSdmu8PjKuTAP6e9hFL1Cd85mzhwHe4mgn3N3wMtT7Z7XxgI4w/`)
   is no longer referenced by the site. You can delete it from your Google
   Forms account or keep it as a historical archive — it doesn't matter.
+
+---
+
+# Part C — Unified Email Sender (`email-sender.gs`)
+
+After the AWS backend lands, the two form-intake scripts above (Parts A & B)
+are no longer the email path. They're kept as historical reference. The
+**new** Apps Script is `email-sender.gs` — it's called by AWS Lambda over
+HTTPS to send admin notifications, client confirmations (with `.ics`
+attachments), and decline emails.
+
+## C1. Create the project
+
+1. Go to https://script.google.com and click **New project**.
+2. Replace the contents of `Code.gs` with everything in `email-sender.gs`.
+   Save.
+3. Rename the project to "Swavey Email Sender".
+
+## C2. Set the shared secret
+
+This is what Lambda includes in every payload. The script rejects any POST
+without a matching secret.
+
+1. In the Apps Script editor, click the gear icon (Project settings).
+2. Scroll to **Script properties** and click **Add script property**.
+3. Property: `EMAIL_SCRIPT_SHARED_SECRET`. Value: a long random string
+   (≥40 chars). Generate one with
+   `openssl rand -base64 48` or any password manager. **Save it** — you'll
+   paste the same value into the SAM `EmailScriptSharedSecret` parameter.
+4. Click **Save script properties**.
+
+The secret is **never** in the source. It lives only in script properties
++ AWS SAM parameters.
+
+## C3. Deploy as a Web App
+
+1. Click **Deploy** > **New deployment**.
+2. Gear icon > **Web app**.
+3. Settings:
+   - Description: `v1`
+   - **Execute as: Me** (your Google account — emails will send from your
+     Gmail)
+   - **Who has access: Anyone**
+4. **Deploy** and authorize when prompted (Advanced > Go to … (unsafe) >
+   Allow). The script needs `gmail.send` and `script.external_request`
+   scopes.
+5. Copy the **Web app URL** (`https://script.google.com/macros/s/AKfycb…/exec`).
+   You'll paste it into the SAM `EmailScriptUrl` parameter.
+
+## C4. Verify
+
+Hit the Web App URL in a browser — it should respond
+`{"ok":true,"service":"swavey email sender"}` (that's `doGet`).
+
+A POST without a matching secret returns `{"ok":false,"error":"Unauthorized"}`.
+
+## C5. Quotas
+
+`GmailApp.sendEmail` is subject to your Google account's daily send quota
+(100/day for free Gmail, 1500/day for Workspace). Each form submission
+fires 1 admin notify; each approve fires 2 emails (admin + client) +
+1 .ics attachment.
+
+## C6. Troubleshooting
+
+- **Lambda fires but no email arrives.** Check the Apps Script
+  **Executions** log for failed runs. Most common cause: scope not
+  authorized (the script's Gmail permission was revoked or never granted).
+- **`Unauthorized` returned to Lambda.** Script property
+  `EMAIL_SCRIPT_SHARED_SECRET` doesn't match the SAM
+  `EmailScriptSharedSecret` parameter the Lambda uses. They must be
+  byte-for-byte identical.
+- **`.ics` attaches but Gmail won't show "Add to Calendar" UI.** That UI
+  appears only when the MIME type is exactly
+  `text/calendar; method=PUBLISH; charset=UTF-8` and the file extension
+  is `.ics`. The script sends both. If the recipient is on
+  Outlook.com/Yahoo, the UI may differ but the file still imports cleanly.
+- **Updating the script after deploy.** Use **Deploy** > **Manage
+  deployments** > pencil > **New version** to keep the same URL. If you
+  change the URL, redeploy AWS with the new `EmailScriptUrl` parameter.

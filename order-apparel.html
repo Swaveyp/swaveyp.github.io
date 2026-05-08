@@ -261,9 +261,12 @@
 </script>
 
 <script>
-/* ── Apparel Order Form → Apps Script Web App ── */
+/* ── Apparel Order Form → AWS API ── */
 (function() {
-  var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby2ZW_MPUmhm8J6d2SUXUd93fLnRl8GVII6pXmevpotdz-iEkTd_WCUyuVA8USgB7C4QQ/exec';
+  // After running `sam deploy` for the first time (see aws/README.md), the
+  // SAM Outputs section prints `ApiUrl` — paste it here, replacing the
+  // placeholder. Format: https://<id>.execute-api.us-east-1.amazonaws.com
+  var API_BASE_URL = 'https://jk0cqnz5nh.execute-api.us-east-1.amazonaws.com/prod';
 
   var form        = document.getElementById('apparelForm');
   var status      = document.getElementById('formStatus');
@@ -346,11 +349,10 @@
       submitBtn.textContent = 'Send Order Request';
     };
 
-    fetch(WEB_APP_URL, {
+    fetch(API_BASE_URL + '/apparel', {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
-      redirect: 'follow'
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     }).then(function(res) {
       if (!res.ok) { done(false); return; }
       return res.json().then(function(data) {
@@ -366,5 +368,6 @@
 <script>
 document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeToggle');if(!b)return;var d=document.documentElement.getAttribute('data-theme')==='dark';function u(){var s=b.querySelector('.theme-icon-sun'),m=b.querySelector('.theme-icon-moon');if(s)s.style.display=d?'block':'none';if(m)m.style.display=d?'none':'block'}function p(){var sp=document.getElementById('splashIntro');if(sp)sp.style.background=d?'#0a1628':'#e8f0f8'}u();p();b.addEventListener('click',function(){d=!d;if(d){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}else{document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}u();p()})});
 </script>
+<script defer src="js/footer-admin-trigger.js"></script>
 </body>
 </html>
