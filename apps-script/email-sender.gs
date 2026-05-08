@@ -168,7 +168,7 @@ function normalizeShootSpecific_(raw) {
 // Photoshoot admin notify
 // =============================================================
 function renderPhotoshootAdminNotify_(d) {
-  var subject = '🎬 New Photoshoot Booking — ' + (d.shootType || 'Type unknown') + ' — ' + (d.fullName || 'No name');
+  var subject = '🎬 [NEW BOOKING] Photoshoot — ' + (d.shootType || 'Type unknown') + ' — ' + (d.fullName || 'No name');
   var rows = [
     ['Name', d.fullName],
     ['Email', linkMail_(d.email)],
@@ -246,7 +246,7 @@ function plainPhotoshootAdmin_(d) {
 // Apparel admin notify
 // =============================================================
 function renderApparelAdminNotify_(d) {
-  var subject = '👕 New Apparel Order — ' + (d.inquiry || 'Inquiry') + ' — ' + (d.fullName || 'No name');
+  var subject = '👕 [NEW ORDER] Apparel — ' + (d.inquiry || 'Inquiry') + ' — ' + (d.fullName || 'No name');
   var rows = [
     ['Name', d.fullName],
     ['Email', linkMail_(d.email)],
