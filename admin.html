@@ -1265,10 +1265,6 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
         + '<div><label>Session Date &amp; Time' + (isApprove ? ' (required)' : '') + '</label>'
         +   '<input class="form-control" type="datetime-local" name="scheduledAtISO" value="' + esc(isoToLocalInput(rec.scheduledAtISO)) + '"></div>'
         + '</div>';
-      fieldsHtml += '<div class="modal-row">'
-        + '<div><label>Time of Day</label><input class="form-control" name="timeOfDay" value="' + esc(rec.timeOfDay || '') + '"></div>'
-        + '<div><label>Location Preference</label><input class="form-control" name="location" value="' + esc(rec.location || '') + '"></div>'
-        + '</div>';
       fieldsHtml += '<label>Location Name (optional, e.g. Crandon Park)</label>'
         + '<input class="form-control" name="locationName" value="' + esc(rec.locationName || '') + '">';
       fieldsHtml += '<label>Location Address (appears in calendar invite)</label>'
